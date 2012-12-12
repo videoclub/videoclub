@@ -1,0 +1,65 @@
+Σχετικά με τα permissions, μπορούν να γίνουν τα εξής
+(οπότε καλύπτουμε και το κομμάτι της ανοιχτής-κλειστής σχεδίασης σε αυτό το κομμάτι τουλάχιστον):
+
+Τα γράφω σε πλαίσια βάσης τώρα και τα προσαρμόζουμε μετά.
+
+1. Ο κάθε χρήστης (users) έχει στα στοιχεία του και ένα πεδίο profile_id,
+   το οποίο είναι ξένο κλειδί του πίνακα profiles.
+
+2. Στον πίνακα profiles υπάρχουν όλα τα δυνατά προφίλ π.χ. admin, employee, customer.
+   Δηλαδή,
+		id	label
+		1	admin
+		2	employee
+		3	customer
+
+3. Ένας πίνακας rights περιλαμβάνει τα δικαιώματα. Π.χ.
+		id	name
+		1	show_product
+		2	edit_product
+		3	delete_product
+		4	show_customer
+		5	edit_customer
+		6	delete_customer
+		7	show_employee
+		8	edit_employee
+		9	delete_employee
+
+4. Ένας πίνακας profiles_rights κάνει mapping τα profiles με τα δικαιώματα:
+		prolile_id	right_id
+		1		1
+		1		2
+		1		(all other :)
+		2		(1-6)
+		3		1
+
+5. Αφού εισάγουμε και rent κτλ τα καταχωρούμε στη βάση μας και στις ανάλογες οθόνες
+ελέγχουμε αν ο χρήστης έχει το δικαίωμα rent, ώστε να του εμφανίσουμε το μπουτόν!
+
+Και εγώ μπερδεύομαι λίγο αλλά ας κάνουμε μία προσπάθεια...
+
+Pseudocode Login Screen:
+	validate			//Aspect???
+	profile = check_user()		//όπου του επιστρέφει το profile_id
+	rights = assign_rights(profile)	//return ArrayList rights (session variable)
+	switch (profile)
+		case 1 --> GUI admin		//
+		case 2 --> GUI employee		//--> εννοείται κουβαλόντας τα rights
+		case 3 --> GUI List Products	//
+		
+
+Pseudocode check_user():
+	return "SELECT profile_id FROM users WHERE username = \"bla\" AND password = \"blabla\""
+
+
+Pseudocode assign_rights(profile):
+	return "SELECT rights.id				//Προφανώς όχι return, αλλά τα βάζει
+		FROM rights, profiles_rights			//σε μία λίστα και τα επιστρέφει.
+		WHERE profiles_rights.profile_id = profile	//Γι' αυτό άλλωστε είναι...
+		AND profiles_rights.right_id = rights.id"	//Pseudocode!
+
+
+Να σημειώσω ότι το συγκεκριμένο μοτίβο είναι από ένα project του MIT, το Typo. Πρόκειται για ένα blog
+για το οποίο μπορείτε να δείτε περισσότερες πληροφορίες εδώ: https://github.com/fdv/typo/
+Αν και μάλλον δεν έχει μεγάλη σημασία, καθώς είναι σε Ruby on Rails!
+

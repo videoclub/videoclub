@@ -5,6 +5,10 @@ public class ManageProduct {
 		
 	}
 	
+	public void EditProduct(){
+		
+	}
+	
 	public void RemoveProduct(){
 		
 	}

@@ -2,8 +2,6 @@
 public class CheckProduct {
 	
 	
-	
-	
 	public void ViewAllProducts(){
 		
 	}

@@ -10,6 +10,7 @@ public class Main {
 		
 		MainUtils.printMsg("mai1226: update from git");
 		MainUtils.printMsg("mai1226: update from EGit");
+		MainUtils.printMsg("mai1226: update from git");
 
 	}
 

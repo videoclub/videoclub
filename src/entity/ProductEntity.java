@@ -20,9 +20,10 @@ public class ProductEntity {
 	private String genre;
 	
 	@Index
-	private double rate;
+	private String rate;
 	
-	private String type;
+	private String type, description;
+
 	private int year;
 	private boolean avail;
 	private Timestamp create_date, edit_date;
@@ -48,11 +49,11 @@ public class ProductEntity {
 		return genre;
 	}
 
-	public void setRate(double rate) {
-		this.rate = rate;
+	public void setRate(String string) {
+		this.rate = string;
 	}
 
-	public double getRate() {
+	public String getRate() {
 		return rate;
 	}
 
@@ -95,6 +96,13 @@ public class ProductEntity {
 	public Timestamp getEditDate() {
 		return edit_date;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 }

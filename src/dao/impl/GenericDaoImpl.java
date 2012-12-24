@@ -15,8 +15,8 @@ public class GenericDaoImpl implements GenericDao {
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
-	private ArrayList<String> items = new ArrayList<String>();
-	private ArrayList<String> details = new ArrayList<String>();
+	private Object[][] items;
+	private Object[] details;
 
 	public void openConnection() {
 		emf = Persistence.createEntityManagerFactory("db/videoclub.odb");
@@ -31,20 +31,28 @@ public class GenericDaoImpl implements GenericDao {
 	}
 
 	
-	public ArrayList<String> getAllItems() {
+	public Object[][] getAllItems() {
+		Object[][] items = new Object[10][5];
 		TypedQuery<ProductEntity> query = em.createQuery("SELECT p FROM Products p", ProductEntity.class);
 		List<ProductEntity> results = query.getResultList();
 		for (int i=0; i<results.size(); i++) {
-			items.add(results.get(i).getTitle() + "\n");
+			items[i][0] = results.get(i).getTitle();
+			items[i][1] = results.get(i).getDescription();
+			items[i][2] = results.get(i).getGenre();
+			items[i][3] = results.get(i).getRate();
+			items[i][4] = results.get(i).getType();
 		}
 		return items;
 	}
 
 	
-	public ArrayList<String> getItemDetails(String title) {
-		TypedQuery<ProductEntity> query = em.createQuery("SELECT p.id, p.title FROM Products p WHERE p.title='" + title + "'", ProductEntity.class);
-		List<ProductEntity> results = query.getResultList();
-		details.add(results.get(0) + "\n");
+	public Object[] getItemDetails(long id) {
+		TypedQuery<ProductEntity> query = em.createQuery("SELECT p.title, p.description, p.genre FROM Products p WHERE p.id='" + id + "'", ProductEntity.class);
+		List<ProductEntity> result = query.getResultList();
+		//prosoxi sto casting apo long se int! Dokimastiko.
+		details[0] = result.get((int) id).getTitle();
+		details[1] = result.get((int) id).getDescription();
+		details[2] = result.get((int) id).getGenre();
 		return details;
 	}
 

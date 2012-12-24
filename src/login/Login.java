@@ -21,7 +21,7 @@ public class Login {
 		pe = new ProductEntity();
 		pe.setTitle("The Mofo Knight");
 		pe.setGenre("Action");
-		pe.setRate(7);
+		pe.setRate("PG");
 		pe.setAvail(true);
 		pe.setType("DVD");
 		pe.setYear(2008);
@@ -30,7 +30,7 @@ public class Login {
 		pd.openConnection();
 		pd.persist(pe);
 		System.out.println(pd.getAllItems());
-		System.out.println(pd.getItemDetails(pe.getTitle()));
+		System.out.println(pd.getItemDetails(pe.getId()));
 		pd.closeConnection();
 		
 	}

@@ -37,9 +37,9 @@ public class GenericDaoImpl implements GenericDao {
 		List<ProductEntity> results = query.getResultList();
 		for (int i=0; i<results.size(); i++) {
 			items[i][0] = results.get(i).getTitle();
-			items[i][1] = results.get(i).getDescription();
-			items[i][2] = results.get(i).getGenre();
-			items[i][3] = results.get(i).getRate();
+			items[i][1] = results.get(i).getGenre();
+			items[i][2] = results.get(i).getRate();
+			items[i][3] = results.get(i).getYear();
 			items[i][4] = results.get(i).getType();
 		}
 		return items;

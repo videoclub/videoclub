@@ -20,3 +20,8 @@ Prosthiki external jar(objectdb.jar) sto build path tou project me ti gnosti dia
 H synthiki episis leei pos oti external libraries einai na xrisimopoihsoume se ena project,
 prepei na ta bazoume prota se ena fakelo lib (dld ..\videoclub\lib\blabla.jar)
 kai apo ekei na ta kanoume browse apo to build path kai add.
+
+mai1226 - 24/12/2012 - 15:00
+
+Ylopoihsh Product - Entity - DAO(+GenericDao)
+Mesa apo ti main() tou Login.java, mporeite na treksete ena aplo console paradeigma.

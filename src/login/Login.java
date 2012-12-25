@@ -21,7 +21,7 @@ public class Login {
 		pe = new ProductEntity();
 		pe.setTitle("The Mofo Knight");
 		pe.setGenre("Action");
-		pe.setRate(7);
+		pe.setRating(7);
 		pe.setAvail(true);
 		pe.setType("DVD");
 		pe.setYear(2008);

@@ -11,6 +11,12 @@ import javax.persistence.TypedQuery;
 import dao.GenericDao;
 import entity.ProductEntity;
 
+/**
+ * http://stackoverflow.com/questions/3888575/single-dao-generic-crud-methods-jpa-hibernate-spring
+ * http://java.dzone.com/articles/jpa-implementation-patterns
+ * @author puppet
+ *
+ */
 public class GenericDaoImpl implements GenericDao {
 	
 	private EntityManagerFactory emf;

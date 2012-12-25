@@ -20,7 +20,7 @@ public class ProductEntity {
 	private String genre;
 	
 	@Index
-	private double rate;
+	private double rating;
 	
 	private String type;
 	private int year;
@@ -48,12 +48,12 @@ public class ProductEntity {
 		return genre;
 	}
 
-	public void setRate(double rate) {
-		this.rate = rate;
+	public void setRating(double rate) {
+		this.rating = rate;
 	}
 
-	public double getRate() {
-		return rate;
+	public double getRating() {
+		return rating;
 	}
 
 	public void setYear(int year) {

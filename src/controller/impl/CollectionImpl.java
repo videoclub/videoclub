@@ -3,6 +3,7 @@ package controller.impl;
 import java.util.ArrayList;
 
 import entity.ProductEntity;
+import view.ManageProductView;
 import view.ProductView;
 import controller.Collection;
 import dao.ProductDao;
@@ -11,6 +12,7 @@ public class CollectionImpl implements Collection{
 	
 	protected ProductDao pr_model;
 	protected ProductView  pr_view;
+	protected ManageProductView  manage_pr_view;
 	protected ProductEntity product = new ProductEntity();
 
 	public void getAll() {
@@ -38,19 +40,13 @@ public class CollectionImpl implements Collection{
 	}
 	
 	private void setProduct() {
-    	//product.setTitle(pr_view.getTitleField().getText());
-    	//product.setGenre(pr_view.getGenreField().getText());
-    	//product.setRate(pr_view.getRatingField().getText());
-    	//product.setYear(Integer.parseInt(pr_view.getYearBox().getSelectedItem().toString()));
-    	//product.setType(pr_view.getTypeBox().getSelectedItem().toString());
-    	//pr_model.persist(product);
-    	/*Object product = {"", "", "", "", ""};
-		product[0] = pr_view.getTitleField();
-		product[1] = pr_view.getRatingField();
-		product[2] = pr_view.getGenreField();
-		product[3] = pr_view.getYearBox();
-		product[4] = pr_view.getTypeBox();
-    	pr_model.persist(product);*/
+    	product.setTitle(manage_pr_view.getTitleField());
+    	product.setGenre(manage_pr_view.getGenre());
+    	product.setRate(manage_pr_view.getRating());
+    	product.setYear(manage_pr_view.getYear());
+    	product.setType(manage_pr_view.getTypeBox());
+    	product.setDescription(manage_pr_view.getDescription());
+    	pr_model.persist(product);
 	}
 	
 	public void dbDisconnect(){

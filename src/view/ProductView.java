@@ -6,7 +6,7 @@ package view;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
@@ -30,6 +30,7 @@ public class ProductView extends JFrame {
     private JTable moviesTable;
     private JTextField searchField;
     private JLabel searchLabel;
+    private JLabel noticeLabel;
     private JScrollPane tableScrollPane;
     private JComboBox viewByBox;
     private JLabel viewByLabel;
@@ -46,7 +47,6 @@ public class ProductView extends JFrame {
      */
     public ProductView(ProductDao model) {
         initComponents();
-        //this.setExtendedState(ProductView.MAXIMIZED_BOTH);
     }
     
     // get() methods to give access to other classes
@@ -57,6 +57,15 @@ public class ProductView extends JFrame {
     public JComboBox getViewByOptionBox(){
     	return viewByOptionBox;
     }
+    
+    public JComboBox getViewByBox(){
+    	return viewByBox;
+    }
+    
+    public JLabel getNoticeLabel(){
+    	return this.noticeLabel;
+    }
+    
     // End of get() methods
 
     /**
@@ -78,6 +87,7 @@ public class ProductView extends JFrame {
         searchLabel = new JLabel();
         searchField = new JTextField();
         searchButton = new JButton();
+        noticeLabel = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Video Club");
@@ -110,57 +120,67 @@ public class ProductView extends JFrame {
 
         searchButton.setText("Submit");
 
-        GroupLayout layout = new GroupLayout(getContentPane());
+        noticeLabel.setForeground(new java.awt.Color(194, 0, 0));
+        noticeLabel.setText("There are no results matching your search criteria.");
+        noticeLabel.setVisible(false);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(mTableLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tableScrollPane, GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mTableLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tableScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addNewButton)
                         .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(viewByLabel)
                                 .addGap(106, 106, 106)
                                 .addComponent(searchLabel))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(viewByBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(viewByOptionBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(viewByBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(viewByOptionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(searchButton)
                                 .addGap(0, 66, Short.MAX_VALUE))
-                            .addComponent(searchField))))
+                            .addComponent(searchField)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(noticeLabel)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mTableLabel, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, GroupLayout.PREFERRED_SIZE, 359, GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addComponent(mTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewByLabel)
                     .addComponent(addNewButton)
                     .addComponent(searchLabel)
-                    .addComponent(searchField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewByBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewByOptionBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewByBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewByOptionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton))
-                .addContainerGap())
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>
+    
     
     public void viewByBoxItemStateChanged(ItemListener viewBy) {
         viewByBox.addItemListener(viewBy);
@@ -177,10 +197,14 @@ public class ProductView extends JFrame {
     public void addNewMovieListener(ActionListener addMovie) {
         addNewButton.addActionListener(addMovie);
     }
+    
+    public void searchFieldFocusGained(FocusListener searchFocus) {
+        searchField.addFocusListener(searchFocus);
+    }
         
     public void showAll(ArrayList<Object> allProducts) {
     	int i = model.getRowCount()*5;
-    	//model = new DefaultTableModel(columns, 0);
+    	
     	while (i < allProducts.size()) {
     		row[0] = allProducts.get(i);
     		row[1] = allProducts.get(i+1);
@@ -202,5 +226,15 @@ public class ProductView extends JFrame {
         row[4] = oneProduct.get(4);
         model.addRow(row);
         moviesTable = new JTable(model);
+	}
+	
+	// Display notice if search doesn't return something
+	// Doesn't work properly
+	public void setNotice() {
+		noticeLabel.setVisible(true);
+	}
+	
+	public void unsetNotice() {
+		noticeLabel.setVisible(true);
 	}
 }

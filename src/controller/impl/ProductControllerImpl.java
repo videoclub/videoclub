@@ -2,6 +2,10 @@ package controller.impl;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.InputMethodListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -29,6 +33,7 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
         view.submitSearchListener(new Search());
         view.viewByBoxItemStateChanged(new ViewByBoxListener());
         view.viewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
+        view.searchFieldFocusGained(new SearchFieldAdapter());
         getAll();
 	}
 	
@@ -47,35 +52,39 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
 	
 	class AddNewMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), true);
+        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false, pr_model);
             dialog.setVisible(true);
+            ManageProductControllerImpl m_pr_controller = new ManageProductControllerImpl(pr_model, dialog, pr_view);
         }
 	}
 	
 	class Search implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	String title = pr_view.getSearchField().getText();
-            System.out.println(title);
             product = getOne(title);
-            System.out.println(product);
-        	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, product);
-            dialog.setVisible(true);
+            if (product.isEmpty()) {
+            	pr_view.getNoticeLabel().setVisible(true);
+            }
+            else {
+            	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, product);
+            	dialog.setVisible(true);
+            	
+            	//TO BE IMPLEMENTED
+            	
+            	//ProductDetailsControllerImpl pr_det_controller = new ProductDetailsControllerImpl(pr_model, dialog);
+            }
             product.clear();
         }
 	}
 	
-	/*class SubmitListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-        	set();
-        	getOne(pr_view.getTitleField().getText());
-        }
+	class SearchFieldAdapter implements FocusListener {
+        public void focusGained(FocusEvent e) {
+			pr_view.getNoticeLabel().setVisible(false);
+		}
+
+		public void focusLost(FocusEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
-
-
-	
-	class ResetListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-        	pr_view.reset();
-        }
-	}*/
 }

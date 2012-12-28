@@ -4,8 +4,6 @@ import controller.impl.ProductControllerImpl;
 import view.ProductView;
 import dao.impl.ProductDaoImpl;
 
-import javax.swing.*;
-
 public class Main {
 
 	/**

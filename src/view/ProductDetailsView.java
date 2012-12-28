@@ -63,7 +63,8 @@ public class ProductDetailsView extends javax.swing.JDialog {
 
         titleLabel.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText(product.get(0).toString() + " (" + product.get(4).toString() + ")");
+        String title = product.get(0).toString() + " (" + product.get(4).toString() + ")";
+        titleLabel.setText(title);
 
         yearLabel.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
         yearLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -147,17 +148,4 @@ public class ProductDetailsView extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    /*public void showDedails(ArrayList<Object> product){
-    	getTitleLabel().setText(product.get(0) + " (" + product.get(4) + ")");
-    	yearLabel.setText(product.get(3).toString());
-    	genreLabel.setText((String) product.get(1));
-    	ratingLabel.setText((String) product.get(2));
-    	descriptionTextArea.setText((String) product.get(5));
-    	titleLabel.validate();
-    	yearLabel.validate();
-    	genreLabel.validate();
-    	ratingLabel.validate();
-    	descriptionTextArea.validate();
-    	System.out.println("inside dialog\t" + product.get(0) + " (" + product.get(4) + ")");
-    }*/
 }

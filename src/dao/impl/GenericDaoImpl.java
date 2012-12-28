@@ -68,12 +68,14 @@ public class GenericDaoImpl implements GenericDao {
 		details[1] = result.get((int) id).getDescription();
 		details[2] = result.get((int) id).getGenre();*/
 		if (!result.isEmpty()) {
-			details.add(result.get(0).getTitle());
-			details.add(result.get(0).getGenre());
-			details.add(result.get(0).getRate());
-			details.add(result.get(0).getYear());
-			details.add(result.get(0).getType());
-			details.add(result.get(0).getDescription());
+			for (int i=0; i<result.size(); i++){
+				details.add(result.get(i).getTitle());
+				details.add(result.get(i).getGenre());
+				details.add(result.get(i).getRate());
+				details.add(result.get(i).getYear());
+				details.add(result.get(i).getType());
+				details.add(result.get(i).getDescription());
+			}
 		}
 		return details;
 	}

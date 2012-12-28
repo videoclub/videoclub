@@ -113,7 +113,7 @@ public class ProductView extends JFrame {
 
         viewByBox.setModel(new DefaultComboBoxModel(new String[] { "Genre", "Rating", "Year", "Type" }));
 
-        viewByOptionBox.setModel(new DefaultComboBoxModel(new String[] {}));
+        populateGenres();
 
         addNewButton.setFont(new Font("Ubuntu", 3, 15)); // NOI18N
         addNewButton.setText("Add New Movie");
@@ -244,7 +244,7 @@ public class ProductView extends JFrame {
     		row[3] = products.get(i+3);
     		row[4] = products.get(i+4);
     		model.addRow(row);
-    		i += 6;
+    		i += 5;
     	}
     	
     	
@@ -260,20 +260,20 @@ public class ProductView extends JFrame {
 	public void unsetNotice() {
 		noticeLabel.setVisible(true);
 	}
-
-	public void populateGenres(ArrayList<Object> allGenres) {
-		String [] genres = new String[allGenres.size()];
-		for (int i = 0; i < allGenres.size(); i++) {
-			genres[i] = allGenres.get(i).toString();
-		}
+	
+	//Populate ComboBoxes' Values
+	public void populateGenres() {
+		String [] genres = {"Action", "Adventure", "Animation", "Biography",
+				"Comedy", "Crime", "Documentary", "Drama",
+				"Family", "Fantasy", "Film-Noir", "Game-Show",
+				"History", "Horror", "Music", "Musical", "Mystery",
+				"News", "Reality-TV", "Romance", "Sci-Fi", "Sport",
+				"Talk-Show", "Thriller", "War", "Western"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(genres));
 	}
 	
-	public void populateRatings(ArrayList<Object> allRatings) {
-		String [] ratings = new String[allRatings.size()];
-		for (int i = 0; i < allRatings.size(); i++) {
-			ratings[i] = allRatings.get(i).toString();
-		}
+	public void populateRatings() {
+		String [] ratings = {"UR (Unrated)", "G", "PG", "PG-13", "R", "NC-17"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(ratings));
 	}
 	

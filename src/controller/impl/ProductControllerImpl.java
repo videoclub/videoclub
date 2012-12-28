@@ -33,7 +33,6 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
         view.viewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
         view.searchFieldFocusGained(new SearchFieldAdapter());
         getAll();
-        getGenres();
 	}
 	
 	class ViewByBoxListener implements ItemListener {
@@ -41,10 +40,10 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
         	if (e.getStateChange() ==1) {
         		switch (e.getItem().toString()){
         			case "Genre":
-        				getGenres();
+        				pr_view.populateGenres();
         				break;
         			case "Rating":
-        				getRatings();
+        				pr_view.populateRatings();
         				break;
         			case "Year":
         				pr_view.populateYears();
@@ -53,8 +52,7 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
         				pr_view.populateTypes();
         				break;
         			default:
-        				getGenres();
-        				break;
+        				pr_view.populateGenres();
         		}
         	}
         }
@@ -101,6 +99,8 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
             	pr_view.getNoticeLabel().setVisible(true);
             }
             else {
+            	String type = getType();
+            	product.set(4, type);
             	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, product);
             	dialog.setVisible(true);
             	
@@ -121,22 +121,6 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
 			// TODO Auto-generated method stub
 			
 		}
-	}
-	
-	@Override
-	public void getGenres() {
-		dbConnect();
-		ArrayList<Object> allGenres = pr_model.getGenreDistinct();
-		dbDisconnect();
-		pr_view.populateGenres(allGenres);
-	}
-	
-	@Override
-	public void getRatings() {
-		dbConnect();
-		ArrayList<Object> allRatings = pr_model.getRatingDistinct();
-		dbDisconnect();
-		pr_view.populateRatings(allRatings);
 	}
 
 	@Override
@@ -169,5 +153,13 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
 		ArrayList<Object> products = pr_model.getByType(type);
 		dbDisconnect();
 		pr_view.showPart(products);
+	}
+	
+	private String getType() {
+		String type = product.get(4).toString();
+    	if (product.size() > 6) {
+    		type += ", " + product.get(10);
+    	}
+    	return type;
 	}
 }

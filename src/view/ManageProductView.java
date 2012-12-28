@@ -5,6 +5,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 
 import javax.swing.*;
 
@@ -49,6 +50,7 @@ public class ManageProductView extends JDialog {
         initComponents();
     }
     
+    //Methods to return the text of the fields 
     public String getTitleField(){
     	return titleField.getText();
     }
@@ -117,7 +119,7 @@ public class ManageProductView extends JDialog {
 
         genreLabel.setText("Genre");
 
-        yearBox.setModel(new DefaultComboBoxModel(new String[] { "2012", "2010", "2005", "1984" }));
+        yearBox.setModel(new DefaultComboBoxModel(populateYears()));
 
         ratingField.setEnabled(false);
         ratingField.setVisible(false);
@@ -125,11 +127,11 @@ public class ManageProductView extends JDialog {
         genreField.setEnabled(false);
         genreField.setVisible(false);
 
-        ratingBox.setModel(new DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ratingBox.setModel(new DefaultComboBoxModel(populateRatings()));
 
         titleLabel.setText("Title");
 
-        genreBox.setModel(new DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        genreBox.setModel(new DefaultComboBoxModel(populateGenres()));
 
         headerLabel.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -139,7 +141,7 @@ public class ManageProductView extends JDialog {
 
         submitButton.setText("Add Movie");
 
-        typeBox.setModel(new DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        typeBox.setModel(new DefaultComboBoxModel(populateTypes()));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,4 +251,34 @@ public class ManageProductView extends JDialog {
         typeBox.setSelectedIndex(0);
         descriptionTextArea.setText("");
     }
+    
+    private String[] populateYears() {
+		int year = Calendar.getInstance().get(Calendar.YEAR);
+		String [] years = new String[year-1949];
+		
+		for (int i = 0; i < years.length; i++) {
+			years[i] = Integer.toString(year-i);
+		}
+		return years;
+	}
+    
+    private String[] populateTypes() {
+		String [] types = {"DVD", "BlueRay"};
+		return types;
+	}
+    
+    private String[] populateRatings() {
+		String [] ratings = {"UR (Unrated)", "G", "PG", "PG-13", "R", "NC-17"};
+		return ratings;
+	}
+    
+    private String[] populateGenres() {
+		String [] genres = {"Action", "Adventure", "Animation", "Biography",
+							"Comedy", "Crime", "Documentary", "Drama",
+							"Family", "Fantasy", "Film-Noir", "Game-Show",
+							"History", "Horror", "Music", "Musical", "Mystery",
+							"News", "Reality-TV", "Romance", "Sci-Fi", "Sport",
+							"Talk-Show", "Thriller", "War", "Western"};
+		return genres;
+	}
 }

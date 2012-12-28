@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.InputMethodEvent;
-import java.awt.event.InputMethodListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -35,18 +33,55 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
         view.viewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
         view.searchFieldFocusGained(new SearchFieldAdapter());
         getAll();
+        getGenres();
 	}
 	
 	class ViewByBoxListener implements ItemListener {
         public void itemStateChanged(ItemEvent e) {
-        	pr_view.getViewByOptionBox().setModel(new DefaultComboBoxModel(new String[] { "blah", "blah, blah" }));
-        	pr_view.getViewByOptionBox().validate();
+        	if (e.getStateChange() ==1) {
+        		switch (e.getItem().toString()){
+        			case "Genre":
+        				getGenres();
+        				break;
+        			case "Rating":
+        				getRatings();
+        				break;
+        			case "Year":
+        				pr_view.populateYears();
+        				break;
+        			case "Type":
+        				pr_view.populateTypes();
+        				break;
+        			default:
+        				getGenres();
+        				break;
+        		}
+        	}
         }
 	}
 	
 	class ViewByOptionBoxListener implements ItemListener {
         public void itemStateChanged(ItemEvent e) {
-        	pr_view.getSearchField().setText("Blah");
+        	String view_by = pr_view.getViewByBox().getSelectedItem().toString();
+        	if (e.getStateChange() ==1) {
+        		switch (view_by){
+        			case "Genre":
+        				getByGenre(e.getItem().toString());
+        				break;
+        			case "Rating":
+        				getByRating(e.getItem().toString());
+        				break;
+        			case "Year":
+        				getByYear(Integer.parseInt(e.getItem().toString()));
+        				break;
+        			case "Type":
+        				getByType(e.getItem().toString());
+        				break;
+        			default:
+        				getAll();
+        				break;
+        		}
+        	}
         }
 	}
 	
@@ -69,7 +104,7 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
             	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, product);
             	dialog.setVisible(true);
             	
-            	//TO BE IMPLEMENTED
+            	//TO BE IMPLEMENTED for rent/bind button listeners
             	
             	//ProductDetailsControllerImpl pr_det_controller = new ProductDetailsControllerImpl(pr_model, dialog);
             }
@@ -86,5 +121,53 @@ public class ProductControllerImpl extends CollectionImpl implements ProductCont
 			// TODO Auto-generated method stub
 			
 		}
+	}
+	
+	@Override
+	public void getGenres() {
+		dbConnect();
+		ArrayList<Object> allGenres = pr_model.getGenreDistinct();
+		dbDisconnect();
+		pr_view.populateGenres(allGenres);
+	}
+	
+	@Override
+	public void getRatings() {
+		dbConnect();
+		ArrayList<Object> allRatings = pr_model.getRatingDistinct();
+		dbDisconnect();
+		pr_view.populateRatings(allRatings);
+	}
+
+	@Override
+	public void getByGenre(String genre) {
+		dbConnect();
+		ArrayList<Object> products = pr_model.getByGenre(genre);
+		dbDisconnect();
+		pr_view.showPart(products);
+	}
+
+	@Override
+	public void getByRating(String rating) {
+		dbConnect();
+		ArrayList<Object> products = pr_model.getByRating(rating);
+		dbDisconnect();
+		pr_view.showPart(products);
+	}
+
+	@Override
+	public void getByYear(int year) {
+		dbConnect();
+		ArrayList<Object> products = pr_model.getByYear(year);
+		dbDisconnect();
+		pr_view.showPart(products);
+	}
+
+	@Override
+	public void getByType(String type) {
+		dbConnect();
+		ArrayList<Object> products = pr_model.getByType(type);
+		dbDisconnect();
+		pr_view.showPart(products);
 	}
 }

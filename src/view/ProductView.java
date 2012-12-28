@@ -8,7 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemListener;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -111,7 +113,7 @@ public class ProductView extends JFrame {
 
         viewByBox.setModel(new DefaultComboBoxModel(new String[] { "Genre", "Rating", "Year", "Type" }));
 
-        viewByOptionBox.setModel(new DefaultComboBoxModel(new String[] { "example1", "example2" }));
+        viewByOptionBox.setModel(new DefaultComboBoxModel(new String[] {}));
 
         addNewButton.setFont(new Font("Ubuntu", 3, 15)); // NOI18N
         addNewButton.setText("Add New Movie");
@@ -201,6 +203,16 @@ public class ProductView extends JFrame {
     public void searchFieldFocusGained(FocusListener searchFocus) {
         searchField.addFocusListener(searchFocus);
     }
+    
+    public void showOne(ArrayList<Object> oneProduct) {
+		row[0] = oneProduct.get(0);
+        row[1] = oneProduct.get(1);
+        row[2] = oneProduct.get(2);
+        row[3] = oneProduct.get(3);
+        row[4] = oneProduct.get(4);
+        model.addRow(row);
+        //moviesTable = new JTable(model);
+	}
         
     public void showAll(ArrayList<Object> allProducts) {
     	int i = model.getRowCount()*5;
@@ -214,19 +226,30 @@ public class ProductView extends JFrame {
     		model.addRow(row);
     		i += 5;
     	}
-    	moviesTable = new JTable(model);
+    	//moviesTable = new JTable(model);
     }
-
-
-	public void showOne(ArrayList<Object> oneProduct) {
-		row[0] = oneProduct.get(0);
-        row[1] = oneProduct.get(1);
-        row[2] = oneProduct.get(2);
-        row[3] = oneProduct.get(3);
-        row[4] = oneProduct.get(4);
-        model.addRow(row);
-        moviesTable = new JTable(model);
-	}
+    
+    public void showPart(ArrayList<Object> products) {
+    	int tableSize = model.getRowCount();
+    	for (int i = 0; i < tableSize; i++) {
+    		model.removeRow(tableSize-i-1);
+    	}
+    	
+    	int i = 0;
+    	
+    	while (i < products.size()) {
+    		row[0] = products.get(i);
+    		row[1] = products.get(i+1);
+    		row[2] = products.get(i+2);
+    		row[3] = products.get(i+3);
+    		row[4] = products.get(i+4);
+    		model.addRow(row);
+    		i += 6;
+    	}
+    	
+    	
+    	//moviesTable = new JTable(model);
+    }
 	
 	// Display notice if search doesn't return something
 	// Doesn't work properly
@@ -237,4 +260,36 @@ public class ProductView extends JFrame {
 	public void unsetNotice() {
 		noticeLabel.setVisible(true);
 	}
+
+	public void populateGenres(ArrayList<Object> allGenres) {
+		String [] genres = new String[allGenres.size()];
+		for (int i = 0; i < allGenres.size(); i++) {
+			genres[i] = allGenres.get(i).toString();
+		}
+		viewByOptionBox.setModel(new DefaultComboBoxModel(genres));
+	}
+	
+	public void populateRatings(ArrayList<Object> allRatings) {
+		String [] ratings = new String[allRatings.size()];
+		for (int i = 0; i < allRatings.size(); i++) {
+			ratings[i] = allRatings.get(i).toString();
+		}
+		viewByOptionBox.setModel(new DefaultComboBoxModel(ratings));
+	}
+	
+	public void populateYears() {
+		int year = Calendar.getInstance().get(Calendar.YEAR);
+		String [] years = new String[year-1949];
+		
+		for (int i = 0; i < years.length; i++) {
+			years[i] = Integer.toString(year-i);
+		}
+		viewByOptionBox.setModel(new DefaultComboBoxModel(years));
+	}
+	
+	public void populateTypes() {
+		String [] types = {"DVD", "BlueRay"};
+		viewByOptionBox.setModel(new DefaultComboBoxModel(types));
+	}
+	
 }

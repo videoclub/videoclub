@@ -1,7 +1,5 @@
 package login;
 
-import java.sql.Timestamp;
-
 import dao.ProductDao;
 import dao.impl.ProductDaoImpl;
 import entity.ProductEntity;
@@ -9,30 +7,22 @@ import entity.ProductEntity;
 public class Login {
 	
 	private static ManageLogin ml;
-	
 	private static ProductEntity pe;
 	private static ProductDao pd;
 
 	public static void main(String[] args) {
+		//aspect example start
 		ml = new ManageLogin();
 		ml.checkLogin("greg");
+		//aspect example finish
 		
-		pd = new ProductDaoImpl();
+		//get all products/get specific product example start
 		pe = new ProductEntity();
-		pe.setTitle("The Mofo Knight");
-		pe.setGenre("Action");
-		pe.setRate("PG");
-		pe.setAvail(true);
-		pe.setType("DVD");
-		pe.setYear(2008);
-		pe.setCreateDate(Timestamp.valueOf("2007-09-23 10:10:10.0"));
-		pe.setEditDate(Timestamp.valueOf("2009-09-23 23:11:55.0"));
+		pd = new ProductDaoImpl();
 		pd.openConnection();
-		pd.persist(pe);
 		System.out.println(pd.getAllItems());
-		System.out.println(pd.getItemDetails(pe.getId()));
-		pd.closeConnection();
-		
+		System.out.println(pd.getItemDetails("title2")); //bale the "The Mofo Knight" esi.
+		//get all products/get specific product example finish
 	}
 
 }

@@ -1,7 +1,11 @@
 package controller;
 
+import java.util.ArrayList;
+
 public interface Collection {
-	Object[][] getAll();
-	Object[] getOne(long id);
+	void getAll();
+	ArrayList<Object> getOne(String title);
 	void set();
+	void dbConnect();
+	void dbDisconnect();
 }

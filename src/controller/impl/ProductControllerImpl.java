@@ -1,84 +1,81 @@
 package controller.impl;
 
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
+
+import controller.ProductController;
+
+import view.ManageProductView;
+import view.ProductDetailsView;
 import view.ProductView;
 import dao.ProductDao;
-import entity.ProductEntity;
 
-public class ProductControllerImpl {
-	private ProductDao pr_model;
-	private ProductView  pr_view;
-	private ProductEntity product = new ProductEntity();
+public class ProductControllerImpl extends CollectionImpl implements ProductController{
+	
+	private ArrayList<Object> product;
 	
 	public ProductControllerImpl(ProductDao model, ProductView view) {
-        pr_model = model;
-        pr_view  = view;
+        super.pr_model = model;
+        super.pr_view  = view;
         
         //... Add listeners to the view.
-        view.addSubmitButtonListener(new SubmitListener());
-        view.addResetButtonListener(new ResetListener());
+        //view.addSubmitButtonListener(new SubmitListener());
+        view.addNewMovieListener(new AddNewMovie());
+        view.submitSearchListener(new Search());
+        view.viewByBoxItemStateChanged(new ViewByBoxListener());
+        view.viewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
         getAll();
-    }
-	
-	
-	public void getAll() {
-		dbConnect();
-		Object[][] allProducts = pr_model.getAllItems();
-		dbDisconnect();
-		pr_view.showAll(allProducts);
-	}
-
-	public Object[] getOne(long id) {
-		dbConnect();
-		Object[] oneProduct = pr_model.getItemDetails(id);
-		dbDisconnect();
-		return oneProduct;
 	}
 	
-	public void set(){
-		dbConnect();
-    	setProduct();
-    	dbDisconnect();
-    }
-    
-    private void setProduct() {
-    	product.setTitle(pr_view.getTitleField().getText());
-    	product.setGenre(pr_view.getGenreField().getText());
-    	product.setRate(pr_view.getRatingField().getText());
-    	product.setYear(Integer.parseInt(pr_view.getYearBox().getSelectedItem().toString()));
-    	product.setType(pr_view.getTypeBox().getSelectedItem().toString());
-    	pr_model.persist(product);
-    	/*Object product = {"", "", "", "", ""};
-		product[0] = pr_view.getTitleField();
-		product[1] = pr_view.getRatingField();
-		product[2] = pr_view.getGenreField();
-		product[3] = pr_view.getYearBox();
-		product[4] = pr_view.getTypeBox();
-    	pr_model.persist(product);*/
-	}
-
-	private void dbConnect(){
-		pr_model.openConnection();
-	}
-	
-	private void dbDisconnect(){
-		pr_model.closeConnection();
-	}
-	
-	class SubmitListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-        	set();
-        	getAll();
+	class ViewByBoxListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+        	pr_view.getViewByOptionBox().setModel(new DefaultComboBoxModel(new String[] { "blah", "blah, blah" }));
+        	pr_view.getViewByOptionBox().validate();
         }
 	}
+	
+	class ViewByOptionBoxListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+        	pr_view.getSearchField().setText("Blah");
+        }
+	}
+	
+	class AddNewMovie implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), true);
+            dialog.setVisible(true);
+        }
+	}
+	
+	class Search implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	String title = pr_view.getSearchField().getText();
+            System.out.println(title);
+            product = getOne(title);
+            System.out.println(product);
+        	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, product);
+            dialog.setVisible(true);
+            product.clear();
+        }
+	}
+	
+	/*class SubmitListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	set();
+        	getOne(pr_view.getTitleField().getText());
+        }
+	}
+
+
 	
 	class ResetListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	pr_view.reset();
         }
-	}
+	}*/
 }

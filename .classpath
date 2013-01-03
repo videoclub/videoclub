@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/puppet/My Documents/WorkspaceEGit/videoclub/lib/objectdb.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Τα έγγραφά μου/Ληφθέντα αρχεία/objectdb-2.4.4_12/bin/objectdb.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -115,12 +115,12 @@ public class ProductView extends JFrame {
         moviesTable.getTableHeader().setReorderingAllowed(false);
         tableScrollPane.setViewportView(moviesTable);
         moviesTable.getColumnModel().getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        moviesTable.getColumnModel().getColumn(0).setResizable(false);
-        moviesTable.getColumnModel().getColumn(1).setResizable(false);
-        moviesTable.getColumnModel().getColumn(2).setResizable(false);
-        moviesTable.getColumnModel().getColumn(3).setResizable(false);
-        moviesTable.getColumnModel().getColumn(4).setResizable(false);
-        moviesTable.getColumnModel().setColumnSelectionAllowed(false);
+        moviesTable.getColumnModel().getColumn(0).setResizable(true);
+        moviesTable.getColumnModel().getColumn(1).setResizable(true);
+        moviesTable.getColumnModel().getColumn(2).setResizable(true);
+        moviesTable.getColumnModel().getColumn(3).setResizable(true);
+        moviesTable.getColumnModel().getColumn(4).setResizable(true);
+        moviesTable.getColumnModel().setColumnSelectionAllowed(true);
         moviesTable.setSelectionMode(0);
 
         viewByBox.setModel(new DefaultComboBoxModel(new String[] { "Genre", "Rating", "Year", "Type" }));

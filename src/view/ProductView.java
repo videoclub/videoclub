@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseListener;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,6 +33,7 @@ public class ProductView extends JFrame {
     private JTable moviesTable;
     private JTextField searchField;
     private JLabel searchLabel;
+    private JLabel editMovieLabel;
     private JLabel noticeLabel;
     private JScrollPane tableScrollPane;
     private JComboBox viewByBox;
@@ -68,6 +70,9 @@ public class ProductView extends JFrame {
     	return this.noticeLabel;
     }
     
+    public JLabel getEditMovieLabel(){
+    	return this.editMovieLabel;
+    }
     // End of get() methods
 
     /**
@@ -82,7 +87,6 @@ public class ProductView extends JFrame {
         mTableLabel = new JLabel();
         viewByLabel = new JLabel();
         tableScrollPane = new JScrollPane();
-        moviesTable = new JTable();
         viewByBox = new JComboBox();
         viewByOptionBox = new JComboBox();
         addNewButton = new JButton();
@@ -90,6 +94,12 @@ public class ProductView extends JFrame {
         searchField = new JTextField();
         searchButton = new JButton();
         noticeLabel = new JLabel();
+        editMovieLabel = new JLabel();
+        moviesTable = new JTable(){
+       	 public boolean isCellEditable(int row, int column){  
+       		    return false;  
+       		  } 
+       };
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Video Club");
@@ -110,6 +120,8 @@ public class ProductView extends JFrame {
         moviesTable.getColumnModel().getColumn(2).setResizable(false);
         moviesTable.getColumnModel().getColumn(3).setResizable(false);
         moviesTable.getColumnModel().getColumn(4).setResizable(false);
+        moviesTable.getColumnModel().setColumnSelectionAllowed(false);
+        moviesTable.setSelectionMode(0);
 
         viewByBox.setModel(new DefaultComboBoxModel(new String[] { "Genre", "Rating", "Year", "Type" }));
 
@@ -122,9 +134,10 @@ public class ProductView extends JFrame {
 
         searchButton.setText("Submit");
 
-        noticeLabel.setForeground(new java.awt.Color(194, 0, 0));
-        noticeLabel.setText("There are no results matching your search criteria.");
         noticeLabel.setVisible(false);
+        
+        editMovieLabel.setText("Double-Click on a movie to edit its details");
+        editMovieLabel.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,16 +168,21 @@ public class ProductView extends JFrame {
                             .addComponent(searchField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(noticeLabel)))
+                        .addComponent(noticeLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(editMovieLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editMovieLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -177,22 +195,21 @@ public class ProductView extends JFrame {
                     .addComponent(viewByBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewByOptionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>
     
-    
-    public void viewByBoxItemStateChanged(ItemListener viewBy) {
+    public void addViewByBoxItemStateChanged(ItemListener viewBy) {
         viewByBox.addItemListener(viewBy);
     }
     
-    public void viewByOptionBoxItemStateChanged(ItemListener viewByOption) {
+    public void addViewByOptionBoxItemStateChanged(ItemListener viewByOption) {
         viewByOptionBox.addItemListener(viewByOption);
     }
     
-    public void submitSearchListener(ActionListener search) {
+    public void addSubmitSearchListener(ActionListener search) {
         searchButton.addActionListener(search);
     }
     
@@ -200,8 +217,12 @@ public class ProductView extends JFrame {
         addNewButton.addActionListener(addMovie);
     }
     
-    public void searchFieldFocusGained(FocusListener searchFocus) {
+    public void addSearchFieldFocusGained(FocusListener searchFocus) {
         searchField.addFocusListener(searchFocus);
+    }
+    
+    public void addMouseListener(MouseListener tableDoubleClick){
+    	moviesTable.addMouseListener(tableDoubleClick);
     }
     
     public void showOne(ArrayList<Object> oneProduct) {
@@ -290,6 +311,15 @@ public class ProductView extends JFrame {
 	public void populateTypes() {
 		String [] types = {"DVD", "BlueRay"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(types));
+	}
+
+	public void updateRow(int row, ArrayList<Object> product) {
+		moviesTable.setValueAt(product.get(0), row, 0);
+		moviesTable.setValueAt(product.get(1), row, 1);
+		moviesTable.setValueAt(product.get(2), row, 2);
+		moviesTable.setValueAt(product.get(3), row, 3);
+		moviesTable.setValueAt(product.get(4), row, 4);
+		
 	}
 	
 }

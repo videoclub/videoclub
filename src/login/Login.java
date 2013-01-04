@@ -1,13 +1,13 @@
 package login;
 
+import model.Product;
 import dao.ProductDao;
 import dao.impl.ProductDaoImpl;
-import entity.ProductEntity;
 
 public class Login {
 	
 	private static ManageLogin ml;
-	private static ProductEntity pe;
+	private static Product pe;
 	private static ProductDao pd;
 
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class Login {
 		//aspect example finish
 		
 		//get all products/get specific product example start
-		pe = new ProductEntity();
+		pe = new Product();
 		pd = new ProductDaoImpl();
 		pd.openConnection();
 		System.out.println(pd.getAllItems());

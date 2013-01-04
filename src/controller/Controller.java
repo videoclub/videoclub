@@ -2,7 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
-public interface Collection {
+public interface Controller {
 	void getAll();
 	ArrayList<Object> getOne(String title);
 	void set();

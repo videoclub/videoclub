@@ -2,7 +2,8 @@ package dao;
 
 import java.util.ArrayList;
 
-public interface ProductDao extends GenericDao{
+public interface ProductDao extends Dao{
+	public void updateProductDetails(ArrayList<Object> product);
 	public ArrayList<Object> getByGenre(String genre);
 	public ArrayList<Object> getByRating(String rating);
 	public ArrayList<Object> getByYear(int year);

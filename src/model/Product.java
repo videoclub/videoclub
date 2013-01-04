@@ -1,32 +1,44 @@
-package entity;
+package model;
 
 import javax.jdo.annotations.*;
 import javax.persistence.*; //Gia ta annotations - @Entity klp
 
-import entity.ProductEntity;
+import model.Product;
 
+
+
+
+import java.sql.Date;
 import java.sql.Timestamp;
 
-@Entity(name="Products")
-public class ProductEntity {
+@Entity
+public class Product {
 	
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
 	
 	@Index
+	@Basic(optional = false)
 	private String title; 
 	
 	@Index
+	@Basic(optional = false)
 	private String genre;
 	
 	@Index
-	private String rate;
+	private String rating;
 	
-	private String type, description;
+	@Basic(optional = false)
+	private String type;
+	
+	@Basic(optional = false)
+	private boolean availability;
 
 	private int year;
-	private boolean avail;
-	private Timestamp create_date, edit_date;
+	private String description;
+	
+	private Date create_date, edit_date;
 	
 
 	public long getId() {
@@ -49,12 +61,12 @@ public class ProductEntity {
 		return genre;
 	}
 
-	public void setRate(String string) {
-		this.rate = string;
+	public void setRating(String string) {
+		this.rating = string;
 	}
 
-	public String getRate() {
-		return rate;
+	public String getRating() {
+		return rating;
 	}
 
 	public void setYear(int year) {
@@ -73,27 +85,27 @@ public class ProductEntity {
 		return type;
 	}
 
-	public void setAvail(boolean avail) {
-		this.avail = avail;
+	public void setAvailability(boolean availability) {
+		this.availability = availability;
 	}
 
-	public boolean getAvail() {
-		return avail;
+	public boolean getAvailability() {
+		return availability;
 	}
 
-	public void setCreateDate(Timestamp create_date) {
+	public void setCreateDate(Date create_date) {
 		this.create_date = create_date;
 	}
 
-	public Timestamp getCreateDate() {
+	public Date getCreateDate() {
 		return create_date;
 	}
 
-	public void setEditDate(Timestamp edit_date) {
+	public void setEditDate(Date edit_date) {
 		this.edit_date = edit_date;
 	}
 
-	public Timestamp getEditDate() {
+	public Date getEditDate() {
 		return edit_date;
 	}
 	

@@ -26,14 +26,13 @@ public class ManageProductView extends JDialog {
     private JScrollPane descriptionScrollPane;
     private JTextArea descriptionTextArea;
     private JComboBox genreBox;
-    private JTextField genreField;
     private JLabel genreLabel;
     private JLabel headerLabel;
     private JComboBox ratingBox;
-    private JTextField ratingField;
     private JLabel ratingLabel;
     private JButton resetButton;
     private JButton submitButton;
+    private JButton editButton;
     private JTextField titleField;
     private JLabel titleLabel;
     private JComboBox typeBox;
@@ -51,28 +50,44 @@ public class ManageProductView extends JDialog {
     }
     
     //Methods to return the text of the fields 
-    public String getTitleField(){
-    	return titleField.getText();
+    public JLabel getHeaderLabel(){
+    	return headerLabel;
     }
     
-    public String getDescription(){
-    	return descriptionTextArea.getText();
+    public JTextField getTitleField(){
+    	return titleField;
     }
     
-    public int getYear(){
-    	return Integer.parseInt(yearBox.getSelectedItem().toString());
+    public JTextArea getDescription(){
+    	return descriptionTextArea;
     }
     
-    public String getGenre(){
-    	return genreBox.getSelectedItem().toString();
+    public JComboBox getYearBox(){
+    	return yearBox;
     }
     
-    public String getRating(){
-    	return ratingBox.getSelectedItem().toString();
+    public JComboBox getGenreBox(){
+    	return genreBox;
     }
     
-    public String getTypeBox(){
-    	return typeBox.getSelectedItem().toString();
+    public JComboBox getRatingBox(){
+    	return ratingBox;
+    }
+    
+    public JComboBox getTypeBox(){
+    	return typeBox;
+    }
+    
+    public JButton getSubmitButton(){
+    	return submitButton;
+    }
+    
+    public JButton getResetButton(){
+    	return resetButton;
+    }
+    
+    public JButton getEditButton(){
+    	return editButton;
     }
 
     /**
@@ -92,14 +107,13 @@ public class ManageProductView extends JDialog {
         genreLabel = new JLabel();
         titleField = new JTextField();
         yearBox = new JComboBox();
-        ratingField = new JTextField();
-        genreField = new JTextField();
         ratingBox = new JComboBox();
         titleLabel = new JLabel();
         genreBox = new JComboBox();
         headerLabel = new JLabel();
         resetButton = new JButton();
         submitButton = new JButton();
+        editButton = new JButton();
         typeBox = new JComboBox();
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -121,12 +135,6 @@ public class ManageProductView extends JDialog {
 
         yearBox.setModel(new DefaultComboBoxModel(populateYears()));
 
-        ratingField.setEnabled(false);
-        ratingField.setVisible(false);
-
-        genreField.setEnabled(false);
-        genreField.setVisible(false);
-
         ratingBox.setModel(new DefaultComboBoxModel(populateRatings()));
 
         titleLabel.setText("Title");
@@ -140,94 +148,87 @@ public class ManageProductView extends JDialog {
         resetButton.setText("Reset");
 
         submitButton.setText("Add Movie");
+        
+        editButton.setText("Edit Movie");
+        editButton.setEnabled(false);
+        editButton.setVisible(false);
 
         typeBox.setModel(new DefaultComboBoxModel(populateTypes()));
 
-        GroupLayout layout = new GroupLayout(getContentPane());
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                    .addComponent(headerLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(headerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(descriptionLabel)
                     .addComponent(descriptionScrollPane)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(resetButton, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
-                    .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(titleLabel)
                             .addComponent(genreLabel))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(titleField, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(yearLabel)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(yearBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(genreBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(ratingLabel)
-                                        .addGap(11, 11, 11))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(genreField, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(92, 92, 92)))
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ratingField)
-                                    .addComponent(ratingBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(yearBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(genreBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addComponent(ratingLabel)
+                                .addGap(11, 11, 11)
+                                .addComponent(ratingBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
                                 .addComponent(typeLabel)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(typeBox, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(submitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(headerLabel)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(titleLabel)
-                            .addComponent(yearLabel)
-                            .addComponent(titleField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yearBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(genreLabel)
-                            .addComponent(ratingLabel)
-                            .addComponent(genreBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ratingBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(typeLabel)
-                            .addComponent(typeBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49))
-                    .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(genreField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ratingField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(descriptionLabel, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(descriptionScrollPane, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addGap(26, 26, 26)
+                .addComponent(headerLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleLabel)
+                    .addComponent(yearLabel)
+                    .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(genreLabel)
+                    .addComponent(ratingLabel)
+                    .addComponent(genreBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ratingBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeLabel)
+                    .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(descriptionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(editButton)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resetButton)
                     .addComponent(submitButton))
                 .addContainerGap())
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>
     
     public void addSubmitButtonListener(ActionListener submit) {
         submitButton.addActionListener(submit);
@@ -237,17 +238,15 @@ public class ManageProductView extends JDialog {
         resetButton.addActionListener(reset);
     }
     
+    public void addEditButtonListener(ActionListener edit) {
+        editButton.addActionListener(edit);
+    }
+    
     public void reset() {
     	titleField.setText("");
     	yearBox.setSelectedIndex(0);
     	genreBox.setSelectedIndex(0);
-        genreField.setText("");
-        genreField.setEnabled(false);
-        genreField.setVisible(false);
     	ratingBox.setSelectedIndex(0);
-        ratingField.setText("");
-        ratingField.setEnabled(false);
-        ratingField.setVisible(false);
         typeBox.setSelectedIndex(0);
         descriptionTextArea.setText("");
     }
@@ -281,4 +280,5 @@ public class ManageProductView extends JDialog {
 							"Talk-Show", "Thriller", "War", "Western"};
 		return genres;
 	}
+    
 }

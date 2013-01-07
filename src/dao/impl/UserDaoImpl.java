@@ -29,7 +29,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		return user_list;
 	}
 
-	//get user details
+	//get user details (search by user-name)
 	public ArrayList<Object> getItemDetails(String username) {
 		user_details = new ArrayList<Object>();
 		TypedQuery<User> query = getEm().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
@@ -60,6 +60,62 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 			result.get(i).setPhone(user.get(4).toString());
 		}
 		getEm().getTransaction().commit();
+	}
+
+	public ArrayList<Object> searchByProfile(Profile profile) {
+		user_details = new ArrayList<Object>();
+		TypedQuery<User> query = getEm().createQuery("SELECT u FROM User u WHERE u.profile='" + profile + "'", User.class);
+		List<User> result = query.getResultList();
+		for(int i=0;i<result.size();i++){
+			user_details.add(result.get(i).getUsername());
+			user_details.add(result.get(i).getProfile());
+			user_details.add(result.get(i).getName());
+			user_details.add(result.get(i).getEmail());
+			user_details.add(result.get(i).getPhone());
+		}
+		return user_details;
+	}
+
+	public ArrayList<Object> searchByName(String name) {
+		user_details = new ArrayList<Object>();
+		TypedQuery<User> query = getEm().createQuery("SELECT u FROM User u WHERE u.name='" + name + "'", User.class);
+		List<User> result = query.getResultList();
+		for(int i=0;i<result.size();i++){
+			user_details.add(result.get(i).getUsername());
+			user_details.add(result.get(i).getProfile());
+			user_details.add(result.get(i).getName());
+			user_details.add(result.get(i).getEmail());
+			user_details.add(result.get(i).getPhone());
+		}
+		return user_details;
+	}
+
+	public ArrayList<Object> searchByEmail(String email) {
+		user_details = new ArrayList<Object>();
+		TypedQuery<User> query = getEm().createQuery("SELECT u FROM User u WHERE u.email='" + email + "'", User.class);
+		List<User> result = query.getResultList();
+		for(int i=0;i<result.size();i++){
+			user_details.add(result.get(i).getUsername());
+			user_details.add(result.get(i).getProfile());
+			user_details.add(result.get(i).getName());
+			user_details.add(result.get(i).getEmail());
+			user_details.add(result.get(i).getPhone());
+		}
+		return user_details;
+	}
+
+	public ArrayList<Object> searchByPhone(String phone) {
+		user_details = new ArrayList<Object>();
+		TypedQuery<User> query = getEm().createQuery("SELECT u FROM User u WHERE u.phone='" + phone + "'", User.class);
+		List<User> result = query.getResultList();
+		for(int i=0;i<result.size();i++){
+			user_details.add(result.get(i).getUsername());
+			user_details.add(result.get(i).getProfile());
+			user_details.add(result.get(i).getName());
+			user_details.add(result.get(i).getEmail());
+			user_details.add(result.get(i).getPhone());
+		}
+		return user_details;
 	}
 
 }

@@ -98,3 +98,43 @@ Type model.Product is not enhanced.
 [2013-01-07 01:07:53 #3 store] 
 Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4144@quake
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-07 18:31:58 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 2856@quake
+
+[2013-01-07 18:31:58 #2 type] 
+Type model.Product is not enhanced.
+
+[2013-01-07 18:31:58 #3 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 2856@quake
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-07 18:52:28 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4080@quake
+
+[2013-01-07 18:52:28 #2 type] 
+Type model.Product is not enhanced.
+
+[2013-01-07 18:52:29 #3 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4080@quake
+
+[2013-01-07 18:52:34 #4 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4080@quake
+
+[2013-01-07 18:52:34 #5 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4080@quake
+
+[2013-01-07 18:52:38 #6 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4080@quake
+
+[2013-01-07 18:52:39 #7 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4080@quake
+
+[2013-01-07 18:52:39 #8 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4080@quake
+
+[2013-01-07 18:52:39 #9 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4080@quake
+

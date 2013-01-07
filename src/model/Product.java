@@ -3,13 +3,10 @@ package model;
 import javax.jdo.annotations.*;
 import javax.persistence.*; //Gia ta annotations - @Entity klp
 
-import model.Product;
-
-
-
+//import model.Product;
 
 import java.sql.Date;
-import java.sql.Timestamp;
+//import java.sql.Timestamp;
 
 @Entity
 public class Product {

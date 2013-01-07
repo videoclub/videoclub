@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import java.awt.event.ActionListener;
@@ -11,10 +8,6 @@ import javax.swing.*;
 
 import dao.ProductDao;
 
-/**
- *
- * @author larry
- */
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class ManageProductView extends JDialog {

@@ -6,8 +6,8 @@ package view;
 
 import java.util.ArrayList;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+//import javax.swing.JLabel;
+//import javax.swing.JTextField;
 
 /**
  *

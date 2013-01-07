@@ -25,3 +25,13 @@ mai1226 - 24/12/2012 - 15:00
 
 Ylopoihsh Product - Entity - DAO(+GenericDao)
 Mesa apo ti main() tou Login.java, mporeite na treksete ena aplo console paradeigma.
+
+mai1226 - 07/12/2012 - 19:00
+
+1. Diorthoseis se Dao/DaoImpl, ProductDao/ProductDaoImpl.
+2. Prosthiki twn ypoloipwn model.entities me basi to branch-Model sto github.
+3. Afairesi twn aspect/login paketwn gia pio sosta apotelesmata stis metrikes kai
+   gia na sygxronizetai to sigkekrimeno branch me to LK branch.
+4. Mikres tropopoihseis sto model.User (added @Index -> username, added empty constructor,
+   removed toString()-override method).
+5. Prosthiki UserDao/UserDaoImpl.

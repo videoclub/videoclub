@@ -10,15 +10,17 @@ import view.ProductView;
 import controller.ManageProductController;
 import dao.ProductDao;
 
-public class ManageProductControllerImpl extends ControllerImpl implements ManageProductController{
+public class ManageProductControllerImpl extends ProductControllerImpl implements ManageProductController{
 
 	private int row;
+	//private ProductDao pr_dao;
+	//private ProductView pr_view;
 
 	// Controller Constructor for Add Movie Action
 	public ManageProductControllerImpl(ProductDao model, ManageProductView m_view, ProductView view) {
-        super.pr_dao = model;
-        super.manage_pr_view  = m_view;
-        super.pr_view  = view;
+        pr_dao = model;
+        manage_pr_view  = m_view;
+        pr_view  = view;
         
         //... Add listeners to the view.
         m_view.addSubmitButtonListener(new SubmitListener());
@@ -27,9 +29,9 @@ public class ManageProductControllerImpl extends ControllerImpl implements Manag
 	
 	// Controller Constructor for Edit Movie Action
 	public ManageProductControllerImpl(ProductDao model, ManageProductView m_view, ProductView view, int row) {
-        super.pr_dao = model;
-        super.manage_pr_view  = m_view;
-        super.pr_view  = view;
+        pr_dao = model;
+        manage_pr_view  = m_view;
+        pr_view  = view;
         this.row = row;
         
         //... Add listeners to the view.

@@ -8,17 +8,22 @@ import dao.Dao;
 
 public abstract class DaoImpl implements Dao {
 	
-	private EntityManagerFactory emf;
+	//private EntityManagerFactory emf;
 	private EntityManager em;
 	
-	public EntityManager getEm(){
+	public void setEntityManager(EntityManager em){
+		this.em = em;
+	}
+	
+	public EntityManager getEntityManager() {
 		return em;
 	}
 	
-	public void openConnection() {
+	
+	/*public void openConnection() {
 		emf = Persistence.createEntityManagerFactory("db/videoclub.odb");
 		em = emf.createEntityManager();
-	}
+	}*/
 
 	public void persist(Object o) {
 		em.getTransaction().begin();
@@ -26,9 +31,9 @@ public abstract class DaoImpl implements Dao {
 		em.getTransaction().commit();
 	}
 
-	public void closeConnection() {
+	/*public void closeConnection() {
 		em.close();
 		emf.close();	
-	}
+	}*/
 
 }

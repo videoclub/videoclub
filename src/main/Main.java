@@ -1,7 +1,13 @@
 package main;
 
-import controller.impl.ProductControllerImpl;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import view.ProductView;
+import controller.PersistenceController;
+import controller.ProductController;
+import controller.impl.ProductControllerImpl;
+import dao.ProductDao;
 import dao.impl.ProductDaoImpl;
 
 public class Main {
@@ -9,6 +15,9 @@ public class Main {
 	/**
 	 * @param args
 	 */
+	private static EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
+	private static EntityManager em = emf.createEntityManager();
+	
 	public static void main(String[] args) {
 		//set the Look and Feel
 		try {
@@ -28,9 +37,9 @@ public class Main {
             java.util.logging.Logger.getLogger(ProductView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 		
-		ProductDaoImpl	     		model      = new ProductDaoImpl();
+		ProductDao	     		model      = new ProductDaoImpl(em);
 		ProductView    				view       = new ProductView(model);
-		ProductControllerImpl		controller = new ProductControllerImpl(model, view);
+		ProductController		controller = new ProductControllerImpl(model, view);
 		
         view.setVisible(true);
 	}

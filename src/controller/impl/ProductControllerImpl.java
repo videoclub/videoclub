@@ -11,9 +11,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import javax.swing.DefaultComboBoxModel;
+//import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.JTable;
 
+import controller.ManageProductController;
 import controller.ProductController;
 
 import view.ManageProductView;
@@ -23,11 +25,21 @@ import dao.ProductDao;
 
 public class ProductControllerImpl extends ControllerImpl implements ProductController{
 	
+	//private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
+	//private EntityManager em = emf.createEntityManager();
+	
 	private ArrayList<Object> product;
+	protected ProductDao pr_dao;
+	protected ProductView pr_view;
+	protected ManageProductView manage_pr_view;
+	
+	public ProductControllerImpl(){
+		
+	}
 	
 	public ProductControllerImpl(ProductDao model, ProductView view) {
-        super.pr_dao = model;
-        super.pr_view  = view;
+        pr_dao = model;
+        pr_view = view;
         
         //... Add listeners to the view.
         view.addNewMovieListener(new AddNewMovie());
@@ -45,6 +57,14 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         showEditLabel();
 	}
 	
+	public ProductDao getPrDao() {
+		return pr_dao;
+	}
+
+	public ProductView getPrView() {
+		return pr_view;
+	}
+
 	private void showEditLabel() {
 		pr_view.getEditMovieLabel().setVisible(true);
 		
@@ -111,7 +131,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false, pr_dao);
             dialog.setVisible(true);
             //Create the appropriate controller to interact with the JDialog
-            ManageProductControllerImpl m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view);
+            ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view);
         }
 	}
 	
@@ -155,7 +175,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         
         //Not to be used
 		public void focusLost(FocusEvent e) {
-			// TODO Auto-generated method stub
+			return;
 			
 		}
 	}
@@ -179,7 +199,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
             setEditView(dialog);
             setEditViewFields(dialog, product);
             //Create the appropriate controller to interact with the JDialog
-            ManageProductControllerImpl m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view, row);
+            ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view, row);
 		}
 
 		private void setEditView(ManageProductView dialog) {
@@ -235,34 +255,25 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	//and calling productView 's showPart method to populate them to the JTable
 	@Override
 	public void getByGenre(String genre) {
-		//Gregory des ti mporei na ginei me ta connections
-		dbConnect();
 		ArrayList<Object> products = pr_dao.getByGenre(genre);
-		dbDisconnect();
 		pr_view.showPart(products);
 	}
 
 	@Override
 	public void getByRating(String rating) {
-		dbConnect();
 		ArrayList<Object> products = pr_dao.getByRating(rating);
-		dbDisconnect();
 		pr_view.showPart(products);
 	}
 
 	@Override
 	public void getByYear(int year) {
-		dbConnect();
 		ArrayList<Object> products = pr_dao.getByYear(year);
-		dbDisconnect();
 		pr_view.showPart(products);
 	}
 
 	@Override
 	public void getByType(String type) {
-		dbConnect();
 		ArrayList<Object> products = pr_dao.getByType(type);
-		dbDisconnect();
 		pr_view.showPart(products);
 	}
 	
@@ -273,5 +284,39 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
     		type += ", " + product.get(10);
     	}
     	return type;
+	}
+	
+	@Override
+	public void getAll() {
+		ArrayList<Object> allProducts = pr_dao.getAllItems();
+		pr_view.showAll(allProducts);
+	}
+
+	@Override
+	public ArrayList<Object> getOne(String title) {
+		ArrayList<Object> oneProduct = pr_dao.getItemDetails(title);
+		return oneProduct;
+	}
+
+	@Override
+	public void set(){
+    	setProduct();
+    }
+	
+	private void setProduct() {
+		product = new ArrayList<Object>();
+		product.add(manage_pr_view.getTitleField().getText());
+    	product.add(manage_pr_view.getGenreBox().getSelectedItem().toString());
+    	product.add(manage_pr_view.getRatingBox().getSelectedItem().toString());
+    	product.add(Integer.parseInt(manage_pr_view.getYearBox().getSelectedItem().toString()));
+    	product.add(manage_pr_view.getTypeBox().getSelectedItem().toString());
+    	product.add(manage_pr_view.getDescription().getText());
+    	pr_dao.persist(product);
+	}
+
+	@Override
+	public void update(ArrayList<Object> item){
+		pr_dao.updateItem(item);
+    	getAll();
 	}
 }

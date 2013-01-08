@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public interface Dao {
 	
-	void openConnection();
+	//void openConnection();
 	void persist(Object o);
 	abstract ArrayList<Object> getAllItems();
 	abstract ArrayList<Object> getItemDetails(String title);
-	void closeConnection();
+	abstract void updateItem(ArrayList<Object> Object);
+	//void closeConnection();
 	
 }

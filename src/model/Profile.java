@@ -49,6 +49,13 @@ public class Profile implements Serializable {
 	public ArrayList<Right> getRights() {
 		return this.rights;
 	}
-
+	
+	public ArrayList<String> getRightLabels()
+	{
+		ArrayList<String> rightLabels = new ArrayList<String>();
+		for (Right r : this.rights)
+			rightLabels.add(r.getLabel());
+		return rightLabels;
+	}
 
 }

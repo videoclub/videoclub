@@ -17,6 +17,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import dao.ProductDao;
+import main.Main;
 
 /**
  *
@@ -47,10 +48,13 @@ public class ProductView extends JFrame {
     private DefaultTableModel model = new DefaultTableModel(columns, 0);
     // End of variables declaration//GEN-END:variables
     /**
-     * Creates new form ProductView2
+     * Creates new form ProductView
      */
     public ProductView(ProductDao model) {
         initComponents();
+        if (Main.rights.contains("manage_product")){
+        	System.out.println(Main.rights.toString());
+        }
     }
     
     // get() methods to give access to other classes

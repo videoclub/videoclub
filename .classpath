@@ -3,14 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Documents and Settings/puppet/My Documents/WorkspaceEGit/videoclub/lib/objectdb.jar"/>
-=======
 	<classpathentry kind="lib" path="lib/objectdb.jar"/>
->>>>>>> 365c3d2f83e3e9eeb06fa47e3ff19d3abc57b649
-=======
-	<classpathentry kind="lib" path="C:/eclipse ee indigo/git/videoclub/lib/objectdb.jar"/>
->>>>>>> c16a83e3eccf4b15c6ff8a21b6877a6fc1fc4393
 	<classpathentry kind="output" path="bin"/>
 </classpath>

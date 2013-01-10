@@ -61,12 +61,12 @@ public class ProductDetailsView extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Movie Details");
 
-        titleLabel.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         String title = product.get(0).toString() + " (" + product.get(4).toString() + ")";
         titleLabel.setText(title);
 
-        yearLabel.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
+        yearLabel.setFont(new java.awt.Font("Ubuntu", 2, 24)); // NOI18N
         yearLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         yearLabel.setText(product.get(3).toString());
 

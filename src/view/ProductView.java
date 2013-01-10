@@ -27,8 +27,10 @@ public class ProductView extends JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private ProductDao pr_model;
 	
-    private JButton addNewButton;
+    private JButton addMovieButton;
     private JButton searchButton;
+    private JButton logButton;
+    private JButton manageCustomerButton;
     private JLabel mTableLabel;
     private JScrollPane movieListFrame;
     private JTable moviesTable;
@@ -40,6 +42,7 @@ public class ProductView extends JFrame {
     private JComboBox viewByBox;
     private JLabel viewByLabel;
     private JComboBox viewByOptionBox;
+    private JLabel loginLabel;
     
     private String[] columns = {"Title", "Genre", "Rating", "Release Year", "Type"};
     
@@ -52,9 +55,8 @@ public class ProductView extends JFrame {
      */
     public ProductView(ProductDao model) {
         initComponents();
-        if (Main.rights.contains("manage_product")){
-        	System.out.println(Main.rights.toString());
-        }
+        this.setSize(800, 600);
+        this.setResizable(false);
     }
     
     // get() methods to give access to other classes
@@ -77,6 +79,22 @@ public class ProductView extends JFrame {
     public JLabel getEditMovieLabel(){
     	return this.editMovieLabel;
     }
+    
+    public JLabel getLoginLabel(){
+    	return this.loginLabel;
+    }
+    
+    public JButton getLogButton(){
+    	return this.logButton;
+    }
+    
+    public JButton getAddMovieButton(){
+    	return this.addMovieButton;
+    }
+    
+    public JButton getManageCustomerButton(){
+    	return this.manageCustomerButton;
+    }
     // End of get() methods
 
     /**
@@ -93,12 +111,16 @@ public class ProductView extends JFrame {
         tableScrollPane = new JScrollPane();
         viewByBox = new JComboBox();
         viewByOptionBox = new JComboBox();
-        addNewButton = new JButton();
+        addMovieButton = new JButton();
         searchLabel = new JLabel();
         searchField = new JTextField();
         searchButton = new JButton();
         noticeLabel = new JLabel();
         editMovieLabel = new JLabel();
+        loginLabel = new JLabel();
+        logButton = new JButton();
+        manageCustomerButton = new JButton();
+        
         moviesTable = new JTable(){
        	 public boolean isCellEditable(int row, int column){  
        		    return false;  
@@ -108,7 +130,7 @@ public class ProductView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Video Club");
 
-        mTableLabel.setFont(new Font("Ubuntu", 3, 18)); // NOI18N
+        mTableLabel.setFont(new Font("Ubuntu", 3, 24)); // NOI18N
         mTableLabel.setHorizontalAlignment(SwingConstants.CENTER);
         mTableLabel.setText("Movies List");
 
@@ -131,8 +153,15 @@ public class ProductView extends JFrame {
 
         populateGenres();
 
-        addNewButton.setFont(new Font("Ubuntu", 3, 15)); // NOI18N
-        addNewButton.setText("Add New Movie");
+        logButton.setText("Login");
+        
+        addMovieButton.setText("Add New Movie");
+        addMovieButton.setEnabled(false);
+        addMovieButton.setVisible(false);
+        
+        manageCustomerButton.setText("Manage User");
+        manageCustomerButton.setEnabled(false);
+        manageCustomerButton.setVisible(false);
 
         searchLabel.setText("Search By Title:");
 
@@ -153,7 +182,9 @@ public class ProductView extends JFrame {
                     .addComponent(mTableLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tableScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addNewButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addMovieButton)
+                            .addComponent(manageCustomerButton))
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -175,7 +206,10 @@ public class ProductView extends JFrame {
                         .addComponent(noticeLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(editMovieLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(loginLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -183,27 +217,30 @@ public class ProductView extends JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editMovieLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editMovieLabel)
+                    .addComponent(logButton)
+                    .addComponent(loginLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewByLabel)
-                    .addComponent(addNewButton)
+                    .addComponent(addMovieButton)
                     .addComponent(searchLabel)
                     .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewByBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewByOptionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(searchButton)
+                    .addComponent(manageCustomerButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        pack();
-    }// </editor-fold>
+    }
     
     public void addViewByBoxItemStateChanged(ItemListener viewBy) {
         viewByBox.addItemListener(viewBy);
@@ -213,12 +250,21 @@ public class ProductView extends JFrame {
         viewByOptionBox.addItemListener(viewByOption);
     }
     
+    public void addLogListener(ActionListener log) {
+        logButton.addActionListener(log);
+    }
+    
+    public void addLogoutListener(ActionListener login, ActionListener logout) {
+        logButton.removeActionListener(login);
+        logButton.addActionListener(logout);
+    }
+    
     public void addSubmitSearchListener(ActionListener search) {
         searchButton.addActionListener(search);
     }
     
     public void addNewMovieListener(ActionListener addMovie) {
-        addNewButton.addActionListener(addMovie);
+        addMovieButton.addActionListener(addMovie);
     }
     
     public void addSearchFieldFocusGained(FocusListener searchFocus) {
@@ -227,6 +273,34 @@ public class ProductView extends JFrame {
     
     public void addMouseListener(MouseListener tableDoubleClick){
     	moviesTable.addMouseListener(tableDoubleClick);
+    }
+    
+    public void userLoggedIn(){
+    	logButton.setText("Logout");
+    	loginLabel.setText("Welcome " + Main.name);
+    }
+    
+    public void userLoggedOut() {
+		editMovieLabel.setVisible(false);
+		loginLabel.setVisible(false);
+		addMovieButton.setEnabled(false);
+		addMovieButton.setVisible(false);
+		manageCustomerButton.setEnabled(false);
+		manageCustomerButton.setVisible(false);
+	}
+    
+    public void showAddMovieButton(){
+    	addMovieButton.setEnabled(true);
+		addMovieButton.setVisible(true);
+    }
+    
+    public void showEditLabel(){
+    	editMovieLabel.setVisible(true);
+    }
+    
+    public void showManageCustomerButton(){
+    	manageCustomerButton.setEnabled(true);
+    	manageCustomerButton.setVisible(true);
     }
     
     public void showOne(ArrayList<Object> oneProduct) {
@@ -275,16 +349,6 @@ public class ProductView extends JFrame {
     	
     	//moviesTable = new JTable(model);
     }
-	
-	// Display notice if search doesn't return something
-	// Doesn't work properly
-	public void setNotice() {
-		noticeLabel.setVisible(true);
-	}
-	
-	public void unsetNotice() {
-		noticeLabel.setVisible(true);
-	}
 	
 	//Populate ComboBoxes' Values
 	public void populateGenres() {

@@ -141,7 +141,7 @@ public class ManageProductView extends JDialog {
 
         genreBox.setModel(new DefaultComboBoxModel(populateGenres()));
 
-        headerLabel.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        headerLabel.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
         headerLabel.setText("Add New Movie");
 

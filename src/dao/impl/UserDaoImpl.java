@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import model.Profile;
@@ -20,16 +21,34 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		super.setEntityManager(em);
 	}
 	
+	//Following 2 methods are basically used on login
+	public User getUser(String username){
+		user = new User();
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
+		try {
+			user = query.getSingleResult();
+		}
+		catch (NoResultException e){
+			return null;
+		}
+		return user;
+	}
+	
+	public Profile getProfile(String username){
+		user = new User();
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
+		user = query.getSingleResult();
+		return user.getProfile();
+	}
+	
 	//get all users(show only user-name and email)
 	public ArrayList<Object> getAllItems() {
 		user_list = new ArrayList<Object>();
-		if(user.getProfile().getLabel().equalsIgnoreCase("employee")){
-			TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u", User.class);
-			List<User> results = query.getResultList();
-			for (int i=0; i<results.size(); i++) {
-				user_list.add(results.get(i).getUsername());
-				user_list.add(results.get(i).getEmail());
-			}
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u", User.class);
+		List<User> results = query.getResultList();
+		for (int i=0; i<results.size(); i++) {
+			user_list.add(results.get(i).getUsername());
+			user_list.add(results.get(i).getEmail());
 		}
 		return user_list;
 	}
@@ -42,7 +61,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		if (!result.isEmpty()) {
 			for (int i=0; i<result.size(); i++){
 				user_details.add(result.get(i).getUsername());
-				user_details.add(result.get(i).getProfile());
+				user_details.add((Profile)result.get(i).getProfile());
 				user_details.add(result.get(i).getName());
 				user_details.add(result.get(i).getEmail());
 				user_details.add(result.get(i).getPhone());

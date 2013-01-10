@@ -25,7 +25,7 @@ public class Profile implements Serializable {
 	}
 	
 	// Constructor
-	public Profile(String label) {
+	public Profile (String label) {
 		this.label = label;
 		rights = new ArrayList<Right>();
 	}
@@ -45,6 +45,8 @@ public class Profile implements Serializable {
 	public void grantRight(Right r) {
 		rights.add(r);
 	}
+	
+	
 
 	public ArrayList<Right> getRights() {
 		return this.rights;

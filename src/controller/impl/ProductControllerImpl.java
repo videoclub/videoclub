@@ -11,30 +11,34 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-//import javax.swing.DefaultComboBoxModel;
-
+import javax.swing.JFrame;
 import javax.swing.JTable;
 
+import main.Main;
 import model.Product;
 
+import controller.LoginController;
 import controller.ManageProductController;
 import controller.ProductController;
-
+import view.LoginView;
 import view.ManageProductView;
 import view.ProductDetailsView;
 import view.ProductView;
 import dao.ProductDao;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 
 public class ProductControllerImpl extends ControllerImpl implements ProductController{
 	
-	//private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
-	//private EntityManager em = emf.createEntityManager();
-	
-	private Product set_product;
-	private ArrayList<Object> get_product;
 	protected ProductDao pr_dao;
 	protected ProductView pr_view;
 	protected ManageProductView manage_pr_view;
+	private ArrayList<Object> get_product;
+	private Product set_product;
+
+	//private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
+	//private EntityManager em = emf.createEntityManager();
+	
 	
 	public ProductControllerImpl(){
 		
@@ -51,26 +55,9 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         view.addViewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
         view.addSearchFieldFocusGained(new SearchFieldAdapter());
         view.addMouseListener(new TableMouseAdapter());
+        view.addLogListener(new Log());
         //getAllProducts to populate JTable when user initially logged in
         getAll();
-        
-        /*
-         * if user => employee 
-         */
-        showEditLabel();
-	}
-	
-	public ProductDao getPrDao() {
-		return pr_dao;
-	}
-
-	public ProductView getPrView() {
-		return pr_view;
-	}
-
-	private void showEditLabel() {
-		pr_view.getEditMovieLabel().setVisible(true);
-		
 	}
 
 	class ViewByBoxListener implements ItemListener {
@@ -131,15 +118,35 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	class AddNewMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	//Create and show a new JDialog to enable adding a new movie
-        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false, pr_dao);
+        	ManageProductView dialog = new ManageProductView(new JFrame(), false, pr_dao);
             dialog.setVisible(true);
             //Create the appropriate controller to interact with the JDialog
             ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view);
         }
 	}
 	
-	class Search implements ActionListener {
+	
+	//Skata ton ekana... sorry!!!
+	class Log implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+        	if (Main.name == null) {
+        		//Create and show a new JDialog to enable adding a new movie
+        		LoginView dialog = new LoginView(new JFrame(), false);
+        		dialog.setVisible(true);
+        		//Create the appropriate controller to interact with the JDialog
+        		LoginController login_controller = new LoginController(dialog, pr_view);
+        	}
+        	else {
+        		Main.name = null;
+        		Main.rights = null;
+        		pr_view.userLoggedOut();
+        	}
+        }
+	}
+	
+	class Search implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
         	//Instantiate a new product
         	get_product = new ArrayList<Object>();
         	String title = pr_view.getSearchField().getText();

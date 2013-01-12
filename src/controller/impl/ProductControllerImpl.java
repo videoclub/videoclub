@@ -89,6 +89,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         public void itemStateChanged(ItemEvent e) {
         	//String to check in switch statement to call appropriate method
         	String view_by = pr_view.getViewByBox().getSelectedItem().toString();
+        	//String view_by = pr_view.getViewByBox().getSelectedItem().toString();
         	if (e.getStateChange() ==1) {
         		switch (view_by){
         			case "Genre":
@@ -161,33 +162,20 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
             	pr_view.getNoticeLabel().setVisible(true);
             }
         }
-
-		private void showProductDetails() {
-			String type = getType();
-			//ATTENTION if both types are present it sets them concatenated only in this product instance. NOT in DB. 
-			get_product.set(4, type);
-        	//Create and show a new JDialog to show product details
-        	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, get_product);
-        	dialog.setVisible(true);
-        	
-        	//TO BE IMPLEMENTED for rent/bind button listeners
-        	
-        	//ProductDetailsControllerImpl pr_det_controller = new ProductDetailsControllerImpl(pr_model, dialog);
-			
-		}
 	}
 	
-	class SearchFieldAdapter implements FocusListener {
-        public void focusGained(FocusEvent e) {
-        	//Notice label disappears when user is going to search for another movie
-			pr_view.getNoticeLabel().setVisible(false);
-		}
-        
-        //Not to be used
-		public void focusLost(FocusEvent e) {
-			return;
-			
-		}
+	private void showProductDetails() {
+		String type = getType();
+		//ATTENTION if both types are present it sets them concatenated only in this product instance. NOT in DB. 
+		get_product.set(4, type);
+    	//Create and show a new JDialog to show product details
+    	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, get_product);
+    	dialog.setVisible(true);
+    	
+    	//TO BE IMPLEMENTED for rent/bind button listeners
+    	
+    	//ProductDetailsControllerImpl pr_det_controller = new ProductDetailsControllerImpl(pr_model, dialog);
+		
 	}
 	
 	class TableMouseAdapter implements MouseListener {
@@ -198,7 +186,11 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 		         JTable moviesTable = (JTable)e.getSource();
 		         int row = moviesTable.getSelectedRow();
 		         ArrayList<Object> product = getProduct(moviesTable, row);
-		         openEditProductView(product, row);
+		         get_product = new ArrayList<Object>();
+		         String title = product.get(0).toString();
+		         get_product = getOne(title);
+		         showProductDetails();
+		         //openEditProductView(product, row);
 			}
 		}
 
@@ -257,6 +249,19 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
+			
+		}
+	}
+	
+	class SearchFieldAdapter implements FocusListener {
+        public void focusGained(FocusEvent e) {
+        	//Notice label disappears when user is going to search for another movie
+			pr_view.getNoticeLabel().setVisible(false);
+		}
+        
+        //Not to be used
+		public void focusLost(FocusEvent e) {
+			return;
 			
 		}
 	}

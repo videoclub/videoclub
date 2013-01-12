@@ -2,12 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package EmployeeView;
 
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -34,6 +36,7 @@ public class ProductDetailsView extends javax.swing.JDialog {
      */
     public ProductDetailsView(java.awt.Frame parent, boolean modal, ArrayList<Object> product) {
         super(parent, modal);
+        setResizable(false);
         this.product = product;
         initComponents();
     }
@@ -56,17 +59,21 @@ public class ProductDetailsView extends javax.swing.JDialog {
         descriptionScrollPane = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
         rentButton = new javax.swing.JButton();
+        rentButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         bindButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Movie Details");
 
-        titleLabel.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         String title = product.get(0).toString() + " (" + product.get(4).toString() + ")";
         titleLabel.setText(title);
 
-        yearLabel.setFont(new java.awt.Font("Ubuntu", 2, 24)); // NOI18N
+        yearLabel.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
         yearLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         yearLabel.setText(product.get(3).toString());
 
@@ -92,7 +99,6 @@ public class ProductDetailsView extends javax.swing.JDialog {
 
         bindButton.setText("Bind Movie");
         bindButton.setEnabled(false);
-        bindButton.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

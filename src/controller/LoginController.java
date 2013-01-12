@@ -67,7 +67,7 @@ public class LoginController extends UserControllerImpl{
         	showAddMovieButton();
         }
         
-        if (userCanManageProduct()){
+        if (userCanManageCustomers()){
         	showManageCustomerButton();
         }
 	}

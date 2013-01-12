@@ -18,7 +18,7 @@ public class LoginView extends JDialog {
         initComponents();
         this.setSize(224, 164);
         this.setLocation(350, 230);
-        this.setResizable(false);
+        //this.setResizable(false);
     }
     
     // get() methods to give access to other classes

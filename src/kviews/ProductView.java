@@ -2,13 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package EmployeeView;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemListener;
-import java.awt.event.MouseListener;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,7 +16,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import dao.ProductDao;
-import main.Main;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -27,22 +26,18 @@ public class ProductView extends JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private ProductDao pr_model;
 	
-    private JButton addMovieButton;
+    private JButton addNewButton;
     private JButton searchButton;
-    private JButton logButton;
-    private JButton manageCustomerButton;
     private JLabel mTableLabel;
     private JScrollPane movieListFrame;
     private JTable moviesTable;
     private JTextField searchField;
     private JLabel searchLabel;
-    private JLabel editMovieLabel;
     private JLabel noticeLabel;
     private JScrollPane tableScrollPane;
     private JComboBox viewByBox;
     private JLabel viewByLabel;
     private JComboBox viewByOptionBox;
-    private JLabel loginLabel;
     
     private String[] columns = {"Title", "Genre", "Rating", "Release Year", "Type"};
     
@@ -51,12 +46,11 @@ public class ProductView extends JFrame {
     private DefaultTableModel model = new DefaultTableModel(columns, 0);
     // End of variables declaration//GEN-END:variables
     /**
-     * Creates new form ProductView
+     * Creates new form ProductView2
      */
     public ProductView(ProductDao model) {
+    	setResizable(false);
         initComponents();
-        this.setSize(800, 600);
-        //this.setResizable(false);
     }
     
     // get() methods to give access to other classes
@@ -76,25 +70,6 @@ public class ProductView extends JFrame {
     	return this.noticeLabel;
     }
     
-    public JLabel getEditMovieLabel(){
-    	return this.editMovieLabel;
-    }
-    
-    public JLabel getLoginLabel(){
-    	return this.loginLabel;
-    }
-    
-    public JButton getLogButton(){
-    	return this.logButton;
-    }
-    
-    public JButton getAddMovieButton(){
-    	return this.addMovieButton;
-    }
-    
-    public JButton getManageCustomerButton(){
-    	return this.manageCustomerButton;
-    }
     // End of get() methods
 
     /**
@@ -109,28 +84,23 @@ public class ProductView extends JFrame {
         mTableLabel = new JLabel();
         viewByLabel = new JLabel();
         tableScrollPane = new JScrollPane();
+        moviesTable = new JTable();
         viewByBox = new JComboBox();
         viewByOptionBox = new JComboBox();
-        addMovieButton = new JButton();
+        addNewButton = new JButton();
         searchLabel = new JLabel();
         searchField = new JTextField();
         searchButton = new JButton();
+        searchButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         noticeLabel = new JLabel();
-        editMovieLabel = new JLabel();
-        loginLabel = new JLabel();
-        logButton = new JButton();
-        manageCustomerButton = new JButton();
-        
-        moviesTable = new JTable(){
-       	 public boolean isCellEditable(int row, int column){  
-       		    return false;  
-       		  } 
-       };
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Video Club");
 
-        mTableLabel.setFont(new Font("Ubuntu", 3, 24)); // NOI18N
+        mTableLabel.setFont(new Font("Ubuntu", 3, 18)); // NOI18N
         mTableLabel.setHorizontalAlignment(SwingConstants.CENTER);
         mTableLabel.setText("Movies List");
 
@@ -141,36 +111,26 @@ public class ProductView extends JFrame {
         moviesTable.getTableHeader().setReorderingAllowed(false);
         tableScrollPane.setViewportView(moviesTable);
         moviesTable.getColumnModel().getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        moviesTable.getColumnModel().getColumn(0).setResizable(true);
-        moviesTable.getColumnModel().getColumn(1).setResizable(true);
-        moviesTable.getColumnModel().getColumn(2).setResizable(true);
-        moviesTable.getColumnModel().getColumn(3).setResizable(true);
-        moviesTable.getColumnModel().getColumn(4).setResizable(true);
-        moviesTable.getColumnModel().setColumnSelectionAllowed(false);
-        moviesTable.setSelectionMode(0);
+        moviesTable.getColumnModel().getColumn(0).setResizable(false);
+        moviesTable.getColumnModel().getColumn(1).setResizable(false);
+        moviesTable.getColumnModel().getColumn(2).setResizable(false);
+        moviesTable.getColumnModel().getColumn(3).setResizable(false);
+        moviesTable.getColumnModel().getColumn(4).setResizable(false);
 
         viewByBox.setModel(new DefaultComboBoxModel(new String[] { "Genre", "Rating", "Year", "Type" }));
 
         populateGenres();
 
-        logButton.setText("Login");
-        
-        addMovieButton.setText("Add New Movie");
-        addMovieButton.setEnabled(false);
-        addMovieButton.setVisible(false);
-        
-        manageCustomerButton.setText("Manage User");
-        manageCustomerButton.setEnabled(false);
-        manageCustomerButton.setVisible(false);
+        addNewButton.setFont(new Font("Ubuntu", 3, 15)); // NOI18N
+        addNewButton.setText("Add New Movie");
 
         searchLabel.setText("Search By Title:");
 
         searchButton.setText("Submit");
 
+        noticeLabel.setForeground(new java.awt.Color(194, 0, 0));
+        noticeLabel.setText("There are no results matching your search criteria.");
         noticeLabel.setVisible(false);
-        
-        editMovieLabel.setText("Double-Click on a movie to edit its details");
-        editMovieLabel.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,9 +142,7 @@ public class ProductView extends JFrame {
                     .addComponent(mTableLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tableScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addMovieButton)
-                            .addComponent(manageCustomerButton))
+                        .addComponent(addNewButton)
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -203,101 +161,53 @@ public class ProductView extends JFrame {
                             .addComponent(searchField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(noticeLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(editMovieLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(loginLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(logButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(noticeLabel)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editMovieLabel)
-                    .addComponent(logButton)
-                    .addComponent(loginLabel))
+                .addComponent(mTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewByLabel)
-                    .addComponent(addMovieButton)
+                    .addComponent(addNewButton)
                     .addComponent(searchLabel)
                     .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewByBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewByOptionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton)
-                    .addComponent(manageCustomerButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(searchButton))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-    }
+        pack();
+    }// </editor-fold>
     
-    public void addViewByBoxItemStateChanged(ItemListener viewBy) {
+    
+    public void viewByBoxItemStateChanged(ItemListener viewBy) {
         viewByBox.addItemListener(viewBy);
     }
     
-    public void addViewByOptionBoxItemStateChanged(ItemListener viewByOption) {
+    public void viewByOptionBoxItemStateChanged(ItemListener viewByOption) {
         viewByOptionBox.addItemListener(viewByOption);
     }
     
-    public void addLogListener(ActionListener log) {
-        logButton.addActionListener(log);
-    }
-    
-    public void addSubmitSearchListener(ActionListener search) {
+    public void submitSearchListener(ActionListener search) {
         searchButton.addActionListener(search);
     }
     
     public void addNewMovieListener(ActionListener addMovie) {
-        addMovieButton.addActionListener(addMovie);
+        addNewButton.addActionListener(addMovie);
     }
     
-    public void addSearchFieldFocusGained(FocusListener searchFocus) {
+    public void searchFieldFocusGained(FocusListener searchFocus) {
         searchField.addFocusListener(searchFocus);
-    }
-    
-    public void addMouseListener(MouseListener tableDoubleClick){
-    	moviesTable.addMouseListener(tableDoubleClick);
-    }
-    
-    public void userLoggedIn(){
-    	logButton.setText("Logout");
-    	loginLabel.setText("Welcome " + Main.name);
-    	loginLabel.setVisible(true);
-    }
-    
-    public void userLoggedOut() {
-		editMovieLabel.setVisible(false);
-		loginLabel.setVisible(false);
-		addMovieButton.setEnabled(false);
-		addMovieButton.setVisible(false);
-		manageCustomerButton.setEnabled(false);
-		manageCustomerButton.setVisible(false);
-		logButton.setText("Login");
-	}
-    
-    public void showAddMovieButton(){
-    	addMovieButton.setEnabled(true);
-		addMovieButton.setVisible(true);
-    }
-    
-    public void showEditLabel(){
-    	editMovieLabel.setVisible(true);
-    }
-    
-    public void showManageCustomerButton(){
-    	manageCustomerButton.setEnabled(true);
-    	manageCustomerButton.setVisible(true);
     }
     
     public void showOne(ArrayList<Object> oneProduct) {
@@ -347,14 +257,24 @@ public class ProductView extends JFrame {
     	//moviesTable = new JTable(model);
     }
 	
+	// Display notice if search doesn't return something
+	// Doesn't work properly
+	public void setNotice() {
+		noticeLabel.setVisible(true);
+	}
+	
+	public void unsetNotice() {
+		noticeLabel.setVisible(true);
+	}
+	
 	//Populate ComboBoxes' Values
 	public void populateGenres() {
 		String [] genres = {"Action", "Adventure", "Animation", "Biography",
-							"Comedy", "Crime", "Documentary", "Drama",
-							"Family", "Fantasy", "Film-Noir", "Game-Show",
-							"History", "Horror", "Music", "Musical", "Mystery",
-							"News", "Reality-TV", "Romance", "Sci-Fi", "Sport",
-							"Talk-Show", "Thriller", "War", "Western"};
+				"Comedy", "Crime", "Documentary", "Drama",
+				"Family", "Fantasy", "Film-Noir", "Game-Show",
+				"History", "Horror", "Music", "Musical", "Mystery",
+				"News", "Reality-TV", "Romance", "Sci-Fi", "Sport",
+				"Talk-Show", "Thriller", "War", "Western"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(genres));
 	}
 	
@@ -376,15 +296,6 @@ public class ProductView extends JFrame {
 	public void populateTypes() {
 		String [] types = {"DVD", "BlueRay"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(types));
-	}
-
-	public void updateRow(int row, ArrayList<Object> product) {
-		moviesTable.setValueAt(product.get(0), row, 0);
-		moviesTable.setValueAt(product.get(1), row, 1);
-		moviesTable.setValueAt(product.get(2), row, 2);
-		moviesTable.setValueAt(product.get(3), row, 3);
-		moviesTable.setValueAt(product.get(4), row, 4);
-		
 	}
 	
 }

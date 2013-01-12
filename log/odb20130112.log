@@ -1,0 +1,126 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-12 13:12:22 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2775@larry-notebook
+
+[2013-01-12 13:12:23 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-12 13:12:23 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-12 13:12:23 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-12 13:12:23 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-12 13:12:23 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-12 13:38:45 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3266@larry-notebook
+
+[2013-01-12 13:38:45 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-12 13:38:45 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-12 13:38:45 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-12 13:38:45 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-12 13:38:45 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-12 13:44:36 #1 explorer] 
+[ObjectDB 2.4.4_18] javax.persistence.PersistenceException
+Attempt to open a database file '/home/larry/workspace/videoclub/db/videoclub.odb' that is currently in use by another process (error 141)
+	at com.objectdb.Explorer$1.run(Explorer.java:56)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:251)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:721)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:682)
+	at java.awt.EventQueue$3.run(EventQueue.java:680)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:691)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:244)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:163)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:151)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:147)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:139)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:97)
+Caused by: com.objectdb.o.UserException: Attempt to open a database file '/home/larry/workspace/videoclub/db/videoclub.odb' that is currently in use by another process
+	at com.objectdb.o.MSG.d(MSG.java:61)
+	at com.objectdb.o.LFL.O(LFL.java:913)
+	at com.objectdb.o.LFL.I(LFL.java:859)
+	at com.objectdb.o.LFL.I(LFL.java:769)
+	at com.objectdb.o.SFL.<init>(SFL.java:226)
+	at com.objectdb.o.MST.<init>(MST.java:109)
+	at com.objectdb.o.MST.aI(MST.java:94)
+	at com.objectdb.o.MSF.UJ(MSF.java:178)
+	at com.objectdb.o.OMF.am(OMF.java:751)
+	at com.objectdb.jpa.EMF.am(EMF.java:232)
+	at com.objectdb.o.OMF.al(OMF.java:693)
+	at com.objectdb.jpa.EMF.createEntityManager(EMF.java:250)
+	... 17 more
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-12 13:44:41 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3441@larry-notebook
+
+[2013-01-12 13:44:57 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is closed by 3441@larry-notebook
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-12 13:45:05 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3466@larry-notebook
+
+[2013-01-12 13:45:05 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-12 13:45:05 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-12 13:45:06 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-12 13:45:06 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-12 13:45:06 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-12 14:50:44 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 10-10)
+
+[2013-01-12 14:50:44 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3800@larry-notebook
+
+[2013-01-12 14:50:45 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-12 14:50:45 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-12 14:50:45 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-12 14:50:45 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-12 14:50:45 #7 type] 
+Type model.Product is not enhanced.
+

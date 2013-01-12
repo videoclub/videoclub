@@ -10,6 +10,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -65,21 +66,27 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         	//if statement because StateChange means unselecting a product AND selecting another one
         	if (e.getStateChange() == 1) {
         		//populate items in 2nd ComboBox based on 1st ComboBox selection
-        		switch (e.getItem().toString()){
-        			case "Genre":
+        		int view_by = pr_view.getViewByBox().getSelectedIndex();
+        		switch (view_by){
+        			case 1:
         				pr_view.populateGenres();
+        				getByGenre("Action");
         				break;
-        			case "Rating":
+        			case 2:
         				pr_view.populateRatings();
+        				getByRating("UR (Unrated)");
         				break;
-        			case "Year":
+        			case 3:
         				pr_view.populateYears();
+        				getByYear(Calendar.getInstance().get(Calendar.YEAR));
         				break;
-        			case "Type":
+        			case 4:
         				pr_view.populateTypes();
+        				getByType("DVD");
         				break;
         			default:
-        				pr_view.populateGenres();
+        				getAll();
+        				pr_view.getViewByOptionBox().setVisible(false);
         		}
         	}
         }
@@ -88,29 +95,27 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	class ViewByOptionBoxListener implements ItemListener {
         public void itemStateChanged(ItemEvent e) {
         	//String to check in switch statement to call appropriate method
-        	String view_by = pr_view.getViewByBox().getSelectedItem().toString();
-        	//String view_by = pr_view.getViewByBox().getSelectedItem().toString();
-        	if (e.getStateChange() ==1) {
+        	int view_by = pr_view.getViewByBox().getSelectedIndex();
+        	if (e.getStateChange() == 1) {
         		switch (view_by){
-        			case "Genre":
+        			case 1:
         				//populate items based on genre selection in the 2nd ComboBox
         				getByGenre(e.getItem().toString());
         				break;
-        			case "Rating":
+        			case 2:
         				//populate items based on rating selection in the 2nd ComboBox
         				getByRating(e.getItem().toString());
         				break;
-        			case "Year":
+        			case 3:
         				//populate items based on year selection in the 2nd ComboBox
         				getByYear(Integer.parseInt(e.getItem().toString()));
         				break;
-        			case "Type":
+        			case 4:
         				//populate items based on type selection in the 2nd ComboBox
         				getByType(e.getItem().toString());
         				break;
         			default:
         				getAll();
-        				break;
         		}
         	}
         }
@@ -271,25 +276,25 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	@Override
 	public void getByGenre(String genre) {
 		ArrayList<Object> products = pr_dao.getByGenre(genre);
-		pr_view.showPart(products);
+		pr_view.showAll(products);
 	}
 
 	@Override
 	public void getByRating(String rating) {
 		ArrayList<Object> products = pr_dao.getByRating(rating);
-		pr_view.showPart(products);
+		pr_view.showAll(products);
 	}
 
 	@Override
 	public void getByYear(int year) {
 		ArrayList<Object> products = pr_dao.getByYear(year);
-		pr_view.showPart(products);
+		pr_view.showAll(products);
 	}
 
 	@Override
 	public void getByType(String type) {
 		ArrayList<Object> products = pr_dao.getByType(type);
-		pr_view.showPart(products);
+		pr_view.showAll(products);
 	}
 	
 	private String getType() {

@@ -49,7 +49,7 @@ public class ManageProductControllerImpl extends ProductControllerImpl implement
 		private void populateProduct() {
 			String title = manage_pr_view.getTitleField().getText();
         	ArrayList<Object> movie = getOne(title);
-        	pr_view.showOne(movie);
+        	pr_view.addOne(movie);
 		}
 		
 		private void updateNotice() {

@@ -21,7 +21,7 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 	
 	public ArrayList<Object> getAllItems() {
 		items = new ArrayList<Object>();
-		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p", Product.class);
+		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p ORDER BY title", Product.class);
 		List<Product> results = query.getResultList();
 		for (int i=0; i<results.size(); i++) {
 			items.add(results.get(i).getTitle());
@@ -67,7 +67,7 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 
 	public ArrayList<Object> getByGenre(String genre) {
 		product_list = new ArrayList<Object>();
-		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.genre='" + genre + "'", Product.class);
+		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.genre='" + genre + "' ORDER BY title", Product.class);
 		List<Product> result = query.getResultList();
 		for(int i=0;i<result.size();i++){
 			product_list.add(result.get(i).getTitle());
@@ -81,7 +81,7 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 
 	public ArrayList<Object> getByRating(String rating) {
 		product_list = new ArrayList<Object>();
-		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.rating='" + rating + "'", Product.class);
+		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.rating='" + rating + "' ORDER BY title", Product.class);
 		List<Product> result = query.getResultList();
 		for(int i=0;i<result.size();i++){
 			product_list.add(result.get(i).getTitle());
@@ -95,7 +95,7 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 
 	public ArrayList<Object> getByYear(int year) {
 		product_list = new ArrayList<Object>();
-		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.year=" + year, Product.class);
+		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.year=" + year + " ORDER BY title", Product.class);
 		List<Product> result = query.getResultList();
 		for(int i=0;i<result.size();i++){
 			product_list.add(result.get(i).getTitle());
@@ -109,7 +109,7 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 
 	public ArrayList<Object> getByType(String type) {
 		product_list = new ArrayList<Object>();
-		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.type='" + type + "'", Product.class);
+		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.type='" + type + "' ORDER BY title", Product.class);
 		List<Product> result = query.getResultList();
 		for(int i=0;i<result.size();i++){
 			product_list.add(result.get(i).getTitle());

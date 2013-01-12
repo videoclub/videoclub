@@ -149,9 +149,8 @@ public class ProductView extends JFrame {
         moviesTable.getColumnModel().setColumnSelectionAllowed(false);
         moviesTable.setSelectionMode(0);
 
-        viewByBox.setModel(new DefaultComboBoxModel(new String[] { "Genre", "Rating", "Year", "Type" }));
-
-        populateGenres();
+        viewByBox.setModel(new DefaultComboBoxModel(new String[] { "All", "Genre", "Rating", "Year", "Type" }));
+        viewByOptionBox.setVisible(false);
 
         logButton.setText("Login");
         
@@ -300,52 +299,33 @@ public class ProductView extends JFrame {
     	manageCustomerButton.setVisible(true);
     }
     
-    public void showOne(ArrayList<Object> oneProduct) {
+    public void addOne(ArrayList<Object> oneProduct) {
 		row[0] = oneProduct.get(0);
         row[1] = oneProduct.get(1);
         row[2] = oneProduct.get(2);
         row[3] = oneProduct.get(3);
         row[4] = oneProduct.get(4);
         model.addRow(row);
-        //moviesTable = new JTable(model);
 	}
         
     public void showAll(ArrayList<Object> allProducts) {
-    	int i = model.getRowCount()*5;
+    	int tableSize = model.getRowCount();
     	
-    	while (i < allProducts.size()) {
+    	for (int i = 0; i < tableSize; i++) {
+    		model.removeRow(tableSize-i-1);
+    	}
+    	
+    	for (int i = 0; i < allProducts.size(); i += 5) {
     		row[0] = allProducts.get(i);
     		row[1] = allProducts.get(i+1);
     		row[2] = allProducts.get(i+2);
     		row[3] = allProducts.get(i+3);
     		row[4] = allProducts.get(i+4);
     		model.addRow(row);
-    		i += 5;
     	}
-    	//moviesTable = new JTable(model);
     }
     
-    public void showPart(ArrayList<Object> products) {
-    	int tableSize = model.getRowCount();
-    	for (int i = 0; i < tableSize; i++) {
-    		model.removeRow(tableSize-i-1);
-    	}
-    	
-    	int i = 0;
-    	
-    	while (i < products.size()) {
-    		row[0] = products.get(i);
-    		row[1] = products.get(i+1);
-    		row[2] = products.get(i+2);
-    		row[3] = products.get(i+3);
-    		row[4] = products.get(i+4);
-    		model.addRow(row);
-    		i += 5;
-    	}
-    	
-    	
-    	//moviesTable = new JTable(model);
-    }
+    
 	
 	//Populate ComboBoxes' Values
 	public void populateGenres() {
@@ -356,11 +336,13 @@ public class ProductView extends JFrame {
 							"News", "Reality-TV", "Romance", "Sci-Fi", "Sport",
 							"Talk-Show", "Thriller", "War", "Western"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(genres));
+		viewByOptionBox.setVisible(true);
 	}
 	
 	public void populateRatings() {
 		String [] ratings = {"UR (Unrated)", "G", "PG", "PG-13", "R", "NC-17"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(ratings));
+		viewByOptionBox.setVisible(true);
 	}
 	
 	public void populateYears() {
@@ -371,11 +353,13 @@ public class ProductView extends JFrame {
 			years[i] = Integer.toString(year-i);
 		}
 		viewByOptionBox.setModel(new DefaultComboBoxModel(years));
+		viewByOptionBox.setVisible(true);
 	}
 	
 	public void populateTypes() {
 		String [] types = {"DVD", "BlueRay"};
 		viewByOptionBox.setModel(new DefaultComboBoxModel(types));
+		viewByOptionBox.setVisible(true);
 	}
 
 	public void updateRow(int row, ArrayList<Object> product) {

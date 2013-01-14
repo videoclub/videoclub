@@ -21,6 +21,7 @@ import model.Product;
 import controller.LoginController;
 import controller.ManageProductController;
 import controller.ProductController;
+import controller.ProductDetailsController;
 import view.LoginView;
 import view.ManageProductView;
 import view.ProductDetailsView;
@@ -124,7 +125,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	class AddNewMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	//Create and show a new JDialog to enable adding a new movie
-        	ManageProductView dialog = new ManageProductView(new JFrame(), false, pr_dao);
+        	ManageProductView dialog = new ManageProductView(new JFrame(), false);
             dialog.setVisible(true);
             //Create the appropriate controller to interact with the JDialog
             ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view);
@@ -170,17 +171,11 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	}
 	
 	private void showProductDetails() {
-		String type = getType();
-		//ATTENTION if both types are present it sets them concatenated only in this product instance. NOT in DB. 
-		get_product.set(4, type);
     	//Create and show a new JDialog to show product details
     	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, get_product);
+    	//enableRentBindButton(dialog);
+    	ProductDetailsController pr_det_controller = new ProductDetailsControllerImpl(dialog, get_product.get(6));
     	dialog.setVisible(true);
-    	
-    	//TO BE IMPLEMENTED for rent/bind button listeners
-    	
-    	//ProductDetailsControllerImpl pr_det_controller = new ProductDetailsControllerImpl(pr_model, dialog);
-		
 	}
 	
 	class TableMouseAdapter implements MouseListener {
@@ -201,7 +196,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 
 		private void openEditProductView(ArrayList<Object> product, int row) {
 			//Create and show a new JDialog to enable adding a new movie
-        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false, pr_dao);
+        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false);
             dialog.setVisible(true);
             setEditView(dialog);
             setEditViewFields(dialog, product);
@@ -295,15 +290,6 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	public void getByType(String type) {
 		ArrayList<Object> products = pr_dao.getByType(type);
 		pr_view.showAll(products);
-	}
-	
-	private String getType() {
-		//if product is available in both formats concatenate them and show both
-		String type = get_product.get(4).toString();
-    	if (get_product.size() > 6) {
-    		type += ", " + get_product.get(10);
-    	}
-    	return type;
 	}
 	
 	@Override

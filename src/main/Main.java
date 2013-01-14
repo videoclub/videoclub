@@ -11,16 +11,12 @@ import model.Profile;
 import model.Right;
 import model.User;
 
-import profiles_and_rights.ProfilesAndRights;
-
 import view.ProductView;
 import controller.PersistenceController;
 import controller.ProductController;
 import controller.impl.ProductControllerImpl;
 import dao.ProductDao;
-import dao.UserDao;
 import dao.impl.ProductDaoImpl;
-import dao.impl.UserDaoImpl;
 
 public class Main {
 
@@ -39,7 +35,10 @@ public class Main {
 		Right r2 = new Right("manage_customer");
 		
 		User u0 = new User("admin", "admin", p0, "Admin", "admin@videoclub.com", "1234567890");
-		  
+		
+// ATTENTION: FOR USE DURING DEVELOPMENT! REMOVE THE NEXT LINE BEFORE RELEASE!!!
+		User u1 = new User("cust", "cust", p1, "Customer", "cust@videoclub.com", "1234567890");
+		
 		//Check if profile and right data are already persistent in the database
 		TypedQuery<Profile> check_query = em.createQuery("SELECT p FROM Profile p", Profile.class);
 		List<Profile> all_profiles = check_query.getResultList();
@@ -58,6 +57,8 @@ public class Main {
 		    em.persist(r1);
 		    em.persist(r2);
 		    em.persist(u0);
+// ATTENTION: FOR USE DURING DEVELOPMENT! REMOVE THE NEXT LINE BEFORE RELEASE!!!
+		    em.persist(u1);
 		    em.getTransaction().commit();
 		}
 	}
@@ -84,7 +85,7 @@ public class Main {
 		initializeProfilesRightsAndOneEmployeeUser();
         
 		ProductDao	     		model		= new ProductDaoImpl(em);
-		ProductView    			view		= new ProductView(model);
+		ProductView    			view		= new ProductView();
 		ProductController		controller	= new ProductControllerImpl(model, view);
 		
         view.setVisible(true);

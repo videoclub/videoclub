@@ -45,6 +45,7 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 				details.add(result.get(i).getYear());
 				details.add(result.get(i).getType());
 				details.add(result.get(i).getDescription());
+				details.add(result.get(i).getAvailability());
 			}
 		}
 		return details;

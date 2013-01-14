@@ -20,6 +20,11 @@ public class PersistenceController{
 	//Empty private constructor
 	private PersistenceController(){
 	}
+	
+	protected void createEntityManagerFactory() {
+		this.emf = Persistence.createEntityManagerFactory("db/videoclub.odb");
+		//System.out.println("\nPersistence started at " + new java.util.Date());
+	}
 
 	public EntityManagerFactory getEntityManagerFactory() {
 		if(emf == null){
@@ -32,20 +37,11 @@ public class PersistenceController{
 		if (emf != null) {
 			emf.close();
 			emf = null;
-			System.out.println("\nPersistence finished at " + new java.util.Date());
+			//System.out.println("\nPersistence finished at " + new java.util.Date());
 		}
-	}
-
-	protected void createEntityManagerFactory() {
-		this.emf = Persistence.createEntityManagerFactory("db/videoclub.odb");
-		System.out.println("\nPersistence started at " + new java.util.Date());
 	}
 
 	private static final PersistenceController CTRLSINGLETON = new PersistenceController();
 	protected EntityManagerFactory emf;
-
-
-
-
 
 }

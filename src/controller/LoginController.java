@@ -60,10 +60,10 @@ public class LoginController extends UserControllerImpl{
 	
 	private void userLoggedIn() {
 		pr_view.userLoggedIn();
-        pr_view.getLoginLabel().setText("Welcome " + Main.name);
+        pr_view.getLoginLabel().setText("<html>Welcome <strong>" + Main.name + "</strong></html>");
+        showDetailsLabel();
         
 		if (userCanManageProduct()){
-        	showEditLabel();
         	showAddMovieButton();
         }
         
@@ -76,8 +76,8 @@ public class LoginController extends UserControllerImpl{
 		pr_view.showAddMovieButton();		
 	}
 	
-    private void showEditLabel() {
-		pr_view.showEditLabel();
+    private void showDetailsLabel() {
+		pr_view.showDetailsLabel();
 		
 	}
     

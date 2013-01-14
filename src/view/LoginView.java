@@ -4,6 +4,7 @@ package view;
  *
  * @author larry
  */
+import java.awt.Point;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -16,9 +17,10 @@ public class LoginView extends JDialog {
     public LoginView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setSize(224, 164);
-        this.setLocation(350, 230);
-        //this.setResizable(false);
+        this.setSize(240, 200);
+        location = parent.getLocation();
+        this.setLocation(location.x + 300, location.y + 200);
+        this.setResizable(false);
     }
     
     // get() methods to give access to other classes
@@ -55,7 +57,7 @@ public class LoginView extends JDialog {
         loginLabel.setText("Login");
         
         warningLabel.setForeground(new java.awt.Color(197, 1, 1));
-        warningLabel.setText("Login failed! Please try again...");
+        warningLabel.setText("<html><strong>Login failed!</strong> Please try again...</html>");
         warningLabel.setVisible(false);
         
         usernameLabel.setText("Username");
@@ -74,8 +76,8 @@ public class LoginView extends JDialog {
                     .addComponent(loginLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.CENTER, layout.createSequentialGroup()
                         .addComponent(usernameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
+                        .addComponent(usernameField))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(passwordLabel)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +90,7 @@ public class LoginView extends JDialog {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(warningLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 16, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -106,9 +108,9 @@ public class LoginView extends JDialog {
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(warningLabel)
-                .addContainerGap())
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }
     
@@ -129,5 +131,6 @@ public class LoginView extends JDialog {
     private JTextField usernameField;
     private JLabel usernameLabel;
     private JLabel warningLabel;
+    private Point location;
     // End of variables declaration
 }

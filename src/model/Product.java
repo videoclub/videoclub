@@ -36,7 +36,7 @@ public class Product {
 
 	//Empty constructor
 	public Product(){
-		this.availability = true;
+		this.availability = false;
 		Date now = new Date();
 		this.create_date = now;
 		this.edit_date = now;

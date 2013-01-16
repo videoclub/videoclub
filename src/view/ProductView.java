@@ -18,14 +18,9 @@ import javax.swing.table.DefaultTableModel;
 import dao.ProductDao;
 import main.Main;
 
-/**
- *
- * @author larry
- */
+
 public class ProductView extends JFrame {
-    /**
-     * Creates new form ProductView
-     */
+  
     public ProductView() {
         initComponents();
         this.setSize(800, 600);
@@ -66,7 +61,7 @@ public class ProductView extends JFrame {
     }
     
     public JButton getManageCustomerButton(){
-    	return this.manageCustomerButton;
+    	return this.manageUserButton;
     }
     // End of get() methods
 
@@ -86,7 +81,7 @@ public class ProductView extends JFrame {
         showDetailsLabel = new JLabel();
         loginLabel = new JLabel();
         logButton = new JButton();
-        manageCustomerButton = new JButton();
+        manageUserButton = new JButton();
         
         moviesTable = new JTable(){
        	 public boolean isCellEditable(int row, int column){  
@@ -128,9 +123,9 @@ public class ProductView extends JFrame {
         addMovieButton.setEnabled(false);
         addMovieButton.setVisible(false);
         
-        manageCustomerButton.setText("Manage User");
-        manageCustomerButton.setEnabled(false);
-        manageCustomerButton.setVisible(false);
+        manageUserButton.setText("Manage User");
+        manageUserButton.setEnabled(false);
+        manageUserButton.setVisible(false);
 
         searchLabel.setText("Search By Title:");
 
@@ -177,7 +172,7 @@ public class ProductView extends JFrame {
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                     .addComponent(addMovieButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(manageCustomerButton, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(manageUserButton, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE))
                                 .addGap(10, 10, 10))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(noticeLabel)
@@ -201,7 +196,7 @@ public class ProductView extends JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addMovieButton)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(manageCustomerButton))
+                        .addComponent(manageUserButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(viewByLabel)
@@ -241,6 +236,9 @@ public class ProductView extends JFrame {
         addMovieButton.addActionListener(addMovie);
     }
     
+    public void ManageUserListener(ActionListener manageuser){
+    	manageUserButton.addActionListener(manageuser);
+    }
     public void addSearchFieldFocusGained(FocusListener searchFocus) {
         searchField.addFocusListener(searchFocus);
     }
@@ -260,8 +258,8 @@ public class ProductView extends JFrame {
 		loginLabel.setVisible(false);
 		addMovieButton.setEnabled(false);
 		addMovieButton.setVisible(false);
-		manageCustomerButton.setEnabled(false);
-		manageCustomerButton.setVisible(false);
+		manageUserButton.setEnabled(false);
+		manageUserButton.setVisible(false);
 		logButton.setText("Login");
 	}
     
@@ -275,8 +273,8 @@ public class ProductView extends JFrame {
     }
     
     public void showManageCustomerButton(){
-    	manageCustomerButton.setEnabled(true);
-    	manageCustomerButton.setVisible(true);
+    	manageUserButton.setEnabled(true);
+    	manageUserButton.setVisible(true);
     }
     
     public void addOne(ArrayList<Object> oneProduct) {
@@ -353,7 +351,7 @@ public class ProductView extends JFrame {
 	private JButton addMovieButton;
 	private JButton searchButton;
 	private JButton logButton;
-	private JButton manageCustomerButton;
+	private JButton manageUserButton;
 	private JLabel mTableLabel;
 	private JTable moviesTable;
 	private JTextField searchField;

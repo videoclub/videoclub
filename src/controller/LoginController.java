@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.swing.JFrame;
-
 import controller.impl.ProductControllerImpl;
 import controller.impl.UserControllerImpl;
 

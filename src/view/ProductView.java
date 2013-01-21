@@ -251,7 +251,7 @@ public class ProductView extends JFrame {
     
     public void userLoggedIn(){
     	logButton.setText("Logout");
-    	loginLabel.setText("Welcome " + Main.name);
+    	loginLabel.setText("Welcome " + Main.current_user.getName());
     	loginLabel.setVisible(true);
     }
     

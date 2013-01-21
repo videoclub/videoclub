@@ -421,3 +421,23 @@ Type model.Order is not enhanced.
 [2013-01-14 15:00:53 #6 type] 
 Type model.Product is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-14 17:05:27 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2189@larry-notebook
+
+[2013-01-14 17:05:27 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-14 17:05:27 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-14 17:05:27 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-14 17:05:27 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-14 17:05:27 #6 type] 
+Type model.Product is not enhanced.
+

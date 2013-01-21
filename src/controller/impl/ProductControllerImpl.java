@@ -136,7 +136,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	//Skata ton ekana... sorry!!!
 	class Log implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        	if (Main.name == null) {
+        	if (Main.current_user == null) {
         		//Create and show a new JDialog to enable adding a new movie
         		LoginView dialog = new LoginView(new JFrame(), false);
         		dialog.setVisible(true);
@@ -144,7 +144,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         		LoginController login_controller = new LoginController(dialog, pr_view);
         	}
         	else {
-        		Main.name = null;
+        		Main.current_user = null;
         		Main.rights = null;
         		pr_view.userLoggedOut();
         	}

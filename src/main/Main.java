@@ -98,5 +98,5 @@ public class Main {
 	
 	//Initialize static rights and name variable 
 	public static ArrayList<String> rights = null;
-	public static String name = null;
+	public static User current_user = null;
 }

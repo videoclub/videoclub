@@ -47,7 +47,7 @@ public class LoginController extends UserControllerImpl{
 		UserDao dao = new UserDaoImpl(em);
 		User user = dao.getUser(username);
 		if (user != null && user.getPassword().equalsIgnoreCase(password)){
-			Main.name = user.getName();
+			Main.current_user = user;
 			Main.rights = user.getProfile().getRightLabels();
 			userLoggedIn();
 			ProductController prc = new ProductControllerImpl();
@@ -60,7 +60,7 @@ public class LoginController extends UserControllerImpl{
 	
 	private void userLoggedIn() {
 		pr_view.userLoggedIn();
-        pr_view.getLoginLabel().setText("<html>Welcome <strong>" + Main.name + "</strong></html>");
+        pr_view.getLoginLabel().setText("<html>Welcome <strong>" + Main.current_user.getName() + "</strong></html>");
         showDetailsLabel();
         
 		if (userCanManageProduct()){

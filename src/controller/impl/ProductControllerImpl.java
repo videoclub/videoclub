@@ -37,6 +37,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	protected ManageProductView manage_pr_view;
 	private ArrayList<Object> get_product;
 	private Product set_product;
+	private int row;
 
 	//private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
 	//private EntityManager em = emf.createEntityManager();
@@ -155,9 +156,10 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 
 		public void actionPerformed(ActionEvent e) {
         	//Instantiate a new product
-        	get_product = new ArrayList<Object>();
-        	String title = pr_view.getSearchField().getText();
-        	get_product = getOne(title);
+			get_product = new ArrayList<Object>();
+	        String title = pr_view.getSearchField().getText();
+	        String type = "DVD"; //tha allaksei. tha pernei apo radio button.
+	        get_product = getOne(title, type);
             try {
             	showProductDetails();
             }
@@ -174,7 +176,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
     	//Create and show a new JDialog to show product details
     	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, get_product);
     	//enableRentBindButton(dialog);
-    	ProductDetailsController pr_det_controller = new ProductDetailsControllerImpl(dialog, get_product.get(6));
+    	ProductDetailsController pr_det_controller = new ProductDetailsControllerImpl(pr_dao, pr_view, dialog, get_product, row);
     	dialog.setVisible(true);
 	}
 	
@@ -184,48 +186,16 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 		public void mouseClicked(MouseEvent e) {
 			if (e.getClickCount() == 2) {
 		         JTable moviesTable = (JTable)e.getSource();
-		         int row = moviesTable.getSelectedRow();
-		         ArrayList<Object> product = getProduct(moviesTable, row);
-		         get_product = new ArrayList<Object>();
-		         String title = product.get(0).toString();
-		         get_product = getOne(title);
+		         row = moviesTable.getSelectedRow();
+		         get_product = getProduct(moviesTable, row);
 		         showProductDetails();
-		         //openEditProductView(product, row);
 			}
-		}
-
-		private void openEditProductView(ArrayList<Object> product, int row) {
-			//Create and show a new JDialog to enable adding a new movie
-        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false);
-            dialog.setVisible(true);
-            setEditView(dialog);
-            setEditViewFields(dialog, product);
-            //Create the appropriate controller to interact with the JDialog
-            ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view, row);
-		}
-
-		private void setEditView(ManageProductView dialog) {
-			dialog.getHeaderLabel().setText("Edit Movie");
-			dialog.getResetButton().setEnabled(false);
-			dialog.getResetButton().setVisible(false);
-			dialog.getSubmitButton().setEnabled(false);
-			dialog.getSubmitButton().setVisible(false);
-			dialog.getEditButton().setEnabled(true);
-			dialog.getEditButton().setVisible(true);
 		}
 
 		private ArrayList<Object> getProduct(JTable moviesTable, int row) {
 			String title = moviesTable.getValueAt(row, 0).toString();
-			return getOne(title);
-		}
-		
-		private void setEditViewFields(ManageProductView dialog, ArrayList<Object> product) {
-			dialog.getTitleField().setText(product.get(0).toString());
-			dialog.getGenreBox().setSelectedItem(product.get(1));
-			dialog.getRatingBox().setSelectedItem(product.get(2));
-			dialog.getYearBox().setSelectedItem(product.get(3).toString());
-			dialog.getTypeBox().setSelectedItem(product.get(4));
-			dialog.getDescription().setText(product.get(5).toString());
+			String type = moviesTable.getValueAt(row, 4).toString();
+			return getOne(title, type);
 		}
 
 		@Override
@@ -299,9 +269,9 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	}
 
 	@Override
-	public ArrayList<Object> getOne(String title) {
-		ArrayList<Object> oneProduct = pr_dao.getItemDetails(title);
-		return oneProduct;
+	 public ArrayList<Object> getOne(String title, String type) {
+		  ArrayList<Object> oneProduct = pr_dao.getItemDetails(title, type);
+		  return oneProduct;
 	}
 
 	@Override
@@ -323,6 +293,5 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	@Override
 	public void update(ArrayList<Object> item){
 		pr_dao.updateItem(item);
-    	getAll();
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -20,8 +21,8 @@ public class ProductDetailsView extends JDialog {
         this.setResizable(false);
     }
 
-    public JButton getEditButton() {
-    	return editButton;
+    public JLabel getTitleLabel() {
+    	return titleLabel;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -160,6 +161,18 @@ public class ProductDetailsView extends JDialog {
         );
 
         pack();
+    }
+    
+    public void addRentListener(ActionListener addMovie) {
+        rentButton.addActionListener(addMovie);
+    }
+    
+    public void addBindListener(ActionListener addMovie) {
+        bindButton.addActionListener(addMovie);
+    }
+    
+    public void addEditMovieListener(ActionListener search) {
+        editButton.addActionListener(search);
     }
     
     private void setStatusLabel() {

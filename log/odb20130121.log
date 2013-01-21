@@ -38,3 +38,72 @@ Type model.Order is not enhanced.
 [2013-01-21 19:42:35 #6 type] 
 Type model.Product is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-21 20:11:55 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 9-9)
+
+[2013-01-21 20:11:55 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3930@larry-notebook
+
+[2013-01-21 20:11:55 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-21 20:11:55 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-21 20:11:55 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-21 20:11:55 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-21 20:11:55 #7 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-21 20:15:28 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 10-10)
+
+[2013-01-21 20:15:28 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4036@larry-notebook
+
+[2013-01-21 20:15:28 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-21 20:15:28 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-21 20:15:28 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-21 20:15:28 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-21 20:15:28 #7 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-21 20:18:06 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 11-11)
+
+[2013-01-21 20:18:06 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4082@larry-notebook
+
+[2013-01-21 20:18:06 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-21 20:18:06 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-21 20:18:06 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-21 20:18:06 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-21 20:18:06 #7 type] 
+Type model.Product is not enhanced.
+

@@ -10,7 +10,6 @@ import javax.persistence.EntityManagerFactory;
 import main.Main;
 import model.Order;
 import model.Product;
-import model.User;
 import view.ManageProductView;
 import view.ProductDetailsView;
 import view.ProductView;
@@ -19,15 +18,11 @@ import controller.PersistenceController;
 import controller.ProductDetailsController;
 import dao.OrderDao;
 import dao.ProductDao;
-import dao.UserDao;
 import dao.impl.OrderDaoImpl;
 import dao.impl.ProductDaoImpl;
-import dao.impl.UserDaoImpl;
 
 public class ProductDetailsControllerImpl  extends ProductControllerImpl implements ProductDetailsController{
-	private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
-	private EntityManager em = emf.createEntityManager();
-
+	
 	public ProductDetailsControllerImpl(ProductDao dao, ProductView view, ProductDetailsView dialog, ArrayList<Object> pr, int row) {
 		pr_dao = dao;
 		pr_view = view;
@@ -56,17 +51,13 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
 	
 	class RentMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        	UserDao userDao = new UserDaoImpl(em);
-    		User user = (User) userDao.getItem("cust", "");
     		ProductDao productDao = new ProductDaoImpl(em);
     		Product prod = (Product) productDao.getItem(product.get(0).toString(), product.get(4).toString());
-    		Order order = new Order(user, prod);
+    		Order order = new Order(Main.current_user, prod);
     		OrderDao orderDao = new OrderDaoImpl(em);
     		orderDao.persist(order);
-    		ArrayList<Object> orders = new ArrayList<Object>();
-    		orders = orderDao.getAllItems();
-    		System.out.println(orders);
-    		
+    		toggleAvailability(productDao, prod);
+    		printOrders();
         }
 	}
 	
@@ -74,6 +65,20 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
         public void actionPerformed(ActionEvent e) {
         	//TODO Implement bind listener
         }
+	}
+	
+	public void toggleAvailability(ProductDao prDao, Product product) {
+		System.out.println(product.getAvailability());
+		prDao.toggleAvailability(product);
+		System.out.println(product.getAvailability());
+	}
+	
+	// ON DEVELOPMENT - Print orders to console for checking
+	private void printOrders() {
+		OrderDao orderDao = new OrderDaoImpl(em);
+		ArrayList<Object> orders = new ArrayList<Object>();
+		orders = orderDao.getAllItems();
+		System.out.println(orders);
 	}
 	
 	class EditMovie implements ActionListener {
@@ -112,6 +117,9 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
 		dialog.getDescription().setText(product.get(5).toString());
 	}
 	
+	private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
+	private EntityManager em = emf.createEntityManager();
+
 	private ProductDetailsView pr_details_view;
 	private ArrayList<Object> product;
 	private int tableRow;

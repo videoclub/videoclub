@@ -65,6 +65,12 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 		}
 		getEntityManager().getTransaction().commit();
 	}
+	
+	public void toggleAvailability (Product product) {
+		getEntityManager().getTransaction().begin();
+		product.setAvailability(!product.getAvailability());
+		getEntityManager().getTransaction().commit();
+	}
 
 	public ArrayList<Object> getByGenre(String genre) {
 		product_list = new ArrayList<Object>();

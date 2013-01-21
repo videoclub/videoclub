@@ -16,31 +16,18 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 	private User user;
 	private ArrayList<Object> user_list;
 	private ArrayList<Object> user_details;
-	
+
 	public UserDaoImpl(EntityManager em){
 		super.setEntityManager(em);
 	}
-	
-	//Following 2 methods are basically used on login
-	public User getUser(String username){
-		user = new User();
-		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
-		try {
-			user = query.getSingleResult();
-		}
-		catch (NoResultException e){
-			return null;
-		}
-		return user;
-	}
-	
+
 	public Profile getProfile(String username){
 		user = new User();
 		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
 		user = query.getSingleResult();
 		return user.getProfile();
 	}
-	
+
 	//get all users(show only user-name and email)
 	public ArrayList<Object> getAllItems() {
 		user_list = new ArrayList<Object>();
@@ -54,20 +41,19 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 	}
 
 	//get user details (search by user-name)
-	public ArrayList<Object> getItemDetails(String username) {
+	//PROSOXI! to arg2 profanws tha allaksei kai tha mpei analogos auto pou theloume. px profile klp
+	public ArrayList<Object> getItemDetails(String username, String arg2) {
 		user_details = new ArrayList<Object>();
-		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "' and u.arg2='" + arg2 + "'", User.class);
 		List<User> result = query.getResultList();
 		if (!result.isEmpty()) {
-			for (int i=0; i<result.size(); i++){
-				user_details.add(result.get(i).getUsername());
-				user_details.add((Profile)result.get(i).getProfile());
-				user_details.add(result.get(i).getName());
-				user_details.add(result.get(i).getEmail());
-				user_details.add(result.get(i).getPhone());
-			}
+			user_details.add(result.get(0).getUsername());
+			user_details.add((Profile)result.get(0).getProfile());
+			user_details.add(result.get(0).getName());
+			user_details.add(result.get(0).getEmail());
+			user_details.add(result.get(0).getPhone());
 		}
-		
+
 		return user_details;
 	}
 
@@ -140,6 +126,18 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 			user_details.add(result.get(i).getPhone());
 		}
 		return user_details;
+	}
+
+	public User getItem(String username, String password){
+		user = new User();
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
+		try {
+			user = query.getSingleResult();
+		}
+		catch (NoResultException e){
+			return null;
+		}
+		return user;
 	}
 
 }

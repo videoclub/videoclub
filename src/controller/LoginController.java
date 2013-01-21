@@ -45,7 +45,7 @@ public class LoginController extends UserControllerImpl{
 
 	private void checkLogin(String username, String password) { 
 		UserDao dao = new UserDaoImpl(em);
-		User user = dao.getUser(username);
+		User user = (User) dao.getItem(username, password);
 		if (user != null && user.getPassword().equalsIgnoreCase(password)){
 			Main.name = user.getName();
 			Main.rights = user.getProfile().getRightLabels();

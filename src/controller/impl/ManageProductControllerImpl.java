@@ -13,8 +13,6 @@ import dao.ProductDao;
 public class ManageProductControllerImpl extends ProductControllerImpl implements ManageProductController{
 
 	private int row;
-	//private ProductDao pr_dao;
-	//private ProductView pr_view;
 
 	// Controller Constructor for Add Movie Action
 	public ManageProductControllerImpl(ProductDao model, ManageProductView m_view, ProductView view) {
@@ -25,6 +23,7 @@ public class ManageProductControllerImpl extends ProductControllerImpl implement
         //... Add listeners to the view.
         m_view.addSubmitButtonListener(new SubmitListener());
         m_view.addResetButtonListener(new ResetListener());
+        //m_view.addEditButtonListener(new EditListener());
 	}
 	
 	// Controller Constructor for Edit Movie Action
@@ -48,8 +47,9 @@ public class ManageProductControllerImpl extends ProductControllerImpl implement
 
 		private void populateProduct() {
 			String title = manage_pr_view.getTitleField().getText();
-        	ArrayList<Object> movie = getOne(title);
-        	pr_view.addOne(movie);
+			String type = "DVD"; //tha allaksei auto. tha pernei to type apo kapoio radio button
+			ArrayList<Object> movie = getOne(title, type);
+			pr_view.addOne(movie);
 		}
 		
 		private void updateNotice() {

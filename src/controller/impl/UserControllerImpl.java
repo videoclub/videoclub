@@ -20,7 +20,7 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 	}
 
 	@Override
-	public ArrayList<Object> getOne(String title) {
+	public ArrayList<Object> getOne(String username, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

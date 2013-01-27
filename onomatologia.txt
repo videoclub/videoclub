@@ -1,0 +1,69 @@
+Onomatologies entities kai twn pediwn(fields) tous
+Gia set kai access: se ola setField() getField(), 
+ektos apo to id kai to order_number pou bazoume mono getField().
+Se parentheseis einai ta references gia ta @ManyToOne / @ManyToMany etc
+
+-----------------------------------------
+
+Entity Product
+long id
+String title
+String description
+String genre
+String rating
+int year (eixame pei date, alla kalitera int 
+mias k hdh to exoume proxorisei etsi 
+k den exei kai poly zaloura me format klp)
+String type
+boolean availability
+Date create_date
+Date edit_date
+
+----------------------------------------
+
+Entity User
+long id
+String username
+String password
+String name
+String email
+String phone
+(ArrayList<Order> orders)
+
+-----------------------------------------
+
+Entity Order
+long order_number
+Date order_date
+Date return_date
+(Product product)
+(User user)
+
+-----------------------------------------
+
+Entity Profile
+long id
+String label
+(ArrayList<Right> rights)
+
+-----------------------------------------
+
+Entity Right
+long id
+String label
+(ArrayList<Profile> granded_to)
+
+-----------------------------------------
+
+Profile - Labels
+employee
+customer
+
+-----------------------------------------
+
+Right - Labels
+show_product (employee/customer)
+manage_product (employee)
+manage_customer (employee)
+
+-----------------------------------------

@@ -1,0 +1,2117 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:38:44 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2252@larry-notebook
+
+[2013-01-13 13:38:45 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:38:45 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:38:45 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:38:45 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:38:45 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:43:46 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2332@larry-notebook
+
+[2013-01-13 13:43:47 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:43:47 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:43:47 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:43:47 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:43:47 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:44:15 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2372@larry-notebook
+
+[2013-01-13 13:44:15 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:44:15 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:44:15 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:44:15 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:44:15 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:48:42 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2478@larry-notebook
+
+[2013-01-13 13:48:42 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:48:42 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:48:42 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:48:42 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:48:42 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:49:35 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2536@larry-notebook
+
+[2013-01-13 13:49:35 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:49:35 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:49:35 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:49:35 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:49:35 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:51:59 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2621@larry-notebook
+
+[2013-01-13 13:51:59 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:51:59 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:51:59 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:51:59 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:51:59 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:54:56 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 2985@larry-notebook
+
+[2013-01-13 13:54:56 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:54:56 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:54:56 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:54:56 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:54:56 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:56:29 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3042@larry-notebook
+
+[2013-01-13 13:56:29 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:56:29 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:56:29 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:56:29 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:56:29 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:57:00 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3152@larry-notebook
+
+[2013-01-13 13:57:00 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:57:00 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:57:00 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:57:00 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:57:00 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 13:57:19 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3201@larry-notebook
+
+[2013-01-13 13:57:19 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 13:57:19 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 13:57:19 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 13:57:19 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 13:57:19 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:01:12 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3874@larry-notebook
+
+[2013-01-13 14:01:12 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:01:12 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:01:12 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:01:12 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:01:12 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:03:41 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 3978@larry-notebook
+
+[2013-01-13 14:03:41 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:03:41 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:03:41 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:03:41 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:03:41 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:04:07 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4016@larry-notebook
+
+[2013-01-13 14:04:08 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:04:08 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:04:08 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:04:08 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:04:08 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:06:33 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4065@larry-notebook
+
+[2013-01-13 14:06:33 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:06:33 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:06:33 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:06:33 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:06:33 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:07:27 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4116@larry-notebook
+
+[2013-01-13 14:07:27 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:07:27 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:07:27 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:07:27 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:07:27 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:07:54 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4158@larry-notebook
+
+[2013-01-13 14:07:55 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:07:55 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:07:55 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:07:55 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:07:55 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:09:07 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4207@larry-notebook
+
+[2013-01-13 14:09:08 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:09:08 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:09:08 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:09:08 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:09:08 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:09:57 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4254@larry-notebook
+
+[2013-01-13 14:09:57 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:09:57 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:09:57 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:09:57 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:09:57 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:10:58 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4300@larry-notebook
+
+[2013-01-13 14:10:59 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:10:59 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:10:59 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:10:59 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:10:59 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:11:42 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4338@larry-notebook
+
+[2013-01-13 14:11:42 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:11:42 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:11:42 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:11:42 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:11:42 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:13:21 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4425@larry-notebook
+
+[2013-01-13 14:13:21 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:13:21 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:13:21 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:13:21 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:13:21 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:13:57 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4468@larry-notebook
+
+[2013-01-13 14:13:58 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:13:58 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:13:58 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:13:58 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:13:58 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:18:45 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4564@larry-notebook
+
+[2013-01-13 14:18:45 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:18:45 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:18:45 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:18:45 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:18:45 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:26:52 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4673@larry-notebook
+
+[2013-01-13 14:26:52 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:26:52 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:26:52 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:26:52 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:26:52 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:30:31 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4779@larry-notebook
+
+[2013-01-13 14:30:31 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:30:31 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:30:31 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:30:31 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:30:31 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:31:01 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4819@larry-notebook
+
+[2013-01-13 14:31:01 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:31:01 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:31:01 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:31:01 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:31:01 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:31:22 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4857@larry-notebook
+
+[2013-01-13 14:31:22 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:31:22 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:31:22 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:31:22 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:31:22 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:32:34 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4919@larry-notebook
+
+[2013-01-13 14:32:34 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:32:34 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:32:34 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:32:34 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:32:34 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:33:00 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 4960@larry-notebook
+
+[2013-01-13 14:33:00 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:33:00 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:33:00 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:33:00 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:33:00 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:35:29 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5044@larry-notebook
+
+[2013-01-13 14:35:29 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:35:29 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:35:29 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:35:29 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:35:29 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:39:12 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5108@larry-notebook
+
+[2013-01-13 14:39:12 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:39:12 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:39:12 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:39:12 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:39:12 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:41:10 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5181@larry-notebook
+
+[2013-01-13 14:41:10 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:41:10 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:41:10 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:41:10 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:41:10 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:42:23 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5209@larry-notebook
+
+[2013-01-13 14:42:23 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:42:23 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:42:23 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:42:23 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:42:23 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:50:40 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5351@larry-notebook
+
+[2013-01-13 14:50:40 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:50:40 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:50:40 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:50:40 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:50:40 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:52:51 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5405@larry-notebook
+
+[2013-01-13 14:52:51 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:52:51 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:52:51 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:52:51 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:52:51 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:55:09 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5455@larry-notebook
+
+[2013-01-13 14:55:09 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:55:09 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:55:09 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:55:09 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:55:09 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:56:39 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5499@larry-notebook
+
+[2013-01-13 14:56:40 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:56:40 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:56:40 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:56:40 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:56:40 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 14:59:18 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5553@larry-notebook
+
+[2013-01-13 14:59:18 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 14:59:18 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 14:59:18 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 14:59:18 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 14:59:18 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:05:41 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5676@larry-notebook
+
+[2013-01-13 15:05:42 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:05:42 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:05:42 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:05:42 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:05:42 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:08:07 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5739@larry-notebook
+
+[2013-01-13 15:08:07 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:08:07 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:08:07 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:08:07 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:08:07 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:10:34 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5803@larry-notebook
+
+[2013-01-13 15:10:34 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:10:34 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:10:34 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:10:34 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:10:34 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:22:59 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 5880@larry-notebook
+
+[2013-01-13 15:22:59 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:22:59 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:23:00 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:23:00 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:23:00 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:30:04 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6085@larry-notebook
+
+[2013-01-13 15:30:04 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:30:04 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:30:04 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:30:04 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:30:04 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:33:15 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6194@larry-notebook
+
+[2013-01-13 15:33:15 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:33:15 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:33:15 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:33:15 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:33:15 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:34:12 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6246@larry-notebook
+
+[2013-01-13 15:34:12 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:34:12 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:34:12 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:34:12 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:34:12 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:34:33 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6273@larry-notebook
+
+[2013-01-13 15:34:33 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:34:33 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:34:33 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:34:33 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:34:33 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:39:03 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6349@larry-notebook
+
+[2013-01-13 15:39:03 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:39:03 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:39:03 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:39:03 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:39:03 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:40:10 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6398@larry-notebook
+
+[2013-01-13 15:40:10 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:40:10 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:40:10 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:40:10 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:40:10 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:41:12 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6445@larry-notebook
+
+[2013-01-13 15:41:12 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:41:13 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:41:13 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:41:13 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:41:13 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:43:54 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6528@larry-notebook
+
+[2013-01-13 15:43:54 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:43:54 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:43:54 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:43:54 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:43:54 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:44:10 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6555@larry-notebook
+
+[2013-01-13 15:44:11 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:44:11 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:44:11 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:44:11 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:44:11 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:46:22 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6600@larry-notebook
+
+[2013-01-13 15:46:22 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:46:22 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:46:22 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:46:22 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:46:22 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:46:54 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6634@larry-notebook
+
+[2013-01-13 15:46:55 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:46:55 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:46:55 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:46:55 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:46:55 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:48:53 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6692@larry-notebook
+
+[2013-01-13 15:48:54 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:48:54 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:48:54 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:48:54 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:48:54 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:52:45 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6758@larry-notebook
+
+[2013-01-13 15:52:45 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:52:45 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:52:45 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:52:45 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:52:45 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:53:37 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6797@larry-notebook
+
+[2013-01-13 15:53:37 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:53:37 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:53:37 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:53:37 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:53:37 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:56:26 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6854@larry-notebook
+
+[2013-01-13 15:56:26 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:56:26 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:56:26 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:56:26 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:56:26 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 15:57:02 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 6889@larry-notebook
+
+[2013-01-13 15:57:02 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 15:57:02 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 15:57:02 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 15:57:02 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 15:57:02 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:13:17 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7062@larry-notebook
+
+[2013-01-13 16:13:17 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:13:17 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:13:17 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:13:18 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:13:18 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:19:35 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7119@larry-notebook
+
+[2013-01-13 16:19:35 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:19:35 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:19:35 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:19:35 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:19:35 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:32:52 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7259@larry-notebook
+
+[2013-01-13 16:32:52 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:32:52 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:32:52 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:32:52 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:32:52 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:33:34 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7296@larry-notebook
+
+[2013-01-13 16:33:34 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:33:34 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:33:34 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:33:34 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:33:34 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:35:37 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7363@larry-notebook
+
+[2013-01-13 16:35:37 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:35:37 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:35:37 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:35:37 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:35:37 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:40:00 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7440@larry-notebook
+
+[2013-01-13 16:40:00 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:40:00 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:40:00 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:40:00 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:40:00 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:46:29 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7582@larry-notebook
+
+[2013-01-13 16:46:29 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:46:29 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:46:29 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:46:29 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:46:29 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:47:22 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7621@larry-notebook
+
+[2013-01-13 16:47:22 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:47:22 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:47:22 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:47:22 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:47:22 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:48:41 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7682@larry-notebook
+
+[2013-01-13 16:48:41 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:48:41 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:48:42 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:48:42 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:48:42 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:53:05 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7794@larry-notebook
+
+[2013-01-13 16:53:06 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:53:06 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:53:06 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:53:06 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:53:06 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 16:58:24 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7906@larry-notebook
+
+[2013-01-13 16:58:24 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 16:58:24 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 16:58:24 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 16:58:24 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 16:58:24 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:00:31 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7938@larry-notebook
+
+[2013-01-13 17:00:31 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:00:31 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:00:31 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:00:31 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:00:31 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:01:29 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 16-16)
+
+[2013-01-13 17:01:30 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 7968@larry-notebook
+
+[2013-01-13 17:01:30 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:01:30 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:01:30 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:01:30 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:01:30 #7 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:01:58 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8099@larry-notebook
+
+[2013-01-13 17:03:42 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is closed by 8099@larry-notebook
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:03:51 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8170@larry-notebook
+
+[2013-01-13 17:03:51 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:03:51 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:03:51 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:03:51 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:03:51 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:06:03 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8244@larry-notebook
+
+[2013-01-13 17:06:03 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:06:03 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:06:03 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:06:03 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:06:03 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:07:38 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 17-17)
+
+[2013-01-13 17:07:39 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8292@larry-notebook
+
+[2013-01-13 17:07:39 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:07:39 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:07:39 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:07:39 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:07:39 #7 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:08:43 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8335@larry-notebook
+
+[2013-01-13 17:08:43 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:08:43 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:08:43 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:08:43 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:08:43 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:10:14 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8391@larry-notebook
+
+[2013-01-13 17:10:14 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:10:14 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:10:14 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:10:14 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:10:14 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:11:01 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8425@larry-notebook
+
+[2013-01-13 17:11:01 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:11:01 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:11:01 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:11:01 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:11:01 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:13:11 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8481@larry-notebook
+
+[2013-01-13 17:13:11 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:13:11 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:13:11 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:13:11 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:13:11 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:13:39 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8510@larry-notebook
+
+[2013-01-13 17:13:39 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:13:39 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:13:39 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:13:39 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:13:39 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 17:35:19 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 8886@larry-notebook
+
+[2013-01-13 17:35:19 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 17:35:19 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 17:35:19 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 17:35:19 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 17:35:19 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:02:15 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 1-7)
+
+[2013-01-13 18:02:15 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9450@larry-notebook
+
+[2013-01-13 18:02:15 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:02:15 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:02:15 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:02:15 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:02:15 #7 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:03:40 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9498@larry-notebook
+
+[2013-01-13 18:03:40 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:03:40 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:03:40 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:03:40 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:03:40 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:05:12 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9537@larry-notebook
+
+[2013-01-13 18:05:12 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:05:12 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:05:12 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:05:12 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:05:12 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:09:35 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9629@larry-notebook
+
+[2013-01-13 18:09:35 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:09:35 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:09:35 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:09:35 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:09:35 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:11:40 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9710@larry-notebook
+
+[2013-01-13 18:11:40 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:11:40 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:11:40 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:11:40 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:11:40 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:12:58 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9772@larry-notebook
+
+[2013-01-13 18:12:58 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:12:58 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:12:58 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:12:58 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:12:58 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:13:49 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9825@larry-notebook
+
+[2013-01-13 18:13:49 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:13:49 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:13:49 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:13:49 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:13:49 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:16:00 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 9909@larry-notebook
+
+[2013-01-13 18:16:00 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:16:00 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:16:00 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:16:00 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:16:01 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:23:33 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10014@larry-notebook
+
+[2013-01-13 18:23:33 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:23:33 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:23:33 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:23:33 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:23:33 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:25:12 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10081@larry-notebook
+
+[2013-01-13 18:25:12 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:25:12 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:25:12 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:25:12 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:25:12 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:28:02 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10130@larry-notebook
+
+[2013-01-13 18:28:02 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:28:02 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:28:02 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:28:02 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:28:02 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:29:36 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10186@larry-notebook
+
+[2013-01-13 18:29:36 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:29:36 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:29:36 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:29:36 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:29:36 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:30:56 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10250@larry-notebook
+
+[2013-01-13 18:30:56 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:30:56 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:30:56 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:30:56 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:30:56 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:32:00 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10296@larry-notebook
+
+[2013-01-13 18:32:01 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:32:01 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:32:01 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:32:01 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:32:01 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:33:38 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10339@larry-notebook
+
+[2013-01-13 18:33:39 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:33:39 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:33:39 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:33:39 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:33:39 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:36:04 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10382@larry-notebook
+
+[2013-01-13 18:36:04 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:36:04 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:36:04 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:36:04 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:36:04 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:36:58 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10420@larry-notebook
+
+[2013-01-13 18:36:58 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:36:58 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:36:58 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:36:58 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:36:58 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:41:32 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10500@larry-notebook
+
+[2013-01-13 18:41:32 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:41:32 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:41:32 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:41:32 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:41:32 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:42:39 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10545@larry-notebook
+
+[2013-01-13 18:42:39 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:42:39 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:42:39 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:42:39 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:42:39 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:44:35 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10601@larry-notebook
+
+[2013-01-13 18:44:35 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:44:35 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:44:35 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:44:35 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:44:35 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:48:54 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10677@larry-notebook
+
+[2013-01-13 18:48:55 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:48:55 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:48:55 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:48:55 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:48:55 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:50:43 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10716@larry-notebook
+
+[2013-01-13 18:50:43 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:50:43 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:50:43 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:50:43 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:50:43 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:52:51 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10822@larry-notebook
+
+[2013-01-13 18:52:51 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:52:51 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:52:51 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:52:51 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:52:51 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 18:54:19 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 10882@larry-notebook
+
+[2013-01-13 18:54:19 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 18:54:19 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 18:54:19 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 18:54:19 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 18:54:19 #6 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-13 19:00:33 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 11014@larry-notebook
+
+[2013-01-13 19:00:33 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-13 19:00:33 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-13 19:00:33 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-13 19:00:33 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-13 19:00:33 #6 type] 
+Type model.Product is not enhanced.
+

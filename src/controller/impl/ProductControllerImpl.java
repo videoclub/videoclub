@@ -22,10 +22,12 @@ import controller.LoginController;
 import controller.ManageProductController;
 import controller.ProductController;
 import controller.ProductDetailsController;
+import controller.UserController;
 import view.LoginView;
 import view.ManageProductView;
 import view.ProductDetailsView;
 import view.ProductView;
+import view.UserView;
 import dao.ProductDao;
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
@@ -53,6 +55,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         
         //... Add listeners to the view.
         view.addNewMovieListener(new AddNewMovie());
+        view.addManageCustomerListener(new ManageCustomer());
         view.addSubmitSearchListener(new Search());
         view.addViewByBoxItemStateChanged(new ViewByBoxListener());
         view.addViewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
@@ -133,8 +136,21 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         }
 	}
 	
+	// TO BE IMPLEMENTED AFTER I (Lazaros) create the appropriate view
+	class ManageCustomer implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	// Create and show a new JDialog to view a list of customers
+        	// and be able to search and select any one of them for viewing/editing
+        	UserView dialog = new UserView(new JFrame(), false);
+        	dialog.setVisible(true);
+            //Create the appropriate controller to interact with the JDialog
+        	UserController user_controller = new UserControllerImpl(dialog);
+            
+        }
+	}
 	
-	//Skata ton ekana... sorry!!!
+	
+	// Login/logout user and toggle the button accordingly
 	class Log implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	if (Main.current_user == null) {
@@ -175,7 +191,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	private void showProductDetails() {
     	//Create and show a new JDialog to show product details
     	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, get_product);
-    	//enableRentBindButton(dialog);
+    	
     	ProductDetailsController pr_det_controller = new ProductDetailsControllerImpl(pr_dao, pr_view, dialog, get_product, row);
     	dialog.setVisible(true);
 	}

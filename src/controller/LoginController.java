@@ -48,7 +48,9 @@ public class LoginController extends UserControllerImpl{
 			Main.current_user = user;
 			Main.rights = user.getProfile().getRightLabels();
 			userLoggedIn();
+			// CHECK WHY THE HELL ARE YOU CREATING A NEW PR CONTROLLER
 			ProductController prc = new ProductControllerImpl();
+			// CHECK WHY THE HELL ARE YOU CREATING A NEW PR CONTROLLER
 			login_view.dispose();
 			return;
 		}

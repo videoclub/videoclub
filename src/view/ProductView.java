@@ -128,13 +128,13 @@ public class ProductView extends JFrame {
         addMovieButton.setEnabled(false);
         addMovieButton.setVisible(false);
         
-        manageCustomerButton.setText("Manage User");
+        manageCustomerButton.setText("Manage Users");
         manageCustomerButton.setEnabled(false);
         manageCustomerButton.setVisible(false);
 
         searchLabel.setText("Search By Title:");
 
-        searchButton.setText("Submit");
+        searchButton.setText("Search");
 
         noticeLabel.setFont(new Font("Ubuntu", 1, 14));
         noticeLabel.setVisible(false);
@@ -239,6 +239,10 @@ public class ProductView extends JFrame {
     
     public void addNewMovieListener(ActionListener addMovie) {
         addMovieButton.addActionListener(addMovie);
+    }
+    
+    public void addManageCustomerListener(ActionListener manageCustomer) {
+        manageCustomerButton.addActionListener(manageCustomer);
     }
     
     public void addSearchFieldFocusGained(FocusListener searchFocus) {

@@ -40,7 +40,7 @@ public class UserView extends JDialog {
     public UserView(Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setSize(700, 500);
+        this.setSize(700, 550);
         this.setResizable(false);
         location = parent.getLocation();
         this.setLocation(location.x, location.y + 200);
@@ -119,13 +119,12 @@ public class UserView extends JDialog {
         noticeLabel.setText("There are no results matching your search criteria.");
         noticeLabel.setVisible(false);        
 
-        uTableLabel.setFont(new Font("Ubuntu", 3, 18)); // NOI18N
+        uTableLabel.setFont(new Font("Ubuntu", 3, 24)); // NOI18N
         uTableLabel.setHorizontalAlignment(SwingConstants.CENTER);
         uTableLabel.setText("Customers List");
 
         searchLabel.setText("Search By Email:");
 
-        addUserButton.setFont(new Font("Ubuntu", 3, 15)); // NOI18N
         addUserButton.setText("Add New User");
         
         buttonsGroup.add(customerRadio);
@@ -189,8 +188,6 @@ public class UserView extends JDialog {
                 .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
-
-        pack();
     }
     
     public void addButtonsGroupItemStateChanged(ItemListener buttonsGroupOption) {
@@ -222,11 +219,11 @@ public class UserView extends JDialog {
     	userProfile = profile;
     }
     
-    public void addOne(ArrayList<Object> oneProduct) {
-		row[0] = oneProduct.get(0);
-        row[1] = oneProduct.get(1);
-        row[2] = oneProduct.get(2);
-        row[3] = oneProduct.get(3);
+    public void addOne(ArrayList<Object> oneUser) {
+		row[0] = oneUser.get(2);
+        row[1] = oneUser.get(3);
+        row[2] = oneUser.get(4);
+        row[3] = oneUser.get(0);
         model.addRow(row);
 	}
         
@@ -246,11 +243,11 @@ public class UserView extends JDialog {
     	}
     }
 
-	public void updateRow(int row, ArrayList<Object> product) {
-		usersTable.setValueAt(product.get(0), row, 0);
-		usersTable.setValueAt(product.get(1), row, 1);
-		usersTable.setValueAt(product.get(2), row, 2);
-		usersTable.setValueAt(product.get(3), row, 3);	
+	public void updateRow(int row, ArrayList<Object> user) {
+		usersTable.setValueAt(user.get(2), row, 0);
+		usersTable.setValueAt(user.get(3), row, 1);
+		usersTable.setValueAt(user.get(4), row, 2);
+		usersTable.setValueAt(user.get(6), row, 3);	
 	}
     
     // Variables declaration - do not modify

@@ -16,6 +16,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 	private User user;
 	private ArrayList<Object> user_list;
 	private ArrayList<Object> user_details;
+	private Profile profile;
 
 	public UserDaoImpl(EntityManager em){
 		super.setEntityManager(em);
@@ -26,6 +27,13 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + username + "'", User.class);
 		user = query.getSingleResult();
 		return user.getProfile();
+	}
+	
+	 public Profile getProfileFromLabel(String profileLabel) {
+		  profile = new Profile();
+		  TypedQuery<Profile> query = getEntityManager().createQuery("SELECT p FROM Profile p WHERE p.label='" + profileLabel + "'", Profile.class);
+		  profile = query.getSingleResult();
+		  return profile;
 	}
 	
 	public User getItem(String username, String password){
@@ -57,12 +65,9 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 	//get user details (search by user-name)
 	//PROSOXI! to arg2 profanws tha allaksei kai tha mpei analogos auto pou theloume. px profile klp
 	public ArrayList<Object> getItemDetails(String email, String profile) {
-		System.out.println(email);
-		System.out.println(profile);
 		user_details = new ArrayList<Object>();
 		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.email='" + email + "'", User.class);
 		List<User> result = query.getResultList();
-		System.out.println(result.get(0).getProfile().getLabel());
 		if (!result.isEmpty() && result.get(0).getProfile().getLabel().equalsIgnoreCase(profile)) {
 			user_details.add(result.get(0).getProfile().getLabel());
 			user_details.add(result.get(0).getId());
@@ -83,10 +88,11 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		getEntityManager().getTransaction().begin();
 		for (int i=0; i<result.size(); i++){
 			result.get(i).setUsername(user.get(0).toString());
-			result.get(i).setProfile((Profile) user.get(1));
+			result.get(i).setPassword(user.get(1).toString());
 			result.get(i).setName(user.get(2).toString());
 			result.get(i).setEmail(user.get(3).toString());
 			result.get(i).setPhone(user.get(4).toString());
+			result.get(i).setProfile((Profile) user.get(5));
 		}
 		getEntityManager().getTransaction().commit();
 	}

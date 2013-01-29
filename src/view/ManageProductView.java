@@ -26,6 +26,7 @@ public class ManageProductView extends JDialog {
         location = parent.getLocation();
         this.setLocation(location.x + 800, location.y + 0);
         this.setResizable(false);
+        this.setAlwaysOnTop(true);
     }
     
     //Methods to return the text of the fields 
@@ -113,13 +114,16 @@ public class ManageProductView extends JDialog {
         genreLabel.setText("Genre");
 
         yearBox.setModel(new DefaultComboBoxModel(populateYears()));
+        yearBox.setSelectedIndex(0);
 
         ratingBox.setModel(new DefaultComboBoxModel(populateRatings()));
-
+        ratingBox.setSelectedIndex(0);
+        
         titleLabel.setText("Title");
 
         genreBox.setModel(new DefaultComboBoxModel(populateGenres()));
-
+        genreBox.setSelectedIndex(0);
+        
         headerLabel.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
         headerLabel.setText("Add New Movie");

@@ -19,6 +19,7 @@ public class ProductDetailsView extends JDialog {
         location = parent.getLocation();
         this.setLocation(location.x + 140, location.y + 140);
         this.setResizable(false);
+        this.setAlwaysOnTop(true);
     }
 
     public JLabel getTitleLabel() {

@@ -21,6 +21,7 @@ public class LoginView extends JDialog {
         location = parent.getLocation();
         this.setLocation(location.x + 300, location.y + 200);
         this.setResizable(false);
+        this.setAlwaysOnTop(true);
     }
     
     // get() methods to give access to other classes

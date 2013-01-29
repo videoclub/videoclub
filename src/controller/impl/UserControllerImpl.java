@@ -16,19 +16,24 @@ import javax.persistence.EntityManagerFactory;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
+import model.Product;
+import model.Profile;
 import model.User;
 
 import view.LoginView;
 import view.ManageProductView;
+import view.ManageUserView;
 import view.ProductDetailsView;
 import view.ProductView;
 import view.UserDetailsView;
 import view.UserView;
 
 import controller.ManageProductController;
+import controller.ManageUserController;
 import controller.PersistenceController;
 import controller.ProductDetailsController;
 import controller.UserController;
+import controller.UserDetailsController;
 import controller.impl.ProductControllerImpl.AddNewMovie;
 import controller.impl.ProductControllerImpl.ButtonsGroupListener;
 import controller.impl.ProductControllerImpl.Log;
@@ -43,14 +48,14 @@ import dao.UserDao;
 import dao.impl.UserDaoImpl;
 
 public class UserControllerImpl extends ControllerImpl implements UserController {
-	
+
 	public UserControllerImpl() {
 		
 	}
 
 	public UserControllerImpl(UserView uView) {
-        userView = uView;
-        userDao = new UserDaoImpl(em);
+        user_view = uView;
+        user_dao = new UserDaoImpl(em);
         
         //... Add listeners to the view.
         uView.addNewUserListener(new AddNewUser());
@@ -58,6 +63,7 @@ public class UserControllerImpl extends ControllerImpl implements UserController
         uView.addSearchFieldFocusGained(new UserSearchFieldAdapter());
         uView.addMouseListener(new UserTableMouseAdapter());
         uView.addButtonsGroupItemStateChanged(new ButtonsGroupListener());
+        
         //getAllUsers to populate JTable
         getAll();
 	}
@@ -65,13 +71,11 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 	class AddNewUser implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	//Create and show a new JDialog to enable adding a new user
-        	
-        	//ManageUserView dialog = new ManageUserView(new JFrame(), false);
-            //dialog.setVisible(true);
+        	ManageUserView dialog = new ManageUserView(new JFrame(), false);
+            dialog.setVisible(true);
             
         	//Create the appropriate controller to interact with the JDialog
-            
-        	//ManageUserController m_user_controller = new ManageUserControllerImpl(userDao, dialog, userView);
+        	ManageUserController m_user_controller = new ManageUserControllerImpl(user_dao, dialog, user_view);
         }
 	}
 	
@@ -80,8 +84,8 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 		public void actionPerformed(ActionEvent e) {
         	//Instantiate a new user
 			get_user = new ArrayList<Object>();
-	        String email = userView.getSearchField().getText();
-	        String profile = userView.getUserProfile();
+	        String email = user_view.getSearchField().getText();
+	        String profile = user_view.getUserProfile();
 	        get_user = getOne(email, profile);
             
 	        try {
@@ -89,9 +93,9 @@ public class UserControllerImpl extends ControllerImpl implements UserController
             }
             //if no user matches the search criteria print a notice message 
             catch (IndexOutOfBoundsException ioe) {
-            	userView.getNoticeLabel().setText("There are no results matching your search criteria.");
-            	userView.getNoticeLabel().setForeground(Color.red.darker());
-            	userView.getNoticeLabel().setVisible(true);
+            	user_view.getNoticeLabel().setText("There are no results matching your search criteria.");
+            	user_view.getNoticeLabel().setForeground(Color.red.darker());
+            	user_view.getNoticeLabel().setVisible(true);
             }
         }
 	}
@@ -102,14 +106,14 @@ public class UserControllerImpl extends ControllerImpl implements UserController
     	
     	// TO BE IMPLEMENTED
 		//Create the appropriate controller to interact with the JDialog
-    	//UserDetailsController user_det_controller = new UserDetailsControllerImpl(userDao, userView, dialog, get_user, row);
+    	UserDetailsController user_det_controller = new UserDetailsControllerImpl(user_dao, user_view, dialog, get_user, row);
     	dialog.setVisible(true);
 	}
 	
 	class UserSearchFieldAdapter implements FocusListener {
         public void focusGained(FocusEvent e) {
         	//Notice label disappears when user is going to search for another movie
-			userView.getNoticeLabel().setVisible(false);
+			user_view.getNoticeLabel().setVisible(false);
 		}
         
         //Not to be used
@@ -123,10 +127,10 @@ public class UserControllerImpl extends ControllerImpl implements UserController
         public void itemStateChanged(ItemEvent e) {
         	//if statement because StateChange means unselecting a product AND selecting another one
         	if (e.getStateChange() == 1) {
-        		if (e.getSource() == userView.getCustomerRadio())
-        			userView.setUserProfile("customer");
-        		else if (e.getSource() == userView.getEmployeeRadio())
-        			userView.setUserProfile("employee");
+        		if (e.getSource() == user_view.getCustomerRadio())
+        			user_view.setUserProfile("customer");
+        		else if (e.getSource() == user_view.getEmployeeRadio())
+        			user_view.setUserProfile("employee");
         	}
        	}
     }
@@ -177,33 +181,48 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 	@Override
 	public void getAll() {
 		ArrayList<Object> allUsers = new ArrayList<Object>();
-		allUsers = userDao.getAllItems();
-		userView.showAll(allUsers);
+		allUsers = user_dao.getAllItems();
+		user_view.showAll(allUsers);
 	}
 
 	@Override
 	public ArrayList<Object> getOne(String email, String profile) {
-		ArrayList<Object> oneProduct = userDao.getItemDetails(email, profile);
+		ArrayList<Object> oneProduct = user_dao.getItemDetails(email, profile);
 		return oneProduct;
 	}
 
 	@Override
 	public void set() {
-		// TODO Auto-generated method stub
-		
+		setUser();
+	}
+	
+	private void setUser() {
+		set_user = new User();
+		set_user.setUsername(manage_user_view.getUsernameField().getText());
+		set_user.setPassword(manage_user_view.getPasswordField().getText());
+		set_user.setName(manage_user_view.getNameField().getText());
+		set_user.setEmail(manage_user_view.getEmailField().getText());
+		set_user.setPhone(manage_user_view.getPhoneField().getText());
+		Profile profile = user_dao.getProfileFromLabel(manage_user_view.getProfileBox().getSelectedItem().toString());
+		set_user.setProfile(profile);
+	    user_dao.persist(set_user);
 	}
 
 	@Override
 	public void update(ArrayList<Object> item) {
-		// TODO Auto-generated method stub
+		user_dao.updateItem(item);
 		
 	}
 	
 	private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
 	private EntityManager em = emf.createEntityManager();
 
-	private UserView userView;
-	private UserDao userDao;
+	protected UserView user_view;
+	protected UserDao user_dao;
+	protected ManageUserView manage_user_view;
+	
 	private ArrayList<Object> get_user;
 	private int row;
+	
+	private User set_user;
 }

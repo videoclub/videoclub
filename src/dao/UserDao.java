@@ -12,4 +12,5 @@ public interface UserDao extends Dao{
 	ArrayList<Object> searchByName(String name);
 	ArrayList<Object> searchByEmail(String email);
 	ArrayList<Object> searchByPhone(String phone);
+	Profile getProfileFromLabel(String profileLabel);
 }

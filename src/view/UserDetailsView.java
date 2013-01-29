@@ -30,6 +30,7 @@ public class UserDetailsView extends JDialog {
         location = parent.getLocation();
         this.setLocation(location.x + 700, location.y + 200);
         this.setResizable(false);
+        this.setAlwaysOnTop(true);
     }
 
     public JLabel getProfileAndIdLabel() {

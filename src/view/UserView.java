@@ -40,10 +40,10 @@ public class UserView extends JDialog {
     public UserView(Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setSize(800, 600);
+        this.setSize(700, 500);
         this.setResizable(false);
         location = parent.getLocation();
-        this.setLocation(location.x + 140, location.y + 140);
+        this.setLocation(location.x, location.y + 200);
     }
     
     public JTextField getSearchField(){

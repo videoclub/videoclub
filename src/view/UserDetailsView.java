@@ -28,7 +28,7 @@ public class UserDetailsView extends JDialog {
         this.user = user;
         initComponents();
         location = parent.getLocation();
-        this.setLocation(location.x + 140, location.y + 140);
+        this.setLocation(location.x + 700, location.y + 200);
         this.setResizable(false);
     }
 
@@ -72,8 +72,6 @@ public class UserDetailsView extends JDialog {
         phoneLabel.setText(user.get(4).toString());
         
         editButton.setText("Edit User");
-        editButton.setEnabled(false);
-        editButton.setVisible(false);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,11 +130,6 @@ public class UserDetailsView extends JDialog {
     public void addEditMovieListener(ActionListener search) {
         editButton.addActionListener(search);
     }
-
-	public void enableEditButton() {
-		editButton.setEnabled(true);
-        editButton.setVisible(true);
-	}
 
 	// Variables declaration
 	private JLabel idLabel;

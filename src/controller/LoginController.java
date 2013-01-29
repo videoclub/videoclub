@@ -5,15 +5,15 @@ import java.awt.event.ActionListener;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import controller.impl.ProductControllerImpl;
-import controller.impl.UserControllerImpl;
 
-import view.LoginView;
-import view.ProductView;
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
 import main.Main;
 import model.User;
+import view.LoginView;
+import view.ProductView;
+import controller.impl.ProductControllerImpl;
+import controller.impl.UserControllerImpl;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 
 public class LoginController extends UserControllerImpl{
 	private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
@@ -21,9 +21,7 @@ public class LoginController extends UserControllerImpl{
 	
 	private LoginView login_view;
 	private ProductView pr_view;
-	private ActionListener logout;
-	private ActionListener login;
-
+	
 	public LoginController(LoginView dialog, ProductView p_view) {
 		login_view = dialog;
 		pr_view = p_view;

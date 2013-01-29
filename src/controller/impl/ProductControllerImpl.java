@@ -17,20 +17,17 @@ import javax.swing.JTable;
 
 import main.Main;
 import model.Product;
-
-import controller.LoginController;
-import controller.ManageProductController;
-import controller.ProductController;
-import controller.ProductDetailsController;
-import controller.UserController;
 import view.LoginView;
 import view.ManageProductView;
 import view.ProductDetailsView;
 import view.ProductView;
 import view.UserView;
+import controller.LoginController;
+import controller.ManageProductController;
+import controller.ProductController;
+import controller.ProductDetailsController;
+import controller.UserController;
 import dao.ProductDao;
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
 
 public class ProductControllerImpl extends ControllerImpl implements ProductController{
 	
@@ -62,6 +59,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         view.addSearchFieldFocusGained(new SearchFieldAdapter());
         view.addMouseListener(new TableMouseAdapter());
         view.addLogListener(new Log());
+        view.addButtonsGroupItemStateChanged(new ButtonsGroupListener());
         //getAllProducts to populate JTable when user initially logged in
         getAll();
 	}
@@ -126,6 +124,18 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         }
 	}
 	
+	class ButtonsGroupListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+        	//if statement because StateChange means unselecting a product AND selecting another one
+        	if (e.getStateChange() == 1) {
+        		if (e.getSource() == pr_view.getDvdRadio())
+        			pr_view.setProductType("DVD");
+        		else if (e.getSource() == pr_view.getBluerayRadio())
+        			pr_view.setProductType("BlueRay");
+        	}
+       	}
+    }
+	
 	class AddNewMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	//Create and show a new JDialog to enable adding a new movie
@@ -174,7 +184,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         	//Instantiate a new product
 			get_product = new ArrayList<Object>();
 	        String title = pr_view.getSearchField().getText();
-	        String type = "DVD"; //tha allaksei. tha pernei apo radio button.
+	        String type = pr_view.getProductType();
 	        get_product = getOne(title, type);
             try {
             	showProductDetails();

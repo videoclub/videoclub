@@ -4,7 +4,7 @@
  */
 package view;
 
-import java.awt.*;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemListener;
@@ -12,10 +12,23 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import javax.swing.*;
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
-import dao.ProductDao;
 import main.Main;
 
 /**
@@ -23,7 +36,8 @@ import main.Main;
  * @author larry
  */
 public class ProductView extends JFrame {
-    /**
+
+	/**
      * Creates new form ProductView
      */
     public ProductView() {
@@ -68,6 +82,14 @@ public class ProductView extends JFrame {
     public JButton getManageCustomerButton(){
     	return this.manageCustomerButton;
     }
+    
+    public JRadioButton getDvdRadio(){
+    	return this.dvdRadio;
+    }
+    
+    public JRadioButton getBluerayRadio(){
+    	return this.bluerayRadio;
+    }
     // End of get() methods
 
     @SuppressWarnings("unchecked")
@@ -87,6 +109,9 @@ public class ProductView extends JFrame {
         loginLabel = new JLabel();
         logButton = new JButton();
         manageCustomerButton = new JButton();
+        buttonsGroup = new javax.swing.ButtonGroup();
+        dvdRadio = new JRadioButton();
+        bluerayRadio = new JRadioButton();
         
         moviesTable = new JTable(){
        	 public boolean isCellEditable(int row, int column){  
@@ -142,6 +167,15 @@ public class ProductView extends JFrame {
         showDetailsLabel.setFont(new Font("Ubuntu", 1, 14));
         showDetailsLabel.setText("Double-Click on a movie to view its details");
         showDetailsLabel.setVisible(false);
+        
+        buttonsGroup.add(dvdRadio);
+        dvdRadio.setText("DVD");
+        dvdRadio.setSelected(true);
+        
+        buttonsGroup.add(bluerayRadio);
+        bluerayRadio.setText("BlueRay");
+        
+        productType = "DVD";
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,10 +205,15 @@ public class ProductView extends JFrame {
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(searchButton, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(searchButton, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(dvdRadio)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(bluerayRadio))
                                     .addComponent(searchField, GroupLayout.PREFERRED_SIZE, 263, GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                     .addComponent(addMovieButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(manageCustomerButton, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE))
@@ -214,7 +253,10 @@ public class ProductView extends JFrame {
                             .addComponent(searchLabel)
                             .addComponent(searchField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton)))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchButton)
+                            .addComponent(dvdRadio)
+                            .addComponent(bluerayRadio))))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(noticeLabel, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(85, Short.MAX_VALUE))
@@ -227,6 +269,11 @@ public class ProductView extends JFrame {
     
     public void addViewByOptionBoxItemStateChanged(ItemListener viewByOption) {
         viewByOptionBox.addItemListener(viewByOption);
+    }
+    
+    public void addButtonsGroupItemStateChanged(ItemListener buttonsGroupOption) {
+        dvdRadio.addItemListener(buttonsGroupOption);
+        bluerayRadio.addItemListener(buttonsGroupOption);
     }
     
     public void addLogListener(ActionListener log) {
@@ -268,6 +315,14 @@ public class ProductView extends JFrame {
 		manageCustomerButton.setVisible(false);
 		logButton.setText("Login");
 	}
+    
+    public String getProductType(){
+    	return productType;
+    }
+    
+    public void setProductType(String type){
+    	productType = type;
+    }
     
     public void showAddMovieButton(){
     	addMovieButton.setEnabled(true);
@@ -369,11 +424,14 @@ public class ProductView extends JFrame {
 	private JLabel viewByLabel;
 	private JComboBox viewByOptionBox;
 	private JLabel loginLabel;
+	private ButtonGroup buttonsGroup;
+	private JRadioButton dvdRadio;
+	private JRadioButton bluerayRadio; 
 	  
 	private String[] columns = {"Title", "Genre", "Rating", "Release Year", "Type"};
-	  
 	private Object[] row = new Object[5];
-	    
 	private DefaultTableModel model = new DefaultTableModel(columns, 0);
+	
+	private String productType;
 	// End of variables declaration//GEN-END:variables
 }

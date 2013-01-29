@@ -9,13 +9,16 @@ import java.awt.Frame;
 import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -55,6 +58,14 @@ public class UserView extends JDialog {
     	return this.addUserButton;
     }
     
+    public JRadioButton getCustomerRadio(){
+    	return this.customerRadio;
+    }
+    
+    public JRadioButton getEmployeeRadio(){
+    	return this.employeeRadio;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +84,9 @@ public class UserView extends JDialog {
         usersTable = new JTable();
         searchLabel = new JLabel();
         addUserButton = new JButton();
+        buttonsGroup = new javax.swing.ButtonGroup();
+        customerRadio = new JRadioButton();
+        employeeRadio = new JRadioButton();
         
         setTitle("Video Club");
 
@@ -113,58 +127,76 @@ public class UserView extends JDialog {
 
         addUserButton.setFont(new Font("Ubuntu", 3, 15)); // NOI18N
         addUserButton.setText("Add New User");
+        
+        buttonsGroup.add(customerRadio);
+        customerRadio.setText("Customer");
+        customerRadio.setSelected(true);
+        
+        buttonsGroup.add(employeeRadio);
+        employeeRadio.setText("Employee");
+        
+        userProfile = "customer";
 
-        GroupLayout layout = new GroupLayout(getContentPane());
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tableScrollPane)
-                    .addComponent(uTableLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(uTableLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addUserButton)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchLabel)
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(searchButton, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(searchField, GroupLayout.PREFERRED_SIZE, 263, GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(noticeLabel)
-                                .addGap(0, 163, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(showDetailsLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(addUserButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchLabel)
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(customerRadio)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(employeeRadio))
+                                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(noticeLabel)))
+                            .addComponent(showDetailsLabel))
+                        .addGap(0, 151, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(uTableLabel)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(showDetailsLabel)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, GroupLayout.PREFERRED_SIZE, 359, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchLabel)
-                    .addComponent(searchField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addUserButton))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchButton)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(noticeLabel, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchButton)
+                    .addComponent(customerRadio)
+                    .addComponent(employeeRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noticeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-    }// </editor-fold>
+        pack();
+    }
     
+    public void addButtonsGroupItemStateChanged(ItemListener buttonsGroupOption) {
+        customerRadio.addItemListener(buttonsGroupOption);
+        employeeRadio.addItemListener(buttonsGroupOption);
+    }
     
     public void addSubmitSearchListener(ActionListener search) {
         searchButton.addActionListener(search);
@@ -180,6 +212,14 @@ public class UserView extends JDialog {
     
     public void addMouseListener(MouseListener tableDoubleClick){
     	usersTable.addMouseListener(tableDoubleClick);
+    }
+    
+    public String getUserProfile(){
+    	return userProfile;
+    }
+    
+    public void setUserProfile(String profile){
+    	userProfile = profile;
     }
     
     public void addOne(ArrayList<Object> oneProduct) {
@@ -223,10 +263,17 @@ public class UserView extends JDialog {
     private JLabel searchLabel;
     private JScrollPane tableScrollPane;
     private JLabel uTableLabel;
+    
     private String[] columns = {"Name", "Email", "Phone", "Profile"};
 	private Object[] row = new Object[5];	    
 	private DefaultTableModel model = new DefaultTableModel(columns, 0);
     
+	private ButtonGroup buttonsGroup;
+	private JRadioButton customerRadio;
+	private JRadioButton employeeRadio;
+	
+	private String userProfile;
+	
     private Point location;
     // End of variables declaration
 }

@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ import view.LoginView;
 import view.ManageProductView;
 import view.ProductDetailsView;
 import view.ProductView;
+import view.UserDetailsView;
 import view.UserView;
 
 import controller.ManageProductController;
@@ -27,6 +30,7 @@ import controller.PersistenceController;
 import controller.ProductDetailsController;
 import controller.UserController;
 import controller.impl.ProductControllerImpl.AddNewMovie;
+import controller.impl.ProductControllerImpl.ButtonsGroupListener;
 import controller.impl.ProductControllerImpl.Log;
 import controller.impl.ProductControllerImpl.ManageCustomer;
 import controller.impl.ProductControllerImpl.Search;
@@ -53,6 +57,7 @@ public class UserControllerImpl extends ControllerImpl implements UserController
         uView.addSubmitSearchListener(new UserSearch());
         uView.addSearchFieldFocusGained(new UserSearchFieldAdapter());
         uView.addMouseListener(new UserTableMouseAdapter());
+        uView.addButtonsGroupItemStateChanged(new ButtonsGroupListener());
         //getAllUsers to populate JTable
         getAll();
 	}
@@ -75,10 +80,10 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 		public void actionPerformed(ActionEvent e) {
         	//Instantiate a new user
 			get_user = new ArrayList<Object>();
-	        String username = userView.getSearchField().getText();
-	        get_user = getOne(username, null);
+	        String email = userView.getSearchField().getText();
+	        String profile = userView.getUserProfile();
+	        get_user = getOne(email, profile);
             
-	        /* TO BE IMPLEMENTED
 	        try {
             	showUserDetails();
             }
@@ -88,17 +93,17 @@ public class UserControllerImpl extends ControllerImpl implements UserController
             	userView.getNoticeLabel().setForeground(Color.red.darker());
             	userView.getNoticeLabel().setVisible(true);
             }
-            */
         }
 	}
 	
 	private void showUserDetails() {
     	//Create and show a new JDialog to show user details
-    	//UserDetailsView dialog = new UserDetailsView(new javax.swing.JFrame(), true, get_user);
+    	UserDetailsView dialog = new UserDetailsView(new javax.swing.JFrame(), true, get_user);
     	
+    	// TO BE IMPLEMENTED
 		//Create the appropriate controller to interact with the JDialog
     	//UserDetailsController user_det_controller = new UserDetailsControllerImpl(userDao, userView, dialog, get_user, row);
-    	//dialog.setVisible(true);
+    	dialog.setVisible(true);
 	}
 	
 	class UserSearchFieldAdapter implements FocusListener {
@@ -114,6 +119,18 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 		}
 	}
 	
+	class ButtonsGroupListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+        	//if statement because StateChange means unselecting a product AND selecting another one
+        	if (e.getStateChange() == 1) {
+        		if (e.getSource() == userView.getCustomerRadio())
+        			userView.setUserProfile("customer");
+        		else if (e.getSource() == userView.getEmployeeRadio())
+        			userView.setUserProfile("employee");
+        	}
+       	}
+    }
+	
 	class UserTableMouseAdapter implements MouseListener {
 
 		@Override
@@ -122,7 +139,7 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 		         JTable usersTable = (JTable)e.getSource();
 		         row = usersTable.getSelectedRow();
 		         get_user = getUser(usersTable, row);
-		         //showProductDetails();
+		         showUserDetails();
 			}
 		}
 
@@ -165,9 +182,9 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 	}
 
 	@Override
-	public ArrayList<Object> getOne(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Object> getOne(String email, String profile) {
+		ArrayList<Object> oneProduct = userDao.getItemDetails(email, profile);
+		return oneProduct;
 	}
 
 	@Override

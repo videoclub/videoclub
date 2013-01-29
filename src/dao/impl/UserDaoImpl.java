@@ -49,7 +49,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 			user_list.add(results.get(i).getName());
 			user_list.add(results.get(i).getEmail());
 			user_list.add(results.get(i).getPhone());
-			user_list.add(results.get(i).getPassword());			
+			user_list.add(results.get(i).getProfile().getLabel());			
 		}
 		return user_list;
 	}
@@ -57,14 +57,18 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 	//get user details (search by user-name)
 	//PROSOXI! to arg2 profanws tha allaksei kai tha mpei analogos auto pou theloume. px profile klp
 	public ArrayList<Object> getItemDetails(String email, String profile) {
+		System.out.println(email);
+		System.out.println(profile);
 		user_details = new ArrayList<Object>();
-		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.username='" + email + "' and u.arg2='" + profile + "'", User.class);
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.email='" + email + "'", User.class);
 		List<User> result = query.getResultList();
-		if (!result.isEmpty()) {
+		System.out.println(result.get(0).getProfile().getLabel());
+		if (!result.isEmpty() && result.get(0).getProfile().getLabel().equalsIgnoreCase(profile)) {
+			user_details.add(result.get(0).getProfile().getLabel());
+			user_details.add(result.get(0).getId());
 			user_details.add(result.get(0).getName());
 			user_details.add(result.get(0).getEmail());
 			user_details.add(result.get(0).getPhone());
-			user_details.add((Profile)result.get(0).getProfile());
 			user_details.add(result.get(0).getUsername());
 			user_details.add(result.get(0).getPassword());
 		}

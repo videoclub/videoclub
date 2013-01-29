@@ -47,7 +47,7 @@ public class ManageProductControllerImpl extends ProductControllerImpl implement
 
 		private void populateProduct() {
 			String title = manage_pr_view.getTitleField().getText();
-			String type = "DVD"; //tha allaksei auto. tha pernei to type apo kapoio radio button
+			String type = manage_pr_view.getTypeBox().getSelectedItem().toString();
 			ArrayList<Object> movie = getOne(title, type);
 			pr_view.addOne(movie);
 		}

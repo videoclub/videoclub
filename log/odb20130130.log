@@ -307,3 +307,49 @@ Type model.Order is not enhanced.
 [2013-01-30 02:09:23 #6 type] 
 Type model.Product is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-30 02:22:15 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 39-39)
+
+[2013-01-30 02:22:15 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 14725@larry-notebook
+
+[2013-01-30 02:22:15 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-30 02:22:15 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-30 02:22:15 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-30 02:22:15 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-30 02:22:15 #7 type] 
+Type model.Product is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-30 02:24:38 #1 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' has been recovered (tr. 40-40)
+
+[2013-01-30 02:24:38 #2 store] 
+Database '/home/larry/workspace/videoclub/db/videoclub.odb' is opened by 14780@larry-notebook
+
+[2013-01-30 02:24:39 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-30 02:24:39 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-30 02:24:39 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-30 02:24:39 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-30 02:24:39 #7 type] 
+Type model.Product is not enhanced.
+

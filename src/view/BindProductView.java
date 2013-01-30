@@ -7,6 +7,7 @@ package view;
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -45,6 +46,14 @@ public class BindProductView extends JDialog {
     
     public JTextField getSearchUserField() {
     	return searchUserField;
+    }
+    
+    public JLabel getNoticeLabel() {
+    	return noticeLabel;
+    }
+    
+    public JButton getBindButton() {
+    	return bindButton;
     }
 
     /**
@@ -155,6 +164,10 @@ public class BindProductView extends JDialog {
     
     public void addSearchUserListener(ActionListener searchUser) {
         searchButton.addActionListener(searchUser);
+    }
+    
+    public void addSearchFieldFocusGained(FocusListener searchUserFocus) {
+        searchUserField.addFocusListener(searchUserFocus);
     }
 
     // Variables declaration - do not modify

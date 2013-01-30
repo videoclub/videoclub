@@ -2,6 +2,8 @@ package controller.impl;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
@@ -14,6 +16,7 @@ import model.User;
 
 import controller.BindProductController;
 import controller.PersistenceController;
+import controller.impl.ProductControllerImpl.SearchFieldAdapter;
 
 import view.BindProductView;
 import view.ProductView;
@@ -34,6 +37,7 @@ public class BindProductControllerImpl extends ProductControllerImpl implements 
 		fillProductLabels();
 		pr_bind_view.addBindMovieListener(new BindMovie());
 		pr_bind_view.addSearchUserListener(new SearchUser());
+		pr_bind_view.addSearchFieldFocusGained(new SearchFieldAdapter());
 	}
 	
 	private void fillProductLabels() {
@@ -42,29 +46,39 @@ public class BindProductControllerImpl extends ProductControllerImpl implements 
 	}
 	
 	class SearchUser implements ActionListener {
-       
+
 		public void actionPerformed(ActionEvent e) {
         	UserDao userDao = new UserDaoImpl(em);
-        	User user = userDao.getUserByEmail(pr_bind_view.getSearchUserField().getText());
-	        Order order = new Order(user, product);
-    		OrderDao orderDao = new OrderDaoImpl(em);
-    		orderDao.persist(order);
-    		System.out.println(order.getUser().getUsername());
-    		System.out.println(order.getProduct().getTitle());
-    		printOrders();
+        	user = userDao.getUserByEmail(pr_bind_view.getSearchUserField().getText());
+        	if (user == null) {
+        		pr_bind_view.getNoticeLabel().setVisible(true);
+        	}
+        	else {
+        		pr_bind_view.getBindButton().setEnabled(true);
+        	}
+        		
         }
 	}
 	
-	private void printOrders() {
-		OrderDao orderDao = new OrderDaoImpl(em);
-		ArrayList<Object> orders = new ArrayList<Object>();
-		orders = orderDao.getAllItems();
-		System.out.println(orders);
+	class SearchFieldAdapter implements FocusListener {
+        public void focusGained(FocusEvent e) {
+        	//Notice label disappears when user is going to search for another movie
+			pr_bind_view.getNoticeLabel().setVisible(false);
+		}
+        
+        //Not to be used
+		public void focusLost(FocusEvent e) {
+			return;
+			
+		}
 	}
 
 	class BindMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            
+        	Order order = new Order(user, product);
+    		OrderDao orderDao = new OrderDaoImpl(em);
+    		orderDao.persist(order);
+    		toggleAvailability();
         }
 	}
 	
@@ -78,5 +92,6 @@ public class BindProductControllerImpl extends ProductControllerImpl implements 
 	
 	private BindProductView pr_bind_view;
 	private Product product;
+	private User user;
 	
 }

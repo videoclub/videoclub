@@ -39,7 +39,7 @@ public class Order {
 	public Order(){
 	}
 	
-	// Constructor#1 (without orderDate and returnDate)
+	// Constructor
 	public Order(User user, Product product) {
 		this.product = product;
 		this.setUser(user);

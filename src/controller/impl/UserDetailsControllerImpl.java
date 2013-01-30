@@ -31,7 +31,11 @@ public class UserDetailsControllerImpl  extends UserControllerImpl implements Us
 		user = u;
 		tableRow = row;
 		
-		user_details_view.addEditMovieListener(new EditUser());
+		if (userCanManageCustomers()) {
+			user_details_view.showEditButton();
+			
+			user_details_view.addEditMovieListener(new EditUser());
+		}
 	}
 	
 	class EditUser implements ActionListener {

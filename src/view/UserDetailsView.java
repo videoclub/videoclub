@@ -28,7 +28,8 @@ public class UserDetailsView extends JDialog {
         this.user = user;
         initComponents();
         location = parent.getLocation();
-        this.setLocation(location.x + 700, location.y + 200);
+        this.setLocation(location.x + 280, location.y + 180);
+        this.setSize(300, 180);
         this.setResizable(false);
         this.setAlwaysOnTop(true);
     }
@@ -36,6 +37,7 @@ public class UserDetailsView extends JDialog {
     public JLabel getProfileAndIdLabel() {
     	return idLabel;
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -73,6 +75,8 @@ public class UserDetailsView extends JDialog {
         phoneLabel.setText(user.get(4).toString());
         
         editButton.setText("Edit User");
+        editButton.setEnabled(false);
+        editButton.setVisible(false);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,12 +128,15 @@ public class UserDetailsView extends JDialog {
                 .addComponent(editButton)
                 .addGap(0, 19, Short.MAX_VALUE))
         );
-
-        pack();
-    }// </editor-fold>
+    }
     
     public void addEditMovieListener(ActionListener search) {
         editButton.addActionListener(search);
+    }
+    
+    public void showEditButton() {
+    	editButton.setEnabled(true);
+    	editButton.setVisible(true);
     }
 
 	// Variables declaration

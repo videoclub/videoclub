@@ -12,6 +12,8 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
@@ -19,28 +21,23 @@ import main.Main;
 import model.Product;
 import view.LoginView;
 import view.ManageProductView;
+import view.OrderView;
 import view.ProductDetailsView;
 import view.ProductView;
+import view.UserDetailsView;
 import view.UserView;
 import controller.LoginController;
 import controller.ManageProductController;
+import controller.OrderController;
+import controller.PersistenceController;
 import controller.ProductController;
 import controller.ProductDetailsController;
 import controller.UserController;
 import dao.ProductDao;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 
-public class ProductControllerImpl extends ControllerImpl implements ProductController{
-	
-	protected ProductDao pr_dao;
-	protected ProductView pr_view;
-	protected ManageProductView manage_pr_view;
-	private ArrayList<Object> get_product;
-	private Product set_product;
-	private int row;
-
-	//private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
-	//private EntityManager em = emf.createEntityManager();
-	
+public class ProductControllerImpl extends ControllerImpl implements ProductController{	
 	
 	public ProductControllerImpl(){
 		
@@ -53,12 +50,14 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         //... Add listeners to the view.
         view.addNewMovieListener(new AddNewMovie());
         view.addManageCustomerListener(new ManageCustomer());
+        view.addViewOrdersListener(new ViewOrders());
         view.addSubmitSearchListener(new Search());
         view.addViewByBoxItemStateChanged(new ViewByBoxListener());
         view.addViewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
         view.addSearchFieldFocusGained(new SearchFieldAdapter());
-        view.addMouseListener(new TableMouseAdapter());
+        view.addTableListener(new TableMouseAdapter());
         view.addLogListener(new Log());
+        view.addNameLabelListener(new NameMouseAdapter());
         view.addButtonsGroupItemStateChanged(new ButtonsGroupListener());
         //getAllProducts to populate JTable when user initially logged in
         getAll();
@@ -146,7 +145,6 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         }
 	}
 	
-	// TO BE IMPLEMENTED AFTER I (Lazaros) create the appropriate view
 	class ManageCustomer implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	// Create and show a new JDialog to view a list of customers
@@ -159,6 +157,16 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         }
 	}
 	
+	class ViewOrders implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	// Create and show a new JDialog to view a list of orders
+        	OrderView dialog = new OrderView(new JFrame(), false);
+        	dialog.setVisible(true);
+            //Create the appropriate controller to interact with the JDialog
+        	OrderController order_controller = new OrderControllerImpl(dialog);
+            
+        }
+	}
 	
 	// Login/logout user and toggle the button accordingly
 	class Log implements ActionListener {
@@ -176,6 +184,51 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         		pr_view.userLoggedOut();
         	}
         }
+	}
+	
+	class NameMouseAdapter implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (e.getClickCount() == 2) {
+		         showUserDetails();
+			}
+		}
+
+		private void showUserDetails() {
+			int nameLength = Main.current_user.getName().length();
+			UserDao uDao = new UserDaoImpl(em);
+			ArrayList<Object> user = new ArrayList<Object>();
+			String name = pr_view.getLoginLabel().getText().substring(22, 22+nameLength);
+			user = uDao.searchByName(name);
+			UserDetailsView dialog = new UserDetailsView(pr_view, false, user);
+			dialog.setVisible(true);
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 	
 	class Search implements ActionListener {
@@ -320,4 +373,14 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	public void update(ArrayList<Object> item){
 		pr_dao.updateItem(item);
 	}
+	
+	private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
+	private EntityManager em = emf.createEntityManager();
+	
+	protected ProductDao pr_dao;
+	protected ProductView pr_view;
+	protected ManageProductView manage_pr_view;
+	private ArrayList<Object> get_product;
+	private Product set_product;
+	private int row;
 }

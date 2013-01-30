@@ -123,14 +123,15 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		}
 		return user_details;
 	}
+	*/
 
 	public ArrayList<Object> searchByName(String name) {
 		user_details = new ArrayList<Object>();
 		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.name='" + name + "'", User.class);
 		List<User> result = query.getResultList();
 		for(int i=0;i<result.size();i++){
-			user_details.add(result.get(i).getUsername());
-			user_details.add(result.get(i).getProfile());
+			user_details.add(result.get(i).getProfile().getLabel());
+			user_details.add(result.get(i).getId());
 			user_details.add(result.get(i).getName());
 			user_details.add(result.get(i).getEmail());
 			user_details.add(result.get(i).getPhone());
@@ -138,6 +139,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		return user_details;
 	}
 
+	/*
 	public ArrayList<Object> searchByEmail(String email) {
 		user_details = new ArrayList<Object>();
 		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.email='" + email + "'", User.class);

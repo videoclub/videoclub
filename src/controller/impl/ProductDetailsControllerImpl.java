@@ -10,9 +10,11 @@ import javax.persistence.EntityManagerFactory;
 import main.Main;
 import model.Order;
 import model.Product;
+import view.BindProductView;
 import view.ManageProductView;
 import view.ProductDetailsView;
 import view.ProductView;
+import controller.BindProductController;
 import controller.ManageProductController;
 import controller.PersistenceController;
 import controller.ProductDetailsController;
@@ -50,36 +52,43 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
 	}
 	
 	class RentMovie implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-    		ProductDao productDao = new ProductDaoImpl(em);
-    		Product prod = (Product) productDao.getItem(product.get(0).toString(), product.get(4).toString());
+
+		public void actionPerformed(ActionEvent e) {
+    		prod = (Product) pr_dao.getItem(product.get(0).toString(), product.get(4).toString());
     		Order order = new Order(Main.current_user, prod);
     		OrderDao orderDao = new OrderDaoImpl(em);
     		orderDao.persist(order);
-    		toggleAvailability(productDao, prod);
-    		printOrders();
+    		toggleAvailability();
+    		// SHOW A DIALOG WITH INFO
+    		//printOrders();
         }
 	}
 	
 	class BindMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        	//TODO Implement bind listener
+    		Product prod = (Product) pr_dao.getItem(product.get(0).toString(), product.get(4).toString());
+        	BindProductView dialog = new BindProductView(new javax.swing.JFrame(), false);
+            //Create the appropriate controller to interact with the JDialog
+            BindProductController bind_pr_controller = new BindProductControllerImpl(pr_dao, dialog, pr_view, prod);
+            dialog.setVisible(true);
+            pr_details_view.dispose();
+            
         }
 	}
 	
-	public void toggleAvailability(ProductDao prDao, Product product) {
-		System.out.println(product.getAvailability());
-		prDao.toggleAvailability(product);
-		System.out.println(product.getAvailability());
+	public void toggleAvailability() {
+		pr_dao.toggleAvailability(prod);
 	}
 	
 	// ON DEVELOPMENT - Print orders to console for checking
+	/*
 	private void printOrders() {
 		OrderDao orderDao = new OrderDaoImpl(em);
 		ArrayList<Object> orders = new ArrayList<Object>();
 		orders = orderDao.getAllItems();
 		System.out.println(orders);
 	}
+	*/
 	
 	class EditMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -123,5 +132,7 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
 	private ProductDetailsView pr_details_view;
 	private ArrayList<Object> product;
 	private int tableRow;
+	
+	private Product prod;
 
 }

@@ -47,11 +47,23 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		}
 		return user;
 	}
+	
+	public User getUserByEmail(String email){
+		user = new User();
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.email='" + email + "'", User.class);
+		try {
+			user = query.getSingleResult();
+		}
+		catch (NoResultException e){
+			return null;
+		}
+		return user;
+	}
 
 	//get all users(show only user-name and email)
 	public ArrayList<Object> getAllItems() {
 		user_list = new ArrayList<Object>();
-		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u", User.class);
+		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u ORDER BY u.name", User.class);
 		List<User> results = query.getResultList();
 		for (int i=0; i<results.size(); i++) {
 			user_list.add(results.get(i).getName());
@@ -97,6 +109,7 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		getEntityManager().getTransaction().commit();
 	}
 
+	/*
 	public ArrayList<Object> searchByProfile(Profile profile) {
 		user_details = new ArrayList<Object>();
 		TypedQuery<User> query = getEntityManager().createQuery("SELECT u FROM User u WHERE u.profile='" + profile + "'", User.class);
@@ -152,5 +165,5 @@ public class UserDaoImpl extends DaoImpl implements UserDao{
 		}
 		return user_details;
 	}
-	
+	*/
 }

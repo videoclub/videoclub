@@ -164,12 +164,12 @@ public class ProductDetailsView extends JDialog {
         pack();
     }
     
-    public void addRentListener(ActionListener addMovie) {
-        rentButton.addActionListener(addMovie);
+    public void addRentListener(ActionListener rentMovie) {
+        rentButton.addActionListener(rentMovie);
     }
     
-    public void addBindListener(ActionListener addMovie) {
-        bindButton.addActionListener(addMovie);
+    public void addBindListener(ActionListener bindMovie) {
+        bindButton.addActionListener(bindMovie);
     }
     
     public void addEditMovieListener(ActionListener search) {

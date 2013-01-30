@@ -36,9 +36,6 @@ public class Main {
 		
 		User u0 = new User("admin", "admin", p0, "Admin", "admin@videoclub.com", "1234567890");
 		
-// ATTENTION: FOR USE DURING DEVELOPMENT! REMOVE THE NEXT LINE BEFORE RELEASE!!!
-		User u1 = new User("cust", "cust", p1, "Customer", "cust@videoclub.com", "1234567890");
-		
 		//Check if profile and right data are already persistent in the database
 		TypedQuery<Profile> check_query = em.createQuery("SELECT p FROM Profile p", Profile.class);
 		List<Profile> all_profiles = check_query.getResultList();
@@ -57,8 +54,6 @@ public class Main {
 		    em.persist(r1);
 		    em.persist(r2);
 		    em.persist(u0);
-// ATTENTION: FOR USE DURING DEVELOPMENT! REMOVE THE NEXT LINE BEFORE RELEASE!!!
-		    em.persist(u1);
 		    em.getTransaction().commit();
 		}
 	}

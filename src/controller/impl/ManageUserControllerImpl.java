@@ -45,6 +45,7 @@ public class ManageUserControllerImpl extends UserControllerImpl implements Mana
         	set();
         	populateProduct();
         	updateNotice();
+        	manage_user_view.dispose();
         }
 
 		private void populateProduct() {
@@ -71,13 +72,8 @@ public class ManageUserControllerImpl extends UserControllerImpl implements Mana
 	class EditListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	ArrayList<Object> user = new ArrayList<Object>();
-        	user.add(manage_user_view.getUsernameField().getText());
-        	user.add(manage_user_view.getPasswordField().getText());
-        	user.add(manage_user_view.getNameField().getText());
-        	user.add(manage_user_view.getEmailField().getText());
-        	user.add(manage_user_view.getPhoneField().getText());
         	Profile profile = user_dao.getProfileFromLabel(manage_user_view.getProfileBox().getSelectedItem().toString());
-        	user.add(profile);
+        	user = getUserDetails(user, profile);
         	update(user);
         	
         	String profileLabel = profile.getLabel();
@@ -85,7 +81,18 @@ public class ManageUserControllerImpl extends UserControllerImpl implements Mana
         	
         	user_view.updateRow(row, user);
         	updateNotice(user.get(0).toString());
+        	manage_user_view.dispose();
         }
+
+		private ArrayList<Object> getUserDetails(ArrayList<Object> user, Profile profile) {
+			user.add(manage_user_view.getUsernameField().getText());
+        	user.add(manage_user_view.getPasswordField().getText());
+        	user.add(manage_user_view.getNameField().getText());
+        	user.add(manage_user_view.getEmailField().getText());
+        	user.add(manage_user_view.getPhoneField().getText());
+        	user.add(profile);
+        	return user;
+		}
 
 		private void updateNotice(String title) {
         	user_view.getNoticeLabel().setText(title + " successfully updated!");

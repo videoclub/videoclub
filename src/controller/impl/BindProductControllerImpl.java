@@ -79,6 +79,7 @@ public class BindProductControllerImpl extends ProductControllerImpl implements 
     		OrderDao orderDao = new OrderDaoImpl(em);
     		orderDao.persist(order);
     		toggleAvailability();
+    		pr_bind_view.dispose();
         }
 	}
 	

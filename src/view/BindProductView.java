@@ -76,6 +76,7 @@ public class BindProductView extends JDialog {
         bindButton = new JButton();
         searchButton = new JButton();
 
+        this.setTitle("Video Club");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         dialogHeader.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N

@@ -73,7 +73,6 @@ public class OrderDaoImpl  extends DaoImpl implements OrderDao{
 		try{
 			List<Order> results = query.getResultList();
 			for(int i=0; i<results.size();i++){
-				//System.out.println(results.get(i).toString());
 				if(results.get(i).getReturnDate().before(now)){
 					String userRow = results.get(i).getUser().getEmail() + "(" +
 							results.get(i).getUser().getName() + ")";
@@ -86,7 +85,6 @@ public class OrderDaoImpl  extends DaoImpl implements OrderDao{
 					order_list.add(results.get(i).getOrderDate());
 					order_list.add(results.get(i).getReturnDate());
 					order_list.add(results.get(i).getReturned());
-					//System.out.println(results.get(i).toString());
 				}
 			}
 		}catch(NoResultException nre){
@@ -142,6 +140,68 @@ public class OrderDaoImpl  extends DaoImpl implements OrderDao{
 		return orderList;
 	}
 */
+	public ArrayList<Object> getOrderDetailsByProduct(String title, String type) {
+		order_list = new ArrayList<Object>();
+		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o", Order.class);
+		try{
+			List<Order> results = query.getResultList();
+			for(int i=0; i<results.size();i++){
+				if(title.equals(results.get(i).getProduct().getTitle())
+						&& type.equals(results.get(i).getProduct().getType())){
+					String userRow = results.get(i).getUser().getEmail() + "(" +
+							results.get(i).getUser().getName() + ")";
+					String productRow = results.get(i).getProduct().getTitle() + "(" +
+							results.get(i).getProduct().getType() + ")";
+		
+					order_list.add(results.get(i).getOrder_number());
+					order_list.add(productRow);
+					order_list.add(userRow);
+					order_list.add(results.get(i).getOrderDate());
+					order_list.add(results.get(i).getReturnDate());
+					order_list.add(results.get(i).getReturned());
+				}
+			}
+		}catch(NoResultException nre){
+			System.out.println(nre);
+			return null;
+		}catch(PersistenceException pe){
+			System.out.println(pe);
+			return null;
+		}
+		return order_list;
+	}
+
+	public ArrayList<Object> getOrderDetailsByUser(String email) {
+		order_list = new ArrayList<Object>();
+		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o", Order.class);
+		try{
+			List<Order> results = query.getResultList();
+			for(int i=0; i<results.size();i++){
+				//System.out.println(results.get(i).toString());
+				if(email.equals(results.get(i).getUser().getEmail())){
+					String userRow = results.get(i).getUser().getEmail() + "(" +
+							results.get(i).getUser().getName() + ")";
+					String productRow = results.get(i).getProduct().getTitle() + "(" +
+							results.get(i).getProduct().getType() + ")";
+		
+					order_list.add(results.get(i).getOrder_number());
+					order_list.add(productRow);
+					order_list.add(userRow);
+					order_list.add(results.get(i).getOrderDate());
+					order_list.add(results.get(i).getReturnDate());
+					order_list.add(results.get(i).getReturned());
+				}
+			}
+		}catch(NoResultException nre){
+			System.out.println(nre);
+			return null;
+		}catch(PersistenceException pe){
+			System.out.println(pe);
+			return null;
+		}
+		return order_list;
+	}
+	
 	@Override
 	public void updateItem(ArrayList<Object> Object) {
 	}
@@ -155,7 +215,7 @@ public class OrderDaoImpl  extends DaoImpl implements OrderDao{
 	public Order getItem(String orderNo, String arg2) {
 		order = new Order();
 		long orderNumber = Long.parseLong(orderNo);
-		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o WHERE o.order_number=" + orderNumber + "'", Order.class);
+		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o WHERE o.order_number=" + orderNumber, Order.class);
 		try {
 			order = query.getSingleResult();
 		}
@@ -165,4 +225,9 @@ public class OrderDaoImpl  extends DaoImpl implements OrderDao{
 		return order;
 	}
 
+	public void setAsReturned (Order order) {
+		getEntityManager().getTransaction().begin();
+		order.setReturned(true);
+		getEntityManager().getTransaction().commit();
+	}
 }

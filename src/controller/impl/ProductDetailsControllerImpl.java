@@ -59,8 +59,7 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
     		OrderDao orderDao = new OrderDaoImpl(em);
     		orderDao.persist(order);
     		toggleAvailability();
-    		// SHOW A DIALOG WITH INFO
-    		//printOrders();
+    		pr_details_view.dispose();
         }
 	}
 	
@@ -79,16 +78,6 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
 	public void toggleAvailability() {
 		pr_dao.toggleAvailability(prod);
 	}
-	
-	// ON DEVELOPMENT - Print orders to console for checking
-	/*
-	private void printOrders() {
-		OrderDao orderDao = new OrderDaoImpl(em);
-		ArrayList<Object> orders = new ArrayList<Object>();
-		orders = orderDao.getAllItems();
-		System.out.println(orders);
-	}
-	*/
 	
 	class EditMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {

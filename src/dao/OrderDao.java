@@ -10,4 +10,7 @@ public interface OrderDao extends Dao{
 	ArrayList<Object> getDelayedOrders();
 	//ArrayList<Order> getPendingOrdersByUser(User user);
 	//ArrayList<Order> getDelayedOrdersByUser(User user);
+	ArrayList<Object> getOrderDetailsByProduct(String title, String type);
+	ArrayList<Object> getOrderDetailsByUser(String email);
+	void setAsReturned(Order order);
 }

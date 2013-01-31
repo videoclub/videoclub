@@ -31,7 +31,7 @@ public class OrderView extends JFrame {
 	
     public OrderView(Frame parent, boolean modal) {
     	initComponents();
-        this.setSize(1000, 500);
+        this.setSize(1000, 550);
         this.setResizable(false);
         location = parent.getLocation();
         this.setLocation(location.x, location.y + 200);

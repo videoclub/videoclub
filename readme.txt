@@ -46,3 +46,8 @@ kai genika setarisma stis ypoloipes klasseis
 
 mai1226 - 31/01/2013 - 06.00
 Updates se model - dao - controller - view
+
+
+mai1226 - 31/01/2013 - 08.00
+Prosthiki model.SystemLogger , dao.SystemLoggerDao , dao.impl.SystemLoggerDaoImpl, sysaspect.SystemLog
+gia katagrafi twn kinisewn os pros tin efarmogi(system log).

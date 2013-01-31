@@ -42,7 +42,7 @@ public class ProductView extends JFrame {
      */
     public ProductView() {
         initComponents();
-        this.setSize(800, 600);
+        this.setSize(800, 650);
         this.setResizable(false);
     }
     

@@ -47,6 +47,7 @@ public class OrderControllerImpl extends ControllerImpl implements OrderControll
         
         //... Add listeners to the view.
         order_view.addDelayedOrdersListener(new DelayedOrdersListener());
+        order_view.addViewAllOrdersListener(new ViewAllOrdersListener());
         order_view.addOrdersTableListener(new TableMouseAdapter());
         
       //getAllOrders to populate JTable
@@ -58,6 +59,14 @@ public class OrderControllerImpl extends ControllerImpl implements OrderControll
         	ArrayList<Object> delayedOrders = new ArrayList<Object>();
     		delayedOrders = order_dao.getDelayedOrders();
     		order_view.showAll(delayedOrders);
+    		order_view.enableViewAllButton();
+        }
+	}
+	
+	class ViewAllOrdersListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	getAll();
+        	order_view.disableViewAllButton();
         }
 	}
 	
@@ -77,19 +86,21 @@ public class OrderControllerImpl extends ControllerImpl implements OrderControll
 			switch (column){
 				case 0:
 					showOrderDetails(ordersTable.getValueAt(row, 0).toString());
+					order_view.enableViewAllButton();
 					break;
 				case 1:
 					pr = new String[2];
 					pr = formatProduct(ordersTable.getValueAt(row, 1).toString());
 					getProductHistory(pr[0], pr[1]);
+					order_view.enableViewAllButton();
 					break;
 				case 2:
 					String email;
 					email = getEmail(ordersTable.getValueAt(row, 2).toString());
 					getUserHistory(email);
+					order_view.enableViewAllButton();
 					break;
 				default:
-					getAll();
 			
 			}
 		}

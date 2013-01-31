@@ -21,8 +21,33 @@ public aspect SystemLog {
 		now = new Date();
 		systemLogger = new SystemLogger();
 		systemLogger.setDatetime(now);
-		systemLogger.setAction("User Logged In");
-		systemLogger.setDetails("Email: " + Main.current_user.getEmail());
+		systemLogger.setAction("user logged in");
+		systemLogger.setDetails("email: " + Main.current_user.getEmail().toLowerCase());
+		addLog(systemLogger);
+	}
+	
+	pointcut movieAddedCall():
+		call(void controller.impl.ManageProductControllerImpl.SubmitListener.updateNotice());
+	
+	after(): movieAddedCall(){
+		now = new Date();
+		systemLogger = new SystemLogger();
+		systemLogger.setDatetime(now);
+		systemLogger.setAction("new movie added");
+		systemLogger.setDetails("title: " + " type: ");
+		addLog(systemLogger);
+	}
+	
+	pointcut movieEditedCall(String title):
+		call(void controller.impl.ManageProductControllerImpl.EditListener.updateNotice(String))
+		&& args(title);
+	
+	after(String title) returning: movieEditedCall(title){
+		now = new Date();
+		systemLogger = new SystemLogger();
+		systemLogger.setDatetime(now);
+		systemLogger.setAction("movie modified");
+		systemLogger.setDetails("title: " + title.toLowerCase() + " type: ");
 		addLog(systemLogger);
 	}
 	

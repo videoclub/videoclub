@@ -179,9 +179,9 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         		LoginController login_controller = new LoginController(dialog, pr_view);
         	}
         	else {
+        		pr_view.userLoggedOut();
         		Main.current_user = null;
         		Main.rights = null;
-        		pr_view.userLoggedOut();
         	}
         }
 	}

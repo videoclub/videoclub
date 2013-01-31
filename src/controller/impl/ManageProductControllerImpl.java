@@ -13,8 +13,6 @@ import dao.ProductDao;
 public class ManageProductControllerImpl extends ProductControllerImpl implements ManageProductController{
 
 	private int row;
-	//private ProductDao pr_dao;
-	//private ProductView pr_view;
 
 	// Controller Constructor for Add Movie Action
 	public ManageProductControllerImpl(ProductDao model, ManageProductView m_view, ProductView view) {
@@ -25,6 +23,7 @@ public class ManageProductControllerImpl extends ProductControllerImpl implement
         //... Add listeners to the view.
         m_view.addSubmitButtonListener(new SubmitListener());
         m_view.addResetButtonListener(new ResetListener());
+        //m_view.addEditButtonListener(new EditListener());
 	}
 	
 	// Controller Constructor for Edit Movie Action
@@ -44,12 +43,14 @@ public class ManageProductControllerImpl extends ProductControllerImpl implement
         	set();
         	populateProduct();
         	updateNotice();
+        	manage_pr_view.dispose();
         }
 
 		private void populateProduct() {
 			String title = manage_pr_view.getTitleField().getText();
-        	ArrayList<Object> movie = getOne(title);
-        	pr_view.showOne(movie);
+			String type = manage_pr_view.getTypeBox().getSelectedItem().toString();
+			ArrayList<Object> movie = getOne(title, type);
+			pr_view.addOne(movie);
 		}
 		
 		private void updateNotice() {
@@ -69,16 +70,22 @@ public class ManageProductControllerImpl extends ProductControllerImpl implement
 	class EditListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	ArrayList<Object> product = new ArrayList<Object>();
-        	product.add(manage_pr_view.getTitleField().getText());
+        	product = getProductDetails(product);
+        	update(product);
+        	pr_view.updateRow(row, product);
+        	updateNotice(product.get(0).toString());
+        	manage_pr_view.dispose();
+        }
+
+		private ArrayList<Object> getProductDetails(ArrayList<Object> product) {
+			product.add(manage_pr_view.getTitleField().getText());
         	product.add(manage_pr_view.getGenreBox().getSelectedItem().toString());
         	product.add(manage_pr_view.getRatingBox().getSelectedItem().toString());
         	product.add(manage_pr_view.getYearBox().getSelectedItem().toString());
         	product.add(manage_pr_view.getTypeBox().getSelectedItem().toString());
         	product.add(manage_pr_view.getDescription().getText());
-        	update(product);
-        	pr_view.updateRow(row, product);
-        	updateNotice(product.get(0).toString());
-        }
+        	return product;
+		}
 
 		private void updateNotice(String title) {
         	pr_view.getNoticeLabel().setText(title + " successfully updated!");

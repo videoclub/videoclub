@@ -10,28 +10,34 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Calendar;
 
-//import javax.swing.DefaultComboBoxModel;
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.swing.JFrame;
 import javax.swing.JTable;
 
-import controller.ManageProductController;
-import controller.ProductController;
-
+import main.Main;
+import model.Product;
+import view.LoginView;
 import view.ManageProductView;
+import view.OrderView;
 import view.ProductDetailsView;
 import view.ProductView;
+import view.UserDetailsView;
+import view.UserView;
+import controller.LoginController;
+import controller.ManageProductController;
+import controller.OrderController;
+import controller.PersistenceController;
+import controller.ProductController;
+import controller.ProductDetailsController;
+import controller.UserController;
 import dao.ProductDao;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 
-public class ProductControllerImpl extends ControllerImpl implements ProductController{
-	
-	//private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
-	//private EntityManager em = emf.createEntityManager();
-	
-	private ArrayList<Object> product;
-	protected ProductDao pr_dao;
-	protected ProductView pr_view;
-	protected ManageProductView manage_pr_view;
+public class ProductControllerImpl extends ControllerImpl implements ProductController{	
 	
 	public ProductControllerImpl(){
 		
@@ -43,31 +49,18 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         
         //... Add listeners to the view.
         view.addNewMovieListener(new AddNewMovie());
+        view.addManageCustomerListener(new ManageCustomer());
+        view.addViewOrdersListener(new ViewOrders());
         view.addSubmitSearchListener(new Search());
         view.addViewByBoxItemStateChanged(new ViewByBoxListener());
         view.addViewByOptionBoxItemStateChanged(new ViewByOptionBoxListener());
         view.addSearchFieldFocusGained(new SearchFieldAdapter());
-        view.addMouseListener(new TableMouseAdapter());
+        view.addTableListener(new TableMouseAdapter());
+        view.addLogListener(new Log());
+        view.addNameLabelListener(new NameMouseAdapter());
+        view.addButtonsGroupItemStateChanged(new ButtonsGroupListener());
         //getAllProducts to populate JTable when user initially logged in
         getAll();
-        
-        /*
-         * if user => employee 
-         */
-        showEditLabel();
-	}
-	
-	public ProductDao getPrDao() {
-		return pr_dao;
-	}
-
-	public ProductView getPrView() {
-		return pr_view;
-	}
-
-	private void showEditLabel() {
-		pr_view.getEditMovieLabel().setVisible(true);
-		
 	}
 
 	class ViewByBoxListener implements ItemListener {
@@ -75,21 +68,27 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         	//if statement because StateChange means unselecting a product AND selecting another one
         	if (e.getStateChange() == 1) {
         		//populate items in 2nd ComboBox based on 1st ComboBox selection
-        		switch (e.getItem().toString()){
-        			case "Genre":
+        		int view_by = pr_view.getViewByBox().getSelectedIndex();
+        		switch (view_by){
+        			case 1:
         				pr_view.populateGenres();
+        				getByGenre("Action");
         				break;
-        			case "Rating":
+        			case 2:
         				pr_view.populateRatings();
+        				getByRating("UR (Unrated)");
         				break;
-        			case "Year":
+        			case 3:
         				pr_view.populateYears();
+        				getByYear(Calendar.getInstance().get(Calendar.YEAR));
         				break;
-        			case "Type":
+        			case 4:
         				pr_view.populateTypes();
+        				getByType("DVD");
         				break;
         			default:
-        				pr_view.populateGenres();
+        				getAll();
+        				pr_view.getViewByOptionBox().setVisible(false);
         		}
         	}
         }
@@ -98,132 +97,113 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	class ViewByOptionBoxListener implements ItemListener {
         public void itemStateChanged(ItemEvent e) {
         	//String to check in switch statement to call appropriate method
-        	String view_by = pr_view.getViewByBox().getSelectedItem().toString();
-        	if (e.getStateChange() ==1) {
+        	int view_by = pr_view.getViewByBox().getSelectedIndex();
+        	if (e.getStateChange() == 1) {
         		switch (view_by){
-        			case "Genre":
+        			case 1:
         				//populate items based on genre selection in the 2nd ComboBox
         				getByGenre(e.getItem().toString());
         				break;
-        			case "Rating":
+        			case 2:
         				//populate items based on rating selection in the 2nd ComboBox
         				getByRating(e.getItem().toString());
         				break;
-        			case "Year":
+        			case 3:
         				//populate items based on year selection in the 2nd ComboBox
         				getByYear(Integer.parseInt(e.getItem().toString()));
         				break;
-        			case "Type":
+        			case 4:
         				//populate items based on type selection in the 2nd ComboBox
         				getByType(e.getItem().toString());
         				break;
         			default:
         				getAll();
-        				break;
         		}
         	}
         }
 	}
 	
+	class ButtonsGroupListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+        	//if statement because StateChange means unselecting a product AND selecting another one
+        	if (e.getStateChange() == 1) {
+        		if (e.getSource() == pr_view.getDvdRadio())
+        			pr_view.setProductType("DVD");
+        		else if (e.getSource() == pr_view.getBluerayRadio())
+        			pr_view.setProductType("BlueRay");
+        	}
+       	}
+    }
+	
 	class AddNewMovie implements ActionListener {
         public void actionPerformed(ActionEvent e) {
         	//Create and show a new JDialog to enable adding a new movie
-        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false, pr_dao);
+        	ManageProductView dialog = new ManageProductView(new JFrame(), false);
             dialog.setVisible(true);
             //Create the appropriate controller to interact with the JDialog
             ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view);
         }
 	}
 	
-	class Search implements ActionListener {
+	class ManageCustomer implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-        	//Instantiate a new product
-        	product = new ArrayList<Object>();
-        	String title = pr_view.getSearchField().getText();
-            product = getOne(title);
-            try {
-            	showProductDetails();
-            }
-            //if no product matches the search criteria print a notice message 
-            catch (IndexOutOfBoundsException ioe) {
-            	pr_view.getNoticeLabel().setText("There are no results matching your search criteria.");
-            	pr_view.getNoticeLabel().setForeground(Color.red.darker());
-            	pr_view.getNoticeLabel().setVisible(true);
-            }
-        }
-
-		private void showProductDetails() {
-			String type = getType();
-			//ATTENTION if both types are present it sets them concatenated only in this product instance. NOT in DB. 
-        	product.set(4, type);
-        	//Create and show a new JDialog to show product details
-        	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, product);
+        	// Create and show a new JDialog to view a list of customers
+        	// and be able to search and select any one of them for viewing/editing
+        	UserView dialog = new UserView(new JFrame(), false);
         	dialog.setVisible(true);
-        	
-        	//TO BE IMPLEMENTED for rent/bind button listeners
-        	
-        	//ProductDetailsControllerImpl pr_det_controller = new ProductDetailsControllerImpl(pr_model, dialog);
-			
-		}
+            //Create the appropriate controller to interact with the JDialog
+        	UserController user_controller = new UserControllerImpl(dialog);
+            
+        }
 	}
 	
-	class SearchFieldAdapter implements FocusListener {
-        public void focusGained(FocusEvent e) {
-        	//Notice label disappears when user is going to search for another movie
-			pr_view.getNoticeLabel().setVisible(false);
-		}
-        
-        //Not to be used
-		public void focusLost(FocusEvent e) {
-			return;
-			
-		}
+	class ViewOrders implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	// Create and show a new JDialog to view a list of orders
+        	OrderView dialog = new OrderView(new JFrame(), false);
+        	dialog.setVisible(true);
+            //Create the appropriate controller to interact with the JDialog
+        	OrderController order_controller = new OrderControllerImpl(dialog);
+            
+        }
 	}
 	
-	class TableMouseAdapter implements MouseListener {
+	// Login/logout user and toggle the button accordingly
+	class Log implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+        	if (Main.current_user == null) {
+        		//Create and show a new JDialog to enable adding a new movie
+        		LoginView dialog = new LoginView(new JFrame(), false);
+        		dialog.setVisible(true);
+        		//Create the appropriate controller to interact with the JDialog
+        		LoginController login_controller = new LoginController(dialog, pr_view);
+        	}
+        	else {
+        		Main.current_user = null;
+        		Main.rights = null;
+        		pr_view.userLoggedOut();
+        	}
+        }
+	}
+	
+	class NameMouseAdapter implements MouseListener {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if (e.getClickCount() == 2) {
-		         JTable moviesTable = (JTable)e.getSource();
-		         int row = moviesTable.getSelectedRow();
-		         ArrayList<Object> product = getProduct(moviesTable, row);
-		         openEditProductView(product, row);
+		         showUserDetails();
 			}
 		}
 
-		private void openEditProductView(ArrayList<Object> product, int row) {
-			//Create and show a new JDialog to enable adding a new movie
-        	ManageProductView dialog = new ManageProductView(new javax.swing.JFrame(), false, pr_dao);
-            dialog.setVisible(true);
-            setEditView(dialog);
-            setEditViewFields(dialog, product);
-            //Create the appropriate controller to interact with the JDialog
-            ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view, row);
-		}
-
-		private void setEditView(ManageProductView dialog) {
-			dialog.getHeaderLabel().setText("Edit Movie");
-			dialog.getResetButton().setEnabled(false);
-			dialog.getResetButton().setVisible(false);
-			dialog.getSubmitButton().setEnabled(false);
-			dialog.getSubmitButton().setVisible(false);
-			dialog.getEditButton().setEnabled(true);
-			dialog.getEditButton().setVisible(true);
-		}
-
-		private ArrayList<Object> getProduct(JTable moviesTable, int row) {
-			String title = moviesTable.getValueAt(row, 0).toString();
-			return getOne(title);
-		}
-		
-		private void setEditViewFields(ManageProductView dialog, ArrayList<Object> product) {
-			dialog.getTitleField().setText(product.get(0).toString());
-			dialog.getGenreBox().setSelectedItem(product.get(1));
-			dialog.getRatingBox().setSelectedItem(product.get(2));
-			dialog.getYearBox().setSelectedItem(product.get(3).toString());
-			dialog.getTypeBox().setSelectedItem(product.get(4));
-			dialog.getDescription().setText(product.get(5).toString());
+		private void showUserDetails() {
+			int nameLength = Main.current_user.getName().length();
+			UserDao uDao = new UserDaoImpl(em);
+			ArrayList<Object> user = new ArrayList<Object>();
+			String name = pr_view.getLoginLabel().getText().substring(22, 22+nameLength);
+			user = uDao.searchByName(name);
+			UserDetailsView dialog = new UserDetailsView(pr_view, false, user);
+			dialog.setVisible(true);
+			
 		}
 
 		@Override
@@ -250,40 +230,115 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 			
 		}
 	}
+	
+	class Search implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+        	//Instantiate a new product
+			get_product = new ArrayList<Object>();
+	        String title = pr_view.getSearchField().getText();
+	        String type = pr_view.getProductType();
+	        get_product = getOne(title, type);
+            try {
+            	showProductDetails();
+            }
+            //if no product matches the search criteria print a notice message 
+            catch (IndexOutOfBoundsException ioe) {
+            	pr_view.getNoticeLabel().setText("There are no results matching your search criteria.");
+            	pr_view.getNoticeLabel().setForeground(Color.red.darker());
+            	pr_view.getNoticeLabel().setVisible(true);
+            }
+        }
+	}
+	
+	private void showProductDetails() {
+    	//Create and show a new JDialog to show product details
+    	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, get_product);
+    	
+    	ProductDetailsController pr_det_controller = new ProductDetailsControllerImpl(pr_dao, pr_view, dialog, get_product, row);
+    	dialog.setVisible(true);
+	}
+	
+	class TableMouseAdapter implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (e.getClickCount() == 2) {
+		         JTable moviesTable = (JTable)e.getSource();
+		         row = moviesTable.getSelectedRow();
+		         get_product = getProduct(moviesTable, row);
+		         showProductDetails();
+			}
+		}
+
+		private ArrayList<Object> getProduct(JTable moviesTable, int row) {
+			String title = moviesTable.getValueAt(row, 0).toString();
+			String type = moviesTable.getValueAt(row, 4).toString();
+			return getOne(title, type);
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+	
+	class SearchFieldAdapter implements FocusListener {
+        public void focusGained(FocusEvent e) {
+        	//Notice label disappears when user is going to search for another movie
+			pr_view.getNoticeLabel().setVisible(false);
+		}
+        
+        //Not to be used
+		public void focusLost(FocusEvent e) {
+			return;
+			
+		}
+	}
 
 	//The following 4 methods are retrieving objects based on ComboBoxes selections
 	//and calling productView 's showPart method to populate them to the JTable
 	@Override
 	public void getByGenre(String genre) {
 		ArrayList<Object> products = pr_dao.getByGenre(genre);
-		pr_view.showPart(products);
+		pr_view.showAll(products);
 	}
 
 	@Override
 	public void getByRating(String rating) {
 		ArrayList<Object> products = pr_dao.getByRating(rating);
-		pr_view.showPart(products);
+		pr_view.showAll(products);
 	}
 
 	@Override
 	public void getByYear(int year) {
 		ArrayList<Object> products = pr_dao.getByYear(year);
-		pr_view.showPart(products);
+		pr_view.showAll(products);
 	}
 
 	@Override
 	public void getByType(String type) {
 		ArrayList<Object> products = pr_dao.getByType(type);
-		pr_view.showPart(products);
-	}
-	
-	private String getType() {
-		//if product is available in both formats concatenate them and show both
-		String type = product.get(4).toString();
-    	if (product.size() > 6) {
-    		type += ", " + product.get(10);
-    	}
-    	return type;
+		pr_view.showAll(products);
 	}
 	
 	@Override
@@ -293,9 +348,9 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 	}
 
 	@Override
-	public ArrayList<Object> getOne(String title) {
-		ArrayList<Object> oneProduct = pr_dao.getItemDetails(title);
-		return oneProduct;
+	 public ArrayList<Object> getOne(String title, String type) {
+		  ArrayList<Object> oneProduct = pr_dao.getItemDetails(title, type);
+		  return oneProduct;
 	}
 
 	@Override
@@ -304,19 +359,28 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
     }
 	
 	private void setProduct() {
-		product = new ArrayList<Object>();
-		product.add(manage_pr_view.getTitleField().getText());
-    	product.add(manage_pr_view.getGenreBox().getSelectedItem().toString());
-    	product.add(manage_pr_view.getRatingBox().getSelectedItem().toString());
-    	product.add(Integer.parseInt(manage_pr_view.getYearBox().getSelectedItem().toString()));
-    	product.add(manage_pr_view.getTypeBox().getSelectedItem().toString());
-    	product.add(manage_pr_view.getDescription().getText());
-    	pr_dao.persist(product);
+		set_product = new Product();
+		set_product.setTitle(manage_pr_view.getTitleField().getText());
+		set_product.setGenre(manage_pr_view.getGenreBox().getSelectedItem().toString());
+		set_product.setRating(manage_pr_view.getRatingBox().getSelectedItem().toString());
+		set_product.setYear(Integer.parseInt(manage_pr_view.getYearBox().getSelectedItem().toString()));
+		set_product.setType(manage_pr_view.getTypeBox().getSelectedItem().toString());
+		set_product.setDescription(manage_pr_view.getDescription().getText());
+	    pr_dao.persist(set_product);
 	}
 
 	@Override
 	public void update(ArrayList<Object> item){
 		pr_dao.updateItem(item);
-    	getAll();
 	}
+	
+	private EntityManagerFactory emf = PersistenceController.getInstance().getEntityManagerFactory();
+	private EntityManager em = emf.createEntityManager();
+	
+	protected ProductDao pr_dao;
+	protected ProductView pr_view;
+	protected ManageProductView manage_pr_view;
+	private ArrayList<Object> get_product;
+	private Product set_product;
+	private int row;
 }

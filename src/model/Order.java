@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
+
 @Entity
 public class Order {
 	@Id
@@ -35,22 +39,15 @@ public class Order {
 	public Order(){
 	}
 	
-	// Constructor#1 (without an orderDate)
-	public Order(User user, Product product, Date returnDate) {
+	// Constructor
+	public Order(User user, Product product) {
 		this.product = product;
 		this.setUser(user);
-		this.setOrderDate(new Date()); // Current system date and time is set as
-		// order_date
-		this.setReturnDate(returnDate);
-		this.returned = false;
-	}
-
-	// Constructor#2 (with an orderDate)
-	public Order(User user, Product product, Date orderDate, Date returnDate) {
-		this.product = product;
-		this.setUser(user);
-		this.setOrderDate(orderDate);
-		this.setReturnDate(returnDate);
+		Date now = new Date();
+		this.setOrderDate(now); // Current system date and time is set as
+		DateTime rDate = new DateTime(now);
+		LocalDate returnDate = rDate.toLocalDate().plusDays(2);
+		this.setReturnDate(returnDate.toDate());
 		this.returned = false;
 	}
 

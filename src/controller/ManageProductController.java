@@ -1,5 +1,5 @@
 package controller;
 
-public interface ManageProductController extends Controller{
+public interface ManageProductController extends ProductController{
 
 }

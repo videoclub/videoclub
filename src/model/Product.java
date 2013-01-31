@@ -2,7 +2,7 @@ package model;
 
 import javax.jdo.annotations.*;
 import javax.persistence.*; //Gia ta annotations - @Entity klp
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class Product {
@@ -36,6 +36,10 @@ public class Product {
 
 	//Empty constructor
 	public Product(){
+		this.availability = true;
+		Date now = new Date();
+		this.create_date = now;
+		this.edit_date = now;
 	}
 	
 	public long getId() {

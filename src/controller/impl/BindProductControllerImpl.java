@@ -4,22 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import main.Main;
 import model.Order;
 import model.Product;
 import model.User;
-
-import controller.BindProductController;
-import controller.PersistenceController;
-import controller.impl.ProductControllerImpl.SearchFieldAdapter;
-
 import view.BindProductView;
 import view.ProductView;
+import controller.BindProductController;
+import controller.PersistenceController;
 import dao.OrderDao;
 import dao.ProductDao;
 import dao.UserDao;

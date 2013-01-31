@@ -4,22 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-
-import main.Main;
-import view.ManageProductView;
 import view.ManageUserView;
-import view.ProductDetailsView;
-import view.ProductView;
 import view.UserDetailsView;
 import view.UserView;
-import controller.ManageProductController;
 import controller.ManageUserController;
-import controller.PersistenceController;
 import controller.UserDetailsController;
-import controller.impl.ProductDetailsControllerImpl.EditMovie;
-import dao.ProductDao;
 import dao.UserDao;
 
 public class UserDetailsControllerImpl  extends UserControllerImpl implements UserDetailsController {
@@ -50,7 +39,8 @@ public class UserDetailsControllerImpl  extends UserControllerImpl implements Us
         setEditView(dialog);
         setEditViewFields(dialog, user);
         //Create the appropriate controller to interact with the JDialog
-        ManageUserController m_user_controller = new ManageUserControllerImpl(user_dao, dialog, user_view, tableRow);
+        @SuppressWarnings("unused")
+		ManageUserController m_user_controller = new ManageUserControllerImpl(user_dao, dialog, user_view, tableRow);
         dialog.setVisible(true);
         user_details_view.dispose();
 	}

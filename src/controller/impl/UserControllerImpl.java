@@ -16,34 +16,15 @@ import javax.persistence.EntityManagerFactory;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
-import model.Product;
 import model.Profile;
 import model.User;
-
-import view.LoginView;
-import view.ManageProductView;
 import view.ManageUserView;
-import view.ProductDetailsView;
-import view.ProductView;
 import view.UserDetailsView;
 import view.UserView;
-
-import controller.ManageProductController;
 import controller.ManageUserController;
 import controller.PersistenceController;
-import controller.ProductDetailsController;
 import controller.UserController;
 import controller.UserDetailsController;
-import controller.impl.ProductControllerImpl.AddNewMovie;
-import controller.impl.ProductControllerImpl.ButtonsGroupListener;
-import controller.impl.ProductControllerImpl.Log;
-import controller.impl.ProductControllerImpl.ManageCustomer;
-import controller.impl.ProductControllerImpl.Search;
-import controller.impl.ProductControllerImpl.SearchFieldAdapter;
-import controller.impl.ProductControllerImpl.TableMouseAdapter;
-import controller.impl.ProductControllerImpl.ViewByBoxListener;
-import controller.impl.ProductControllerImpl.ViewByOptionBoxListener;
-import dao.ProductDao;
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
 
@@ -75,7 +56,8 @@ public class UserControllerImpl extends ControllerImpl implements UserController
             dialog.setVisible(true);
             
         	//Create the appropriate controller to interact with the JDialog
-        	ManageUserController m_user_controller = new ManageUserControllerImpl(user_dao, dialog, user_view);
+        	@SuppressWarnings("unused")
+			ManageUserController m_user_controller = new ManageUserControllerImpl(user_dao, dialog, user_view);
         }
 	}
 	
@@ -106,7 +88,8 @@ public class UserControllerImpl extends ControllerImpl implements UserController
     	
     	// TO BE IMPLEMENTED
 		//Create the appropriate controller to interact with the JDialog
-    	UserDetailsController user_det_controller = new UserDetailsControllerImpl(user_dao, user_view, dialog, get_user, row);
+    	@SuppressWarnings("unused")
+		UserDetailsController user_det_controller = new UserDetailsControllerImpl(user_dao, user_view, dialog, get_user, row);
     	dialog.setVisible(true);
 	}
 	
@@ -196,6 +179,7 @@ public class UserControllerImpl extends ControllerImpl implements UserController
 		setUser();
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void setUser() {
 		set_user = new User();
 		set_user.setUsername(manage_user_view.getUsernameField().getText());

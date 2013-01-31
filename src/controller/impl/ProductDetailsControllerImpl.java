@@ -21,7 +21,6 @@ import controller.ProductDetailsController;
 import dao.OrderDao;
 import dao.ProductDao;
 import dao.impl.OrderDaoImpl;
-import dao.impl.ProductDaoImpl;
 
 public class ProductDetailsControllerImpl  extends ProductControllerImpl implements ProductDetailsController{
 	
@@ -68,7 +67,8 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
     		Product prod = (Product) pr_dao.getItem(product.get(0).toString(), product.get(4).toString());
         	BindProductView dialog = new BindProductView(new javax.swing.JFrame(), false);
             //Create the appropriate controller to interact with the JDialog
-            BindProductController bind_pr_controller = new BindProductControllerImpl(pr_dao, dialog, pr_view, prod);
+            @SuppressWarnings("unused")
+			BindProductController bind_pr_controller = new BindProductControllerImpl(pr_dao, dialog, pr_view, prod);
             dialog.setVisible(true);
             pr_details_view.dispose();
             
@@ -91,7 +91,8 @@ public class ProductDetailsControllerImpl  extends ProductControllerImpl impleme
         setEditView(dialog);
         setEditViewFields(dialog, product);
         //Create the appropriate controller to interact with the JDialog
-        ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view, tableRow);
+        @SuppressWarnings("unused")
+		ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view, tableRow);
         dialog.setVisible(true);
         pr_details_view.dispose();
 	}

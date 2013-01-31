@@ -12,28 +12,13 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 
 import model.Order;
-import model.User;
-
 import view.ManageOrderView;
-import view.ManageProductView;
-import view.ManageUserView;
 import view.OrderView;
-import view.ProductView;
-import view.UserView;
-
 import controller.ManageOrderController;
-import controller.ManageProductController;
-import controller.ManageUserController;
 import controller.OrderController;
 import controller.PersistenceController;
-import controller.UserController;
-import controller.impl.ProductControllerImpl.TableMouseAdapter;
-import controller.impl.UserControllerImpl.AddNewUser;
 import dao.OrderDao;
-import dao.ProductDao;
-import dao.UserDao;
 import dao.impl.OrderDaoImpl;
-import dao.impl.UserDaoImpl;
 
 public class OrderControllerImpl extends ControllerImpl implements OrderController{
 
@@ -109,7 +94,8 @@ public class OrderControllerImpl extends ControllerImpl implements OrderControll
 			Order order = (Order) order_dao.getItem(orderNo, null);
 			ManageOrderView dialog = new ManageOrderView(new JFrame(), false);
             //Create the appropriate controller to interact with the JDialog
-            ManageOrderController m_pr_controller = new ManageOrderControllerImpl(order_dao, dialog, order_view, order, row);
+            @SuppressWarnings("unused")
+			ManageOrderController m_pr_controller = new ManageOrderControllerImpl(order_dao, dialog, order_view, order, row);
             dialog.setVisible(true);
 		}
 

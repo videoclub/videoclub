@@ -11,13 +11,11 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.LayoutStyle;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
@@ -27,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author larry
  */
+@SuppressWarnings("serial")
 public class OrderView extends JFrame {
 	
     public OrderView(Frame parent, boolean modal) {
@@ -37,7 +36,7 @@ public class OrderView extends JFrame {
         this.setLocation(location.x, location.y + 200);
     }
 
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
@@ -183,7 +182,8 @@ public class OrderView extends JFrame {
 	}
     
     // Variables declaration - do not modify
-    private ButtonGroup buttonsGroup;
+    @SuppressWarnings("unused")
+	private ButtonGroup buttonsGroup;
     private JButton delayedOrdersButton;
     private JLabel oTableLabel;
     private JLabel orderNoLabel;

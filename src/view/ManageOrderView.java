@@ -21,6 +21,7 @@ import javax.swing.WindowConstants;
  *
  * @author larry
  */
+@SuppressWarnings("serial")
 public class ManageOrderView extends JDialog {
 
     public ManageOrderView(Frame parent, boolean modal) {
@@ -33,7 +34,7 @@ public class ManageOrderView extends JDialog {
         this.setAlwaysOnTop(true);
     }
     
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 

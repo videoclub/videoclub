@@ -4,7 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * @author puppet
+ * @author greg
  * O PersistenceController anoigei ena kai monadiko
  * connection. PROSOXI! Oi ipoloipoi controllers 
  * (ProductController, UserController etc) den ton klhronomoun.
@@ -23,7 +23,6 @@ public class PersistenceController{
 	
 	protected void createEntityManagerFactory() {
 		this.emf = Persistence.createEntityManagerFactory("db/videoclub.odb");
-		//System.out.println("\nPersistence started at " + new java.util.Date());
 	}
 
 	public EntityManagerFactory getEntityManagerFactory() {
@@ -37,7 +36,6 @@ public class PersistenceController{
 		if (emf != null) {
 			emf.close();
 			emf = null;
-			//System.out.println("\nPersistence finished at " + new java.util.Date());
 		}
 	}
 

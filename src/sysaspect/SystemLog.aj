@@ -13,7 +13,6 @@ import dao.impl.SystemLoggerDaoImpl;
 
 public aspect SystemLog {
 	
-	
 	pointcut userLoggedInCall():
 		call(void controller.LoginController.userLoggedIn());
 	
@@ -34,7 +33,7 @@ public aspect SystemLog {
 		systemLogger = new SystemLogger();
 		systemLogger.setDatetime(now);
 		systemLogger.setAction("new movie added");
-		systemLogger.setDetails("title: " + " type: ");
+		systemLogger.setDetails("title: " + " - type: ");
 		addLog(systemLogger);
 	}
 	
@@ -47,11 +46,16 @@ public aspect SystemLog {
 		systemLogger = new SystemLogger();
 		systemLogger.setDatetime(now);
 		systemLogger.setAction("movie modified");
-		systemLogger.setDetails("title: " + title.toLowerCase() + " type: ");
+		systemLogger.setDetails("title: " + title.toLowerCase() + " - type: ");
 		addLog(systemLogger);
 	}
 	
-	
+	//pointcut gia logout
+	//pointcut gia adduser
+	//pointcut gia edituser
+	//pointcut gia rent movie
+	//pointcut gia bind movie
+	//pointcut gia return movie
 	
 	
 	

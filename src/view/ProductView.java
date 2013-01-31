@@ -14,7 +14,6 @@ import java.util.Calendar;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -23,7 +22,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
@@ -35,6 +33,7 @@ import main.Main;
  *
  * @author larry
  */
+@SuppressWarnings({"serial", "unchecked", "rawtypes" })
 public class ProductView extends JFrame {
 
 	/**
@@ -51,7 +50,7 @@ public class ProductView extends JFrame {
     	return searchField;
     }
     
-    public JComboBox getViewByOptionBox(){
+	public JComboBox getViewByOptionBox(){
     	return viewByOptionBox;
     }
     
@@ -96,7 +95,7 @@ public class ProductView extends JFrame {
     }
     // End of get() methods
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ })
     private void initComponents() {
 
         mTableLabel = new JLabel();

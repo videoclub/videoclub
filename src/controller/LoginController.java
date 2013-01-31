@@ -10,7 +10,6 @@ import main.Main;
 import model.User;
 import view.LoginView;
 import view.ProductView;
-import controller.impl.ProductControllerImpl;
 import controller.impl.UserControllerImpl;
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
@@ -46,9 +45,6 @@ public class LoginController extends UserControllerImpl{
 			Main.current_user = user;
 			Main.rights = user.getProfile().getRightLabels();
 			userLoggedIn();
-			// CHECK WHY THE HELL ARE YOU CREATING A NEW PR CONTROLLER
-			ProductController prc = new ProductControllerImpl();
-			// CHECK WHY THE HELL ARE YOU CREATING A NEW PR CONTROLLER
 			login_view.dispose();
 			return;
 		}

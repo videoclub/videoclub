@@ -2,8 +2,13 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.jdo.annotations.*;
-import javax.persistence.*;
+
+import javax.jdo.annotations.Unique;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Right implements Serializable {
@@ -17,6 +22,7 @@ public class Right implements Serializable {
 	@Basic(optional = false)
 	private String label;
 
+	@SuppressWarnings("unused")
 	@ManyToMany(mappedBy = "rights")
 	private ArrayList<Profile> granted_to;
 

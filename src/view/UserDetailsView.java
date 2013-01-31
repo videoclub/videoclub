@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Point;
@@ -11,8 +10,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
@@ -21,6 +18,7 @@ import javax.swing.WindowConstants;
  *
  * @author larry
  */
+@SuppressWarnings("serial")
 public class UserDetailsView extends JDialog {
     
 	public UserDetailsView(Frame parent, boolean modal, ArrayList<Object> user) {
@@ -38,7 +36,7 @@ public class UserDetailsView extends JDialog {
     	return idLabel;
     }
     
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

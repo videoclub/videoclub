@@ -2,28 +2,22 @@ package view;
 
 import java.awt.Point;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
 /**
  *
  * @author larry
  */
+@SuppressWarnings({"serial", "rawtypes"})
 public class ManageUserView extends JDialog {
 
     /**

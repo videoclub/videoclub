@@ -8,16 +8,23 @@ import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 
-import javax.swing.*;
-
-import dao.ProductDao;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author larry
  */
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
+@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
 public class ManageProductView extends JDialog {
 	
     public ManageProductView(java.awt.Frame parent, boolean modal) {

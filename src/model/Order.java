@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.joda.time.DateTime;
-import org.joda.time.Days;
 import org.joda.time.LocalDate;
 
 @Entity
@@ -39,7 +38,7 @@ public class Order {
 	public Order(){
 	}
 	
-	// Constructor
+	// Constructor #2
 	public Order(User user, Product product) {
 		this.product = product;
 		this.setUser(user);

@@ -10,9 +10,6 @@ import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import model.Order;
-import model.Product;
-import model.User;
-
 import dao.OrderDao;
 
 public class OrderDaoImpl  extends DaoImpl implements OrderDao{
@@ -47,25 +44,7 @@ public class OrderDaoImpl  extends DaoImpl implements OrderDao{
 		}
 		return order_list;
 	}
-/*
-	public ArrayList<Order> getPendingOrders() {
-		orderList = new ArrayList<Order>();
-		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o where o.order_date<o.return_date", Order.class);
-		try{
-			List<Order> results = query.getResultList();
-			for (int i=0; i<results.size(); i++) {
-				orderList.add(results.get(i));
-			}
-		}catch(NoResultException nre){
-			System.out.println(nre);
-			return null;
-		}catch(PersistenceException pe){
-			System.out.println(pe);
-			return null;
-		}
-		return orderList;
-	}
-*/
+
 	public ArrayList<Object> getDelayedOrders() {
 		now = new Date();
 		order_list = new ArrayList<Object>();
@@ -96,50 +75,7 @@ public class OrderDaoImpl  extends DaoImpl implements OrderDao{
 		}
 		return order_list;
 	}
-/*
-	public ArrayList<Order> getPendingOrdersByUser(User user) {
-		orderList = new ArrayList<Order>();
-		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o", Order.class);
-		try {
-			List<Order> results = query.getResultList();
-			for (int i=0; i<results.size(); i++) {
-				if(user.getEmail().equals(results.get(i).getUser().getEmail())){
-					orderList.add(results.get(i));
-				}
-			}
-		} catch (NoResultException nre){
-			System.out.println(nre);
-			return null;
-		} catch (PersistenceException pe){
-			System.out.println(pe);
-			return null;
-		}
-		return orderList;
-	}
-
-
-	public ArrayList<Order> getDelayedOrdersByUser(User user) {
-		now = new Date();
-		orderList = new ArrayList<Order>();
-		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o", Order.class);
-		try {
-			List<Order> results = query.getResultList();
-			for (int i=0; i<results.size(); i++) {
-				if(user.getEmail().equals(results.get(i).getUser().getEmail())
-						&& results.get(i).getReturnDate().before(now)){
-					orderList.add(results.get(i));
-				}
-			}
-		} catch (NoResultException nre){
-			System.out.println(nre);
-			return null;
-		} catch (PersistenceException pe){
-			System.out.println(pe);
-			return null;
-		}
-		return orderList;
-	}
-*/
+	
 	public ArrayList<Object> getOrderDetailsByProduct(String title, String type) {
 		order_list = new ArrayList<Object>();
 		TypedQuery<Order> query = getEntityManager().createQuery("SELECT o FROM Order o", Order.class);

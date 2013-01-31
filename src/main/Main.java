@@ -58,6 +58,7 @@ public class Main {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//set the Look and Feel
 		try {

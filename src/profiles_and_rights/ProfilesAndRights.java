@@ -9,6 +9,7 @@ import model.Right;
 public class ProfilesAndRights {
 	protected DaoImpl dao;
 	
+	@SuppressWarnings("unused")
 	public ProfilesAndRights(){
 		try {
 			TypedQuery<Profile> q2 = dao.getEntityManager().createQuery("SELECT p FROM Profile p", Profile.class);

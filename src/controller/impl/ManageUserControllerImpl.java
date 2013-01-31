@@ -6,17 +6,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import model.Profile;
-
-import view.ManageProductView;
 import view.ManageUserView;
-import view.ProductView;
 import view.UserView;
-
 import controller.ManageUserController;
-import controller.impl.ManageProductControllerImpl.EditListener;
-import controller.impl.ManageProductControllerImpl.ResetListener;
-import controller.impl.ManageProductControllerImpl.SubmitListener;
-import dao.ProductDao;
 import dao.UserDao;
 
 public class ManageUserControllerImpl extends UserControllerImpl implements ManageUserController {
@@ -84,6 +76,7 @@ public class ManageUserControllerImpl extends UserControllerImpl implements Mana
         	manage_user_view.dispose();
         }
 
+		@SuppressWarnings("deprecation")
 		private ArrayList<Object> getUserDetails(ArrayList<Object> user, Profile profile) {
 			user.add(manage_user_view.getUsernameField().getText());
         	user.add(manage_user_view.getPasswordField().getText());

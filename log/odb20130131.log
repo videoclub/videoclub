@@ -555,3 +555,120 @@ Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\d
 [2013-01-31 17:30:13 #3 store] 
 Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4596@quake
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-31 18:38:41 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4408@quake
+
+[2013-01-31 18:38:42 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-31 18:38:42 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-31 18:38:42 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-31 18:38:42 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-31 18:38:42 #6 type] 
+Type model.Product is not enhanced.
+
+[2013-01-31 18:38:42 #7 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-31 18:52:20 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 5524@quake
+
+[2013-01-31 18:52:20 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-31 18:52:20 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-31 18:52:20 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-31 18:52:20 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-31 18:52:20 #6 type] 
+Type model.Product is not enhanced.
+
+[2013-01-31 18:52:20 #7 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-31 18:59:19 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 57-63)
+
+[2013-01-31 18:59:20 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4924@quake
+
+[2013-01-31 18:59:20 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-31 18:59:20 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-01-31 18:59:20 #5 type] 
+Type model.User is not enhanced.
+
+[2013-01-31 18:59:20 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-01-31 18:59:20 #7 type] 
+Type model.Product is not enhanced.
+
+[2013-01-31 18:59:20 #8 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-31 19:08:52 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 64-65)
+
+[2013-01-31 19:08:52 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 2916@quake
+
+[2013-01-31 19:09:26 #3 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 2916@quake
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-31 19:09:34 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 5768@quake
+
+[2013-01-31 19:09:34 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-01-31 19:09:34 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-01-31 19:09:34 #4 type] 
+Type model.User is not enhanced.
+
+[2013-01-31 19:09:34 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-01-31 19:09:34 #6 type] 
+Type model.Product is not enhanced.
+
+[2013-01-31 19:09:34 #7 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-01-31 19:12:59 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 66-76)
+
+[2013-01-31 19:12:59 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4800@quake
+
+[2013-01-31 19:15:19 #3 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4800@quake
+

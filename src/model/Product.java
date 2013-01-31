@@ -1,8 +1,13 @@
 package model;
 
-import javax.jdo.annotations.*;
-import javax.persistence.*; //Gia ta annotations - @Entity klp
 import java.util.Date;
+
+import javax.jdo.annotations.Index;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Product {
@@ -30,11 +35,9 @@ public class Product {
 
 	private int year;
 	private String description;
+	private Date create_date;
+	private Date edit_date;
 	
-	private Date create_date, edit_date;
-	
-
-	//Empty constructor
 	public Product(){
 		this.availability = true;
 		Date now = new Date();

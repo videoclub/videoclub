@@ -141,7 +141,8 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         	ManageProductView dialog = new ManageProductView(new JFrame(), false);
             dialog.setVisible(true);
             //Create the appropriate controller to interact with the JDialog
-            ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view);
+            @SuppressWarnings("unused")
+			ManageProductController m_pr_controller = new ManageProductControllerImpl(pr_dao, dialog, pr_view);
         }
 	}
 	
@@ -152,7 +153,8 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         	UserView dialog = new UserView(new JFrame(), false);
         	dialog.setVisible(true);
             //Create the appropriate controller to interact with the JDialog
-        	UserController user_controller = new UserControllerImpl(dialog);
+        	@SuppressWarnings("unused")
+			UserController user_controller = new UserControllerImpl(dialog);
             
         }
 	}
@@ -163,7 +165,8 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         	OrderView dialog = new OrderView(new JFrame(), false);
         	dialog.setVisible(true);
             //Create the appropriate controller to interact with the JDialog
-        	OrderController order_controller = new OrderControllerImpl(dialog);
+        	@SuppressWarnings("unused")
+			OrderController order_controller = new OrderControllerImpl(dialog);
             
         }
 	}
@@ -176,7 +179,8 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
         		LoginView dialog = new LoginView(new JFrame(), false);
         		dialog.setVisible(true);
         		//Create the appropriate controller to interact with the JDialog
-        		LoginController login_controller = new LoginController(dialog, pr_view);
+        		@SuppressWarnings("unused")
+				LoginController login_controller = new LoginController(dialog, pr_view);
         	}
         	else {
         		pr_view.userLoggedOut();
@@ -255,7 +259,8 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
     	//Create and show a new JDialog to show product details
     	ProductDetailsView dialog = new ProductDetailsView(new javax.swing.JFrame(), true, get_product);
     	
-    	ProductDetailsController pr_det_controller = new ProductDetailsControllerImpl(pr_dao, pr_view, dialog, get_product, row);
+    	@SuppressWarnings("unused")
+		ProductDetailsController pr_det_controller = new ProductDetailsControllerImpl(pr_dao, pr_view, dialog, get_product, row);
     	dialog.setVisible(true);
 	}
 	
@@ -355,10 +360,6 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 
 	@Override
 	public void set(){
-    	setProduct();
-    }
-	
-	private void setProduct() {
 		set_product = new Product();
 		set_product.setTitle(manage_pr_view.getTitleField().getText());
 		set_product.setGenre(manage_pr_view.getGenreBox().getSelectedItem().toString());
@@ -367,7 +368,7 @@ public class ProductControllerImpl extends ControllerImpl implements ProductCont
 		set_product.setType(manage_pr_view.getTypeBox().getSelectedItem().toString());
 		set_product.setDescription(manage_pr_view.getDescription().getText());
 	    pr_dao.persist(set_product);
-	}
+    }
 
 	@Override
 	public void update(ArrayList<Object> item){

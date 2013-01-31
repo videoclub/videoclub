@@ -1,9 +1,15 @@
 package model;
 
 import java.util.ArrayList;
+
 import javax.jdo.annotations.Index;
 import javax.jdo.annotations.Unique;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -33,6 +39,7 @@ public class User {
 	@Basic(optional = false)
 	private String phone;
 
+	@SuppressWarnings("unused")
 	private @OneToMany(mappedBy = "user")
 	ArrayList<Order> orders;
 
@@ -101,30 +108,6 @@ public class User {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public ArrayList<Order> getOrders() {
-		return orders;
-	}
-
-	public ArrayList<Order> getActiveOrders() {
-		/*
-		 * if (orders == null) System.out.println("!!!");
-		 */
-
-		ArrayList<Order> activeOrders = new ArrayList<Order>();
-		for (Order o : orders)
-			if (!o.getReturned())
-				activeOrders.add(o);
-		return activeOrders;
-	}
-
-	public void setOrders(ArrayList<Order> orders) {
-		this.orders = orders;
-	}
-
-	public void addOrder(Order order) {
-		orders.add(order);
 	}
 
 }

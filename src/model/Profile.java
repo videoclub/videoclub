@@ -2,8 +2,13 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.persistence.*;
-import javax.jdo.annotations.*;
+
+import javax.jdo.annotations.Unique;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Profile implements Serializable {
@@ -20,12 +25,12 @@ public class Profile implements Serializable {
 	@ManyToMany
 	private ArrayList<Right> rights;
 
-	//Empty constructor
-	public Profile(){		
+	// Empty constructor
+	public Profile() {
 	}
-	
+
 	// Constructor
-	public Profile (String label) {
+	public Profile(String label) {
 		this.label = label;
 		rights = new ArrayList<Right>();
 	}
@@ -45,15 +50,8 @@ public class Profile implements Serializable {
 	public void grantRight(Right r) {
 		rights.add(r);
 	}
-	
-	
 
-	public ArrayList<Right> getRights() {
-		return this.rights;
-	}
-	
-	public ArrayList<String> getRightLabels()
-	{
+	public ArrayList<String> getRightLabels() {
 		ArrayList<String> rightLabels = new ArrayList<String>();
 		for (Right r : this.rights)
 			rightLabels.add(r.getLabel());

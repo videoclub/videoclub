@@ -37,7 +37,7 @@ public class ProductDaoImpl extends DaoImpl implements ProductDao{
 
 	public ArrayList<Object> getItemDetails(String title, String type) {
 		details = new ArrayList<Object>();
-		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.title like '%" + title + "%' and p.type='" + type + "'", Product.class);
+		TypedQuery<Product> query = getEntityManager().createQuery("SELECT p FROM Product p WHERE p.title='" + title + "' and p.type='" + type + "'", Product.class);
 		List<Product> result = query.getResultList();
 		if (!result.isEmpty()) {
 			details.add(result.get(0).getTitle());

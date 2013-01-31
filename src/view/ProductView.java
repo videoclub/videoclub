@@ -340,6 +340,8 @@ public class ProductView extends JFrame {
 		addMovieButton.setVisible(false);
 		manageCustomerButton.setEnabled(false);
 		manageCustomerButton.setVisible(false);
+		ordersButton.setEnabled(false);
+		ordersButton.setVisible(false);
 		logButton.setText("Login");
 	}
     

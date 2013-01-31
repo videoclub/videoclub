@@ -89,7 +89,7 @@ public class BindProductView extends JDialog {
 
         searchUserLabel.setText("Search for a user to bind this movie");
 
-        searchUserField.setText("user 's email");
+        searchUserField.setText("user email");
         
         searchButton.setText("Search User");
 

@@ -26,9 +26,6 @@ public aspect SystemLog {
 		addLog(systemLogger);
 	}
 	
-	pointcut newProduct():
-		call();
-	
 	
 	
 	

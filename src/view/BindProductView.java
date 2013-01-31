@@ -29,7 +29,7 @@ public class BindProductView extends JDialog {
     public BindProductView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setSize(400, 250);
+        this.setSize(400, 300);
         location = parent.getLocation();
         this.setLocation(location.x + 800, location.y + 0);
         this.setResizable(false);

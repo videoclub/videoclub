@@ -40,7 +40,7 @@ public class UserView extends JDialog {
     public UserView(Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setSize(700, 550);
+        this.setSize(700, 600);
         this.setResizable(false);
         location = parent.getLocation();
         this.setLocation(location.x, location.y + 200);

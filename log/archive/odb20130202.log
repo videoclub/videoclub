@@ -1,0 +1,294 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 12:11:27 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 5848@quake
+
+[2013-02-02 12:11:28 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-02-02 12:11:28 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-02-02 12:11:28 #4 type] 
+Type model.User is not enhanced.
+
+[2013-02-02 12:11:28 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-02-02 12:11:28 #6 type] 
+Type model.Product is not enhanced.
+
+[2013-02-02 12:11:28 #7 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 12:19:56 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 77-78)
+
+[2013-02-02 12:19:56 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4076@quake
+
+[2013-02-02 12:19:56 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-02-02 12:19:56 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-02-02 12:19:56 #5 type] 
+Type model.User is not enhanced.
+
+[2013-02-02 12:19:56 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-02-02 12:19:56 #7 type] 
+Type model.Product is not enhanced.
+
+[2013-02-02 12:19:56 #8 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 12:20:56 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 79-80)
+
+[2013-02-02 12:20:56 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 5864@quake
+
+[2013-02-02 12:20:56 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-02-02 12:20:56 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-02-02 12:20:56 #5 type] 
+Type model.User is not enhanced.
+
+[2013-02-02 12:20:56 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-02-02 12:20:56 #7 type] 
+Type model.Product is not enhanced.
+
+[2013-02-02 12:20:56 #8 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 12:22:56 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 81-81)
+
+[2013-02-02 12:22:56 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 2224@quake
+
+[2013-02-02 12:22:56 #3 type] 
+Type model.Profile is not enhanced.
+
+[2013-02-02 12:22:56 #4 type] 
+Type model.Right is not enhanced.
+
+[2013-02-02 12:22:56 #5 type] 
+Type model.User is not enhanced.
+
+[2013-02-02 12:22:56 #6 type] 
+Type model.Order is not enhanced.
+
+[2013-02-02 12:22:56 #7 type] 
+Type model.Product is not enhanced.
+
+[2013-02-02 12:22:56 #8 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 12:23:53 #1 explorer] 
+[ObjectDB 2.4.4_18] javax.persistence.PersistenceException
+Attempt to open a database file 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' that is currently in use by another process (error 141)
+	at com.objectdb.Explorer$1.run(Explorer.java:56)
+	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+Caused by: com.objectdb.o.UserException: Attempt to open a database file 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' that is currently in use by another process
+	at com.objectdb.o.MSG.d(MSG.java:61)
+	at com.objectdb.o.LFL.O(LFL.java:913)
+	at com.objectdb.o.LFL.I(LFL.java:859)
+	at com.objectdb.o.LFL.I(LFL.java:769)
+	at com.objectdb.o.SFL.<init>(SFL.java:226)
+	at com.objectdb.o.MST.<init>(MST.java:109)
+	at com.objectdb.o.MST.aI(MST.java:94)
+	at com.objectdb.o.MSF.UJ(MSF.java:178)
+	at com.objectdb.o.OMF.am(OMF.java:751)
+	at com.objectdb.jpa.EMF.am(EMF.java:232)
+	at com.objectdb.o.OMF.al(OMF.java:693)
+	at com.objectdb.jpa.EMF.createEntityManager(EMF.java:250)
+	... 17 more
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 12:24:02 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 82-86)
+
+[2013-02-02 12:24:02 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 3156@quake
+
+[2013-02-02 12:27:44 #3 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 3156@quake
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 12:36:48 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 5848@quake
+
+[2013-02-02 12:41:17 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 5848@quake
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 17:54:24 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4736@quake
+
+[2013-02-02 17:54:37 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4736@quake
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 17:54:40 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4016@quake
+
+[2013-02-02 17:57:05 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 4016@quake
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 17:57:25 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 3344@quake
+
+[2013-02-02 17:57:25 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-02-02 17:57:25 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-02-02 17:57:25 #4 type] 
+Type model.User is not enhanced.
+
+[2013-02-02 17:57:25 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-02-02 17:57:25 #6 type] 
+Type model.Product is not enhanced.
+
+[2013-02-02 17:57:25 #7 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 17:57:56 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 3380@quake
+
+[2013-02-02 17:57:56 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-02-02 17:57:56 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-02-02 17:57:56 #4 type] 
+Type model.User is not enhanced.
+
+[2013-02-02 17:57:56 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-02-02 17:57:56 #6 type] 
+Type model.Product is not enhanced.
+
+[2013-02-02 17:57:56 #7 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 18:01:29 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 5144@quake
+
+[2013-02-02 18:01:31 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 5144@quake
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 22:07:29 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 4152@quake
+
+[2013-02-02 22:07:30 #2 type] 
+Type model.Profile is not enhanced.
+
+[2013-02-02 22:07:30 #3 type] 
+Type model.Right is not enhanced.
+
+[2013-02-02 22:07:30 #4 type] 
+Type model.User is not enhanced.
+
+[2013-02-02 22:07:30 #5 type] 
+Type model.Order is not enhanced.
+
+[2013-02-02 22:07:30 #6 type] 
+Type model.Product is not enhanced.
+
+[2013-02-02 22:07:30 #7 type] 
+Type model.SystemLogger is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 22:21:34 #1 explorer] 
+[ObjectDB 2.4.4_18] javax.persistence.PersistenceException
+Attempt to open a database file 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' that is currently in use by another process (error 141)
+	at com.objectdb.Explorer$1.run(Explorer.java:56)
+	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+Caused by: com.objectdb.o.UserException: Attempt to open a database file 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' that is currently in use by another process
+	at com.objectdb.o.MSG.d(MSG.java:61)
+	at com.objectdb.o.LFL.O(LFL.java:913)
+	at com.objectdb.o.LFL.I(LFL.java:859)
+	at com.objectdb.o.LFL.I(LFL.java:769)
+	at com.objectdb.o.SFL.<init>(SFL.java:226)
+	at com.objectdb.o.MST.<init>(MST.java:109)
+	at com.objectdb.o.MST.aI(MST.java:94)
+	at com.objectdb.o.MSF.UJ(MSF.java:178)
+	at com.objectdb.o.OMF.am(OMF.java:751)
+	at com.objectdb.jpa.EMF.am(EMF.java:232)
+	at com.objectdb.o.OMF.al(OMF.java:693)
+	at com.objectdb.jpa.EMF.createEntityManager(EMF.java:250)
+	... 17 more
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2013-02-02 22:21:43 #1 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' has been recovered (tr. 87-99)
+
+[2013-02-02 22:21:43 #2 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is opened by 3144@quake
+
+[2013-02-02 22:22:31 #3 store] 
+Database 'C:\Documents and Settings\puppet\My Documents\WorkspaceGIT\videoclub\db\videoclub.odb' is closed by 3144@quake
+
